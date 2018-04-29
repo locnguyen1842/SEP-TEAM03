@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('index',[
+
+	'as'=>'trangchu',
+	'uses'=>'PageController@getIndex'
+
+	]);
