@@ -2,9 +2,9 @@
 
 
 Yêu cầu cài đặt :
-- Composer phiên bản mới nhất (https://getcomposer.org/Composer-Setup.exe)
+- <a href="https://getcomposer.org/Composer-Setup.exe">Composer</a> phiên bản mới nhất 
 - Xampp v3.2.x ( đã bao gồm PHP v 7.2.x )
-- Cài đặt MySQL Cummunity <b>nếu</b> muốn chỉnh sửa database (link hướng dẫn :https://o7planning.org/vi/10221/huong-dan-cai-dat-va-cau-hinh-mysql-community).
+- Cài đặt <a href="https://o7planning.org/vi/10221/huong-dan-cai-dat-va-cau-hinh-mysql-community">MySQL Cummunity</a> <b>nếu</b> muốn chỉnh sửa database 
 
 
 Hướng dẫn cài đặt :
@@ -25,4 +25,4 @@ Hướng dẫn cài đặt :
       </pre>
   
 - Mở xampp và start 2 Module : Apache và MySQL 
-- Tiến hành kiểm tra kết nối bằng cách gõ localhost trên trình duyệt ( localhost:[port]/[tên thư mục vừa clone]/public/index )
+- Tiến hành kiểm tra kết nối bằng cách gõ localhost trên trình duyệt (localhost:[port]/[tên thư mục vừa clone]/public/index )
