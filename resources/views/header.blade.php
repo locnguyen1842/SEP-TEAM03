@@ -90,16 +90,15 @@
 				<div class="visible-xs clearfix"></div>
 				<nav class="main-menu">
 					<ul class="l-inline ov">
-						<li><a href="index.html">Trang chủ</a></li>
-						<li><a href="#">Sản phẩm</a>
+						<li><a href="index">Trang chủ</a></li>
+						<li><a href="loai-san-pham">Loại Sản Phẩm</a>
 							<ul class="sub-menu">
-								<li><a href="product_type.html">Sản phẩm 1</a></li>
-								<li><a href="product_type.html">Sản phẩm 2</a></li>
-								<li><a href="product_type.html">Sản phẩm 4</a></li>
+								<li><a href="loai-san-pham">Sản phẩm 1</a></li>
+								<li><a href="loai-san-pham">Sản phẩm 2</a></li>
+								<li><a href="loai-san-pham">Sản phẩm 4</a></li>
 							</ul>
 						</li>
-						<li><a href="about.html">Giới thiệu</a></li>
-						<li><a href="contacts.html">Liên hệ</a></li>
+						<li><a href="gioi-thieu">Giới thiệu</a></li>
 					</ul>
 					<div class="clearfix"></div>
 				</nav>

@@ -18,3 +18,18 @@ Route::get('index',[
 	'uses'=>'PageController@getIndex'
 
 	]);
+
+Route::get('loai-san-pham',[
+	'as'=>'loaisp',
+	'uses'=>'PageController@getLoaiSP'
+]);
+
+Route::get('chi-tiet-san-pham',[
+	'as'=>'chitietsp',
+	'uses'=>'PageController@getChiTietSP'
+]);
+
+Route::get('gioi-thieu',[
+	'as'=>'gioithieu',
+	'uses'=>'PageController@getGioiThieu'
+]);
