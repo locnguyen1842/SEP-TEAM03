@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Cart;
 use App\Slide;
 use Illuminate\Http\Request;
 use App\Product;
 use App\productType;
+use Session;
 class PageController extends Controller
 {
     //
@@ -64,5 +66,14 @@ class PageController extends Controller
 
 
 =======
+    public function getAddtoCart(Request $req, $id)
+    {
+        $product = Product::find($id);
+        $oldCart = Session('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->add($product,$id);
+        $req->session()->put('cart',$cart);
+        return redirect()->back();
+    }
 >>>>>>> ce600a173191b65ee4c0831c46198bbb0bea7b11
 }
