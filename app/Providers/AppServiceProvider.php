@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use App\productType;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //share view
+        view()->composer('header',function($view){
+            $loai_sp = productType::all();
+            $view->with('loai_sp',$loai_sp);
+        });
     }
 
     /**

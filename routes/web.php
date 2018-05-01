@@ -19,7 +19,7 @@ Route::get('index',[
 
 	]);
 
-Route::get('loai-san-pham',[
+Route::get('loai-san-pham/{type?}',[
 	'as'=>'loaisp',
 	'uses'=>'PageController@getLoaiSP'
 ]);

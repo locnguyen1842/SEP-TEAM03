@@ -54,253 +54,83 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="beta-products-list">
-							<h4>New Products</h4>
+							<h4>Sản phẩm mới</h4>
 							<div class="beta-products-details">
-								<p class="pull-left">438 styles found</p>
+								<p class="pull-left"><a href="">Xem thêm</a></p>
 								<div class="clearfix"></div>
 							</div>
 
 							<div class="row">
+								@foreach($new_product as $item)
 								<div class="col-sm-3">
-									<div class="single-item">
-										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span>$34.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="single-item">
-										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 
-										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/assets/dest/images/products/2.jpg" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span class="flash-del">$34.55</span>
-												<span class="flash-sale">$33.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
 									<div class="single-item">
+										@if($item->promotion_price != null)
+										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+										@endif
 										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/assets/dest/images/products/3.jpg" alt=""></a>
+											<a href="chi-tiet-san-pham"><img src="source/image/product/{{ $item->image }}" alt=""></a>
 										</div>
 										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
+											<p class="single-item-title">{{ $item->name }}</p>
 											<p class="single-item-price">
-												<span>$34.55</span>
+											@if($item->promotion_price == '')
+												<span>{{ number_format($item->unit_price) }}đ/{{ $item->unit }}</span>
+											
+											
+											@else
+												<span class="flash-del">{{ number_format($item->unit_price) }}đ/{{ $item->unit }}</span>
+												<span class="flash-sale">{{ number_format($item->promotion_price) }}đ/{{ $item->unit }}</span>
+												
+											@endif
 											</p>
 										</div>
-										<div class="single-item-caption">
+										<div class="single-item-caption" style="margin-top: 10px">
 											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
 											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-3">
-									<div class="single-item">
-										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/assets/dest/images/products/3.jpg" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span>$34.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
+								@endforeach
 							</div>
 						</div> <!-- .beta-products-list -->
-
+						
+   
 						<div class="space50">&nbsp;</div>
 
 						<div class="beta-products-list">
-							<h4>Top Products</h4>
+							<h4>Sản phẩm khuyến mãi</h4>
 							<div class="beta-products-details">
-								<p class="pull-left">438 styles found</p>
+								<p class="pull-left"><a href="">Xem thêm</a></p>
 								<div class="clearfix"></div>
 							</div>
+							
 							<div class="row">
-								<div class="col-sm-3">
-									<div class="single-item">
-										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span>$34.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
+								@foreach($sanpham_khuyenmai as $item)
 								<div class="col-sm-3">
 									<div class="single-item">
 										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+										<div class="single-item-header">
+											<a href="chi-tiet-san-pham"><img src="source/image/product/{{ $item->image }}" alt=""></a>
+										</div>
+										<div class="single-item-body">
+											<p class="single-item-title">{{ $item->name }}</p>
+											<p class="single-item-price">
+												<span class="flash-del">{{ number_format($item->unit_price) }}đ/{{ $item->unit }}</span>
+												<span class="flash-sale">{{ number_format($item->promotion_price) }}đ/{{ $item->unit }}</span>
+											</p>
+										</div>
+										<div class="single-item-caption" style="margin-top: 10px">
+											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
 
-										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/assets/dest/images/products/2.jpg" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span class="flash-del">$34.55</span>
-												<span class="flash-sale">$33.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="single-item">
-										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/assets/dest/images/products/3.jpg" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span>$34.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="single-item">
-										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/assets/dest/images/products/3.jpg" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span>$34.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="space40">&nbsp;</div>
-							<div class="row">
-								<div class="col-sm-3">
-									<div class="single-item">
-										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span>$34.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="single-item">
-										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
-
-										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/assets/dest/images/products/2.jpg" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span class="flash-del">$34.55</span>
-												<span class="flash-sale">$33.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="single-item">
-										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/assets/dest/images/products/3.jpg" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span>$34.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="single-item">
-										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/assets/dest/images/products/3.jpg" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span>$34.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
+								@endforeach
+								
 							</div>
 						</div> <!-- .beta-products-list -->
 					</div>
@@ -311,3 +141,19 @@
 		</div> <!-- #content -->
 	</div> <!-- .container -->
 @endsection
+
+<script>
+	$(document).on('click','.pagination a',function(e){
+		e.preventDefault();
+		var page = $(this).attr('href')split('page=')[1];
+		getSaleProduct(page);
+	});
+	function getSaleProduct(page){
+			$.ajax({
+				url: '/index?page='+page
+			}).done(function(data){
+				$('.row').html(data);
+			});
+	}
+
+</script>
