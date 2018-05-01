@@ -69,7 +69,7 @@
 										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 										@endif
 										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/image/product/{{ $item->image }}" alt=""></a>
+											<a href="chi-tiet-san-pham"><img style="height: 250px" src="source/image/product/{{ $item->image }}" alt=""></a>
 										</div>
 										<div class="single-item-body">
 											<p class="single-item-title">{{ $item->name }}</p>
@@ -112,7 +112,7 @@
 									<div class="single-item">
 										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img src="source/image/product/{{ $item->image }}" alt=""></a>
+											<a href="chi-tiet-san-pham"><img style="height: 250px" src="source/image/product/{{ $item->image }}" alt=""></a>
 										</div>
 										<div class="single-item-body">
 											<p class="single-item-title">{{ $item->name }}</p>

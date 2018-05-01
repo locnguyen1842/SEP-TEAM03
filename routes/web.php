@@ -33,3 +33,8 @@ Route::get('gioi-thieu',[
 	'as'=>'gioithieu',
 	'uses'=>'PageController@getGioiThieu'
 ]);
+
+Route::get('search',[
+	'as'=>'search',
+	'uses'=>'PageController@getSearch'
+]);
