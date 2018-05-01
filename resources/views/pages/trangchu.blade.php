@@ -74,7 +74,6 @@
 										<div class="single-item-body">
 											<p class="single-item-title">{{ $item->name }}</p>
 											<p class="single-item-price">
-											@if($item->promotion_price == '')
 												<span>{{ number_format($item->unit_price) }}đ/{{ $item->unit }}</span>
 											
 											

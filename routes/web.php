@@ -48,4 +48,7 @@ Route::get('san-pham-khuyen-mai',[
 	'as'=>'spkhuyenmai',
 	'uses'=>'PageController@getSpKhuyenMai'
 ]);
-
+Route::get('add-to-cart/{id}',[
+    'as'=>'themgiohang',
+    'uses'=>'PageController@getAddtoCart'
+]);

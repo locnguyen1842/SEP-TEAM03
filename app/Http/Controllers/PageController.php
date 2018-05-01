@@ -59,7 +59,10 @@ class PageController extends Controller
     	$loaisp = productType::all();
     	return view('pages.sanphamgiamgia',compact('sanpham_khuyenmai','count_product','loaisp'));
     }
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> ce600a173191b65ee4c0831c46198bbb0bea7b11
 }
