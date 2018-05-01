@@ -25,8 +25,12 @@ class PageController extends Controller
     	return view('pages.loaisp',compact('sp_theoloai','loaisp','loai','count_sp_theoloai'));
     }
 
-    public function getChiTietSP(){
-    	return view('pages.chitietsp');
+    public function getChiTietSP(Request $request){
+    	$new_product = Product::where('new',1)->paginate(4);
+		$sp_khuyenmai = Product::where('promotion_price','<>','')->paginate(4);
+    	$sp = Product::where('id',$request->id)->first();
+    	$sp_tuongtu = Product::where([['id_type',$sp->id_type],['id','<>',$sp->id],])->paginate(3);	
+    	return view('pages.chitietsp',compact('sp','sp_tuongtu','sp_khuyenmai','new_product'));
     }
       public function getGioiThieu(){
     	return view('pages.gioithieu');
@@ -55,4 +59,7 @@ class PageController extends Controller
     	$loaisp = productType::all();
     	return view('pages.sanphamgiamgia',compact('sanpham_khuyenmai','count_product','loaisp'));
     }
+
+
+
 }

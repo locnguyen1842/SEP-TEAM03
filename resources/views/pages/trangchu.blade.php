@@ -69,7 +69,7 @@
 										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 										@endif
 										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img style="height: 250px" src="source/image/product/{{ $item->image }}" alt=""></a>
+											<a href="{{ route('chitietsp',$item->id) }}"><img style="height: 250px" src="source/image/product/{{ $item->image }}" alt=""></a>
 										</div>
 										<div class="single-item-body">
 											<p class="single-item-title">{{ $item->name }}</p>
@@ -87,7 +87,7 @@
 										</div>
 										<div class="single-item-caption" style="margin-top: 10px">
 											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
+											<a class="beta-btn primary" href="{{ route('chitietsp',$item->id) }}">Details <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
 									</div>
@@ -112,7 +112,7 @@
 									<div class="single-item">
 										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 										<div class="single-item-header">
-											<a href="chi-tiet-san-pham"><img style="height: 250px" src="source/image/product/{{ $item->image }}" alt=""></a>
+											<a href="{{ route('chitietsp',$item->id) }}"><img style="height: 250px" src="source/image/product/{{ $item->image }}" alt=""></a>
 										</div>
 										<div class="single-item-body">
 											<p class="single-item-title">{{ $item->name }}</p>
@@ -123,7 +123,7 @@
 										</div>
 										<div class="single-item-caption" style="margin-top: 10px">
 											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
+											<a class="beta-btn primary" href="{{ route('chitietsp',$item->id) }}">Details <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
 									</div>
