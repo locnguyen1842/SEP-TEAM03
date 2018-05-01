@@ -74,7 +74,7 @@
 										<div class="single-item-body">
 											<p class="single-item-title">{{ $item->name }}</p>
 											<p class="single-item-price">
-											@if($item->promotion_price == '')
+											@if($item->promotion_price == 0)
 												<span>{{ number_format($item->unit_price) }}đ/{{ $item->unit }}</span>
 											
 											
@@ -86,7 +86,7 @@
 											</p>
 										</div>
 										<div class="single-item-caption" style="margin-top: 10px">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="add-to-cart pull-left" href="{{route('themgiohang',$item->id)}}"><i class="fa fa-shopping-cart"></i></a>
 											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
@@ -102,6 +102,7 @@
 						<div class="beta-products-list">
 							<h4>Sản phẩm khuyến mãi</h4>
 							<div class="beta-products-details">
+
 								<p class="pull-left"><a href="{{ route('spkhuyenmai') }}">Xem thêm</a></p>
 								<div class="clearfix"></div>
 							</div>
@@ -122,7 +123,7 @@
 											</p>
 										</div>
 										<div class="single-item-caption" style="margin-top: 10px">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="add-to-cart pull-left" href="{{route('themgiohang',$item->id)}}"><i class="fa fa-shopping-cart"></i></a>
 											<a class="beta-btn primary" href="chi-tiet-san-pham">Details <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
