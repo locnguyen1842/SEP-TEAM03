@@ -3,11 +3,11 @@
 <div class="inner-header">
 		<div class="container">
 			<div class="pull-left">
-				<h6 class="inner-title">Kết quả tìm kiếm</h6>
+				<h6 class="inner-title">Sản phẩm khuyến mãi</h6>
 			</div>
 			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">
-					<a href="{{ route('trangchu') }}">Home</a> /<span>Kết quả tìm kiếm</span>
+					<a href="{{ route('trangchu') }}">Home</a> /<span>Sản phẩm khuyến mãi</span>
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -34,7 +34,7 @@
 							</div>
 
 							<div class="row">
-								@foreach($product as $item)
+								@foreach($sanpham_khuyenmai as $item)
 								<div class="col-sm-4" style="margin-top: 20px">
 									<div class="single-item">
 										@if($item->promotion_price != null)
@@ -66,7 +66,7 @@
 								</div>
 								@endforeach
 							</div>
-							{{ $product->appends(Request::all())->links() }}﻿
+							{{ $sanpham_khuyenmai->appends(Request::all())->links() }}﻿
 						</div> <!-- .beta-products-list -->
 
 						<div class="space50">&nbsp;</div>

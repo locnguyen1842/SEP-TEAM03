@@ -56,7 +56,7 @@
 						<div class="beta-products-list">
 							<h4>Sản phẩm mới</h4>
 							<div class="beta-products-details">
-								<p class="pull-left"><a href="">Xem thêm</a></p>
+								<p class="pull-left"><a href="{{  route('spmoi') }} ">Xem thêm</a></p>
 								<div class="clearfix"></div>
 							</div>
 
@@ -102,7 +102,7 @@
 						<div class="beta-products-list">
 							<h4>Sản phẩm khuyến mãi</h4>
 							<div class="beta-products-details">
-								<p class="pull-left"><a href="">Xem thêm</a></p>
+								<p class="pull-left"><a href="{{ route('spkhuyenmai') }}">Xem thêm</a></p>
 								<div class="clearfix"></div>
 							</div>
 							

@@ -38,3 +38,14 @@ Route::get('search',[
 	'as'=>'search',
 	'uses'=>'PageController@getSearch'
 ]);
+
+Route::get('san-pham-moi',[
+	'as'=>'spmoi',
+	'uses'=>'PageController@getSpMoi'
+]);
+
+Route::get('san-pham-khuyen-mai',[
+	'as'=>'spkhuyenmai',
+	'uses'=>'PageController@getSpKhuyenMai'
+]);
+

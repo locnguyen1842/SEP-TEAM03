@@ -20,10 +20,9 @@ class PageController extends Controller
     	$loaisp = productType::all();
 
     	$loai = productType::where('id',$type)->first();
-    	$sp_theoloai = Product::where('id_type',$type)->paginate(6);
-    	$sp_khac = Product::where('id_type','<>',$type)->paginate(3);
+    	$sp_theoloai = Product::where('id_type',$type)->paginate(9);
     	$count_sp_theoloai = Product::where('id_type',$type)->get();
-    	return view('pages.loaisp',compact('sp_theoloai','sp_khac','loaisp','loai','count_sp_theoloai'));
+    	return view('pages.loaisp',compact('sp_theoloai','loaisp','loai','count_sp_theoloai'));
     }
 
     public function getChiTietSP(){
@@ -42,5 +41,18 @@ class PageController extends Controller
     						->orWhere('unit_price',$request->key)
     						->get();
     	return view('pages.search',compact('product','count_product','loaisp'));
+    }
+
+    public function getSpMoi(){
+    	$new_product = Product::where('new',1)->paginate(9);
+    	$count_product = Product::where('new',1)->get();
+    	$loaisp = productType::all();
+    	return view('pages.sanphammoi',compact('new_product','count_product','loaisp'));
+    }
+       public function getSpKhuyenMai(){
+    	$sanpham_khuyenmai = Product::where('promotion_price','<>','')->paginate(9);
+    	$count_product = Product::where('promotion_price','<>','')->get();
+    	$loaisp = productType::all();
+    	return view('pages.sanphamgiamgia',compact('sanpham_khuyenmai','count_product','loaisp'));
     }
 }
