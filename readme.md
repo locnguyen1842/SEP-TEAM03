@@ -21,7 +21,7 @@ Hướng dẫn cài đặt :
       DB_PORT=3306
       DB_DATABASE=dbcloudmarket
       DB_USERNAME=dbcloudmarket
-      DB_PASSWORD=Team@3
+      DB_PASSWORD= liên hệ trưởng nhóm để biết pass
       </pre>
   
 - Mở xampp và start 2 Module : Apache và MySQL 
