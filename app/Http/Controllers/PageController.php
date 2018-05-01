@@ -61,11 +61,7 @@ class PageController extends Controller
     	$loaisp = productType::all();
     	return view('pages.sanphamgiamgia',compact('sanpham_khuyenmai','count_product','loaisp'));
     }
-<<<<<<< HEAD
 
-
-
-=======
     public function getAddtoCart(Request $req, $id)
     {
         $product = Product::find($id);
@@ -75,5 +71,5 @@ class PageController extends Controller
         $req->session()->put('cart',$cart);
         return redirect()->back();
     }
->>>>>>> ce600a173191b65ee4c0831c46198bbb0bea7b11
+
 }
