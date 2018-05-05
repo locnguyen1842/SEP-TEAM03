@@ -17,7 +17,7 @@ Route::get('index',[
 	'as'=>'trangchu',
 	'uses'=>'PageController@getIndex'
 
-	]);
+]);
 
 Route::get('loai-san-pham/{type?}',[
 	'as'=>'loaisp',
@@ -49,8 +49,8 @@ Route::get('san-pham-khuyen-mai',[
 	'uses'=>'PageController@getSpKhuyenMai'
 ]);
 Route::get('add-to-cart/{id}',[
-    'as'=>'themgiohang',
-    'uses'=>'PageController@getAddtoCart'
+	'as'=>'themgiohang',
+	'uses'=>'PageController@getAddtoCart'
 ]);
 
 

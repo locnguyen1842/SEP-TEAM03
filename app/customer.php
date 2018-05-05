@@ -8,14 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class customer extends Authenticatable
 {
-    protected $table="customer";
-     public function bills(){
-    	return $this->hasMany('App\bill','id_user','id');
-    }
+	protected $table="customer";
+	public function bills(){
+		return $this->hasMany('App\bill','id_user','id');
+	}
 
-    public function customer_address(){
-    	return $this->hasMany('App\customer_address','id_user','id');
-    }
+	public function customer_address(){
+		return $this->hasMany('App\customer_address','id_user','id');
+	}
 	 use Notifiable;
 
     /**
