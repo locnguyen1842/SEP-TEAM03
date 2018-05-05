@@ -52,3 +52,32 @@ Route::get('add-to-cart/{id}',[
     'as'=>'themgiohang',
     'uses'=>'PageController@getAddtoCart'
 ]);
+
+
+Route::get('dang-nhap',[
+	'as'=>'dangnhap',
+	'uses'=>'AccountController@getLogin'
+]);
+
+Route::post('dang-nhap',[
+	'as'=>'dangnhap',
+	'uses'=>'AccountController@postLogin'
+]);
+
+
+Route::get('dang-ky',[
+	'as'=>'dangky',
+	'uses'=>'AccountController@getSignUp'
+]);
+
+Route::post('dang-ky',[
+	'as'=>'dangky',
+	'uses'=>'AccountController@postSignUp'
+]);
+
+Route::get('dang-xuat',[
+	'as'=>'dangxuat',
+	'uses'=>'AccountController@getLogOut'
+]);
+
+

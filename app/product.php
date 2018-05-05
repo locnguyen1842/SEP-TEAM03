@@ -14,4 +14,8 @@ class product extends Model
     public function bill_detail(){
     	return $this->hasMany('App\billdetail','id_product','id');
     }
+
+    public function supplier(){
+    	return $this->belongsTo('App\supplier','supplier_id','id');
+    }
 }
