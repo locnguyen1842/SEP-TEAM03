@@ -1068,7 +1068,9 @@ background-color:#57a7c6
 ============================================================================= */
 
 #logo img {
-margin-bottom:13px
+margin-bottom:13px;
+height:120px;
+width: 250px;
 }
 
 .slogan {
@@ -1663,7 +1665,7 @@ margin-right:20px
 
 .beta-sales-item img {
 width:55px;
-height:auto
+height:40px;
 }
 
 .beta-sales-price {

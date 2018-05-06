@@ -11,7 +11,11 @@ class bill extends Model
     public function bill_detail(){
     	return $this->hasMany('App\billdetail','id_bill','id');
     }
-    public function users(){
-    	return $this->belongsTo('App\users','id_user','id');
+    public function customer(){
+    	return $this->belongsTo('App\customer','id_user','id');
+    }
+
+    public function shipper(){
+    	return $this->belongsTo('App\shipper','shipper_id','id');
     }
 }
