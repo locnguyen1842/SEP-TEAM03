@@ -81,3 +81,7 @@ Route::get('dang-xuat',[
 ]);
 
 
+Route::get('del-cart/{id}',[
+    'as'=>'xoagiohang',
+    'uses'=>'PageController@getDelItemCart'
+]);
