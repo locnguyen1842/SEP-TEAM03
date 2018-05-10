@@ -85,3 +85,8 @@ Route::get('del-cart/{id}',[
     'as'=>'xoagiohang',
     'uses'=>'PageController@getDelItemCart'
 ]);
+
+Route::get('quan-ly-tai-khoan',[
+	'as'=>'qltaikhoan',
+	'uses'=>'AccountController@getProfile'
+]);

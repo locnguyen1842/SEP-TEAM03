@@ -76,4 +76,8 @@ class AccountController extends Controller
 		return redirect()->route('trangchu');
 	}
 
+	public function getProfile(){
+		return view('account.quanlytaikhoan');
+	}
+
 }
