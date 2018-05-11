@@ -11,5 +11,10 @@ class supplier extends Model
     public function product(){
     	return $this->hasMany('App\product','supplier_id','id');
     }
+    
+    public function account(){
+        return $this->belongsToMany('App\User','account_supplier','id_supplier','id_account');
+    }
+
 
 }

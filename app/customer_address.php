@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class customerAddress extends Model
+class customer_address extends Model
 {
     protected $table="customer_address";
     public function address(){

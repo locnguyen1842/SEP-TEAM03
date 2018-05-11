@@ -1,38 +1,21 @@
 <?php
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class customer extends Authenticatable
+class customer extends Model
 {
 	protected $table="customer";
+	public $timestamps = false;
 	public function bills(){
 		return $this->hasMany('App\bill','id_user','id');
 	}
 
-	public function customer_address(){
-		return $this->hasMany('App\customer_address','id_user','id');
+	public function address(){
+		return $this->belongsToMany('App\address','customer_address','id_user','id_address');
 	}
-	 use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    public function account(){
+        return $this->belongsToMany('App\User','account_customer','id_customer','id_account');
+    }
+	 
 }

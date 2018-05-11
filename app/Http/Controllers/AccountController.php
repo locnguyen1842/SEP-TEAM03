@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\customer;
+use App\User;
+use App\address;
 use Hash;
 use Auth;
 class AccountController extends Controller
@@ -19,7 +21,7 @@ class AccountController extends Controller
 	public function postSignUp(Request $req){
 		$this->validate($req,
 			[
-				'txtEmail'=>'required|unique:customer,email',
+				'txtEmail'=>'required|unique:account,email',
 				'txtPassword'=>'required|min:6|max:30',
 				'txtrePassword'=>'required|same:txtPassword'
 			],
@@ -36,12 +38,23 @@ class AccountController extends Controller
 			]
 
 		);
-		$customer =  new customer();
-		$customer->name = $req->txtName;
-		$customer->email = $req->txtEmail;
-		$customer->password = Hash::make($req->txtPassword);
+		$address = new address;
+		$customer = new customer;
+		$account = new User;
+		$account->password = Hash::make($req->txtPassword);
+		$customer->name =  $req->txtName;
+		$account->email =  $req->txtEmail;
 		$customer->phone = $req->txtSDT;
+		$address->address = $req->txtDiachi;
+		$account->role = "customer";
+		$address->save();
 		$customer->save();
+		$customer->address()->attach($address);
+		$account->save();
+		$account->customer()->attach($customer);
+
+
+		
 		return redirect()->back()->with('thanhcong','Tạo tài khoản thành công');
 		
 
