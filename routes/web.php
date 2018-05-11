@@ -85,11 +85,14 @@ Route::get('del-cart/{id}',[
     'as'=>'xoagiohang',
     'uses'=>'PageController@getDelItemCart'
 ]);
+<<<<<<< HEAD
     Route::get('admin',[
 	'as'=>'admin',
 	'uses'=>'AdminController@getIndex'
+=======
 
 Route::get('quan-ly-tai-khoan',[
 	'as'=>'qltaikhoan',
 	'uses'=>'AccountController@getProfile'
+>>>>>>> 0ddef3c871e74701ea80a84e41f9b1fcdf8ce715
 ]);
