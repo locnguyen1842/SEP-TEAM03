@@ -94,8 +94,12 @@ Route::get('admin/product',[
 	'uses'=>'AdminController@getProduct'
 ]);
 
-Route::get('quan-ly-tai-khoan',[
+
+Route::group(['prefix'=>'user'],function(){
+	Route::get('quan-ly-tai-khoan',[
 	'as'=>'qltaikhoan',
 	'uses'=>'AccountController@getProfile'
+	]);
+	
+});
 
-]);
