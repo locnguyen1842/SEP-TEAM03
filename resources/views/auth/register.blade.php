@@ -41,30 +41,30 @@
 					
 					<div class="form-block">
 						<label for="email">Email*</label>
-						<input class="form-control" type="email" id="email" name="txtEmail" required>
+						<input class="form-control" type="email" id="email" name="email" required>
 					</div>
 
 					<div class="form-block">
 						<label for="your_last_name">Họ và tên*</label>
-						<input class="form-control" type="text" id="fullname" name="txtName" required>
+						<input class="form-control" type="text" id="fullname" name="name" required>
 					</div>
 
 					<div class="form-block">
 						<label for="adress">Địa chỉ*</label>
-						<input class="form-control" type="text" id="adress" name="txtDiachi" required>
+						<input class="form-control" type="text" id="adress" name="address" required>
 					</div>
 
 					<div class="form-block">
 						<label for="phone">SĐT*</label>
-						<input class="form-control" type="text" id="phone" name="txtSDT" required>
+						<input class="form-control" type="text" id="phone" name="phone" required>
 					</div>
 					<div class="form-block">
 						<label for="password">Mật khẩu*</label>
-						<input class="form-control" type="password" id="password" name="txtPassword" required>
+						<input class="form-control" type="password" id="password" name="password" required>
 					</div>
 					<div class="form-block">
 						<label for="password">Nhập lại mật khẩu*</label>
-						<input class="form-control" type="password" id="repassword" name="txtrePassword" required>
+						<input class="form-control" type="password" id="repassword" name="repassword" required>
 					</div>
 					<div class="form-block">
 						<button  type="submit" class="btn btn-primary">Register</button>

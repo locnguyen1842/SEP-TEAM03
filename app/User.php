@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    protected $table="account";
+    protected $table="users";
     public function customer(){
         return $this->belongsToMany('App\customer','account_customer','id_account','id_customer');
     }

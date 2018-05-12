@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class account extends Model
 {
-    protected $table="account";
+    protected $table="users";
     public function role_account(){
         return $this->hasMany('App\role_account','id_account','id');
     }

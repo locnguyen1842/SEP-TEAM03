@@ -73,6 +73,7 @@ class AccountController extends Controller
 			]
 
 		);
+
 		$credentials = array('email'=>$req->txtEmail,'password'=>$req->txtPassword);
 		if(Auth::attempt($credentials)){
 			return redirect()->route('trangchu')->with(['flag'=>'success','thongbao'=>'Đăng Nhập Thành Công']);
@@ -90,7 +91,130 @@ class AccountController extends Controller
 	}
 
 	public function getProfile(){
-		return view('account.quanlytaikhoan');
+		if (Auth::check()){
+			return view('account.pages.thongtinprofile');
+		}
+		else
+		{
+			
+			return redirect()->route('dangnhap');
+		}
+		
+	}
+
+	public function getIndexProfile(){
+		if (Auth::check()){
+			return view('account.pages.thongtincanhan');
+		}
+		else
+		{
+			
+			return redirect()->route('dangnhap');
+		}
+		
+	}
+
+	public function getEditProfile(){
+		
+		if (Auth::check()){
+			return view('account.pages.chinhsuaprofile');
+		}
+		else
+		{
+			
+			return redirect()->route('dangnhap');
+		}
+		
+	}
+	public function postEditProfile(Request $req){
+		$this->validate($req,
+			[
+				'txtName'=>'required',
+
+			],
+			[
+				'txtName.required'=>'Vui Lòng Nhập Tên',
+			]
+
+		);
+
+
+		$id = Auth::user()->customer()->first()->id;
+		$profile = customer::find($id);
+		$profile->name = $req->txtName;
+		$profile->phone = $req->txtPhone;
+		$profile->birth_date  = $req->txtBd;
+		$profile->gender = $req->get('Gender',0); //xu ly radio button
+		$profile->save();
+		return redirect()->route('user.profile.index')->with('thanhcong','Cập nhật tài khoản thành công');;
+	}
+
+	public function getChangePassword(){
+
+		if (Auth::check()){
+			return view('account.pages.doimatkhau');
+		}
+		else
+		{
+			
+			return redirect()->route('dangnhap');
+		}
+		
+	}
+
+	public function postChangePassword(Request $req){
+		$this->validate($req,
+			[
+				'txtCurrentPwd'=>'required',
+				'txtNewPwd'=>'required|min:6|max:30',
+				'txtConfirmPwd'=>'required|same:txtNewPwd'
+
+			],
+			[
+				'txtCurrentPwd.required'=>'Vui Lòng Nhập mật khẩu hiện tại',
+				'txtNewPwd.required'=>'Vui Lòng Nhập mật khẩu mới',
+				'txtNewPwd.min'=>'Mật khẩu mới phải có độ dài từ 6 - 30 ký tự',
+				'txtNewPwd.max'=>'Mật khẩu mới phải có độ dài từ 6 - 30 ký tự',
+				'txtConfirmPwd.required'=>'Vui Lòng Nhập Vào Ô Nhập lại mật khẩu',
+				'txtConfirmPwd.same'=>'Mật khẩu nhập lại không đúng',
+
+			]
+
+		);
+
+		$user = User::find(Auth::user()->id);
+		$user->password = Hash::make($req->txtNewPwd);
+		$user->save();
+
+		return redirect()->back()->with('thanhcong','Thay đổi mật khẩu thành công');
+
+	}
+
+
+	public function getForgotPwd(){
+		return view('pages.quenmatkhau');
+	}
+
+	public function postForgotPwd(Request $req){
+		$email = $req->txtEmail;
+		$checkEmail = User::where('email','$email')->get();
+		if(count($email)==0){
+			return redirect()->back()->with('error','Email không tồn tại trong hệ thống');
+		}
+		else{
+			$to = $email;
+			$subject="Phục hồi mật khẩu - CloudBooth";
+			$message= "<a href=''>link</a>";
+			$headers = "MIME-Version: 1.0" . "\r\n";
+			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+// More headers
+			$headers .= 'From: <webmaster@example.com>' . "\r\n";
+			$headers .= 'Cc: myboss@example.com' . "\r\n";
+
+			mail($to,$subject,$message,$headers);
+		}
 	}
 
 }
+

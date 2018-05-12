@@ -30,14 +30,15 @@
 					
 					<div class="form-block">
 						<label for="email">Email*</label>
-						<input class="form-control" type="email" id="email" name="txtEmail" required>
+						<input class="form-control" type="email" id="email" name="email" required>
 					</div>
 					<div class="form-block">
 						<label for="password">Mật khẩu*</label>
-						<input class="form-control" type="password" id="password" name="txtPassword" required>
+						<input class="form-control" type="password" id="password" name="password" required>
 					</div>
-					<div class="form-block">
-						<button type="submit" class="btn btn-primary">Login</button>
+					<div class="form-block" style="margin-right: 20px">
+						<button type="submit" class="btn btn-primary" style="float: right;">Login</button>
+						<a href="{{ route('pwdforgot') }}" style="float: right; margin-right: 20px;margin-top: 7px; color: blue">Quên mật khẩu ?</a>
 					</div>
 				</div>
 				<div class="col-sm-3"></div>

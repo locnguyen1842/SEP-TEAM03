@@ -1,0 +1,22 @@
+.profile-title{
+	font-weight: ;
+
+}
+.profile-info{
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 28px;
+	word-wrap: break-word;
+}
+#profile.row{
+	line-height: 28px;
+}
+
+.partbtn{
+	margin-top: 50px;
+
+}
+
+.profile-info a{
+	color: #1a9cb7;
+}
