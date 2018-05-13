@@ -14,7 +14,7 @@
 
 					@if(Auth::check())
 					<li><a href="{{ route('user.quanly') }}"><i class="fa fa-user"></i>Tài khoản</a></li>
-					<li><a href="{{ route('dangky') }}">Chào! {{Auth::user()->customer->first()->name}}</a></li>
+					<li><a href="{{ route('user.quanly') }}">Chào! {{Auth::user()->customer->first()->name}}</a></li>
 					<li><a href="{{ route('dangxuat') }}">Đăng Xuất</a></li>
 
 					@else
@@ -70,7 +70,7 @@
 
 											<div class="center">
 												<div class="space10">&nbsp;</div>
-												<a href="checkout.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
+												<a href="{{route('dathang')}}" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
 											</div>
 										</div>
 									</div>

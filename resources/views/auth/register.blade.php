@@ -26,7 +26,7 @@
 					@if(count($errors)>0)
 					<div class="alert alert-danger">
 						@foreach($errors->all() as $error)
-						{{ $error }}
+						{{ $error }} <br>
 						@endforeach
 					</div>
 
@@ -40,34 +40,34 @@
 
 					
 					<div class="form-block">
-						<label for="email">Email*</label>
+						<label for="email">Email</label>
 						<input class="form-control" type="email" id="email" name="email" required>
 					</div>
 
 					<div class="form-block">
-						<label for="your_last_name">Họ và tên*</label>
+						<label for="your_last_name">Họ và tên</label>
 						<input class="form-control" type="text" id="fullname" name="name" required>
 					</div>
 
 					<div class="form-block">
-						<label for="adress">Địa chỉ*</label>
+						<label for="adress">Địa chỉ</label>
 						<input class="form-control" type="text" id="adress" name="address" required>
 					</div>
 
 					<div class="form-block">
-						<label for="phone">SĐT*</label>
+						<label for="phone">SĐT</label>
 						<input class="form-control" type="text" id="phone" name="phone" required>
 					</div>
 					<div class="form-block">
-						<label for="password">Mật khẩu*</label>
+						<label for="password">Mật khẩu</label>
 						<input class="form-control" type="password" id="password" name="password" required>
 					</div>
 					<div class="form-block">
-						<label for="password">Nhập lại mật khẩu*</label>
+						<label for="password">Nhập lại mật khẩu</label>
 						<input class="form-control" type="password" id="repassword" name="repassword" required>
 					</div>
 					<div class="form-block">
-						<button  type="submit" class="btn btn-primary">Register</button>
+						<button style="margin-right: 20px;float: right;"  type="submit" class="btn btn-primary">Đăng ký</button>
 					</div>
 				</div>
 				<div class="col-sm-3"></div>

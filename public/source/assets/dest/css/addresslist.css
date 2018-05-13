@@ -1,0 +1,51 @@
+
+
+.add{
+	border: 1px dashed #1a9cb7;
+	border-radius:4px;
+	display: block;
+	padding: 20px;
+	background: #bdd5fb;
+	color: #1a9cb7;	
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 15px;
+	position: relative;
+}
+
+.address span{
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 25px;
+
+}
+.address{
+	font-weight: 400;
+	line-height: 25px;
+}
+
+.phone{
+	font-weight: 400;
+	line-height: 25px;
+}
+.phone span{
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 25px;
+
+}
+
+.name{
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 25px;
+	text-transform: uppercase;
+
+}
+.name a{
+	color: #1a9cb7;	
+	font-size: 14px;
+}
+#address.panel-body{
+
+}
