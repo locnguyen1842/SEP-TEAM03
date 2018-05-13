@@ -202,5 +202,18 @@ class AccountController extends Controller
 		
 	}
 
+	public function getEditAddressList($id){
+		if (Auth::check()){
+			
+			return view('account.pages.chinhsuadiachi');
+		}
+		else
+		{
+			
+			return redirect()->route('dangnhap');
+		}
+		
+	}
+
 }
 

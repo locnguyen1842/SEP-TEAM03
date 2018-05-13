@@ -57,7 +57,7 @@ Route::get('index',[
 		'as'=>'xoagiohang',
 		'uses'=>'PageController@getDelItemCart'
 	]);
-//account route
+//login route
 	Route::get('dang-nhap',[
 		'as'=>'dangnhap',
 		'uses'=>'Auth\LoginController@showLoginForm'
@@ -136,22 +136,22 @@ Route::get('index',[
 			]);
 		});
 		//address route
-		Route::group(['prefix'=>'address'],function(){
-			Route::get('/',[
-				'as'=>'user.address',
-				'uses'=>'AccountController@getAddressList'
-			]);
-			Route::get('edit/{id}',[
-				'as'=>'user.address.edit',
-				'uses'=>'AccountController@getEditAddressList'
-			]);
-			Route::post('edit',[
-				'as'=>'user.address.edit',
-				'uses'=>'AccountController@getEditAddressList'
-			]);
+			Route::group(['prefix'=>'address'],function(){
+				Route::get('/',[
+					'as'=>'user.address',
+					'uses'=>'AccountController@getAddressList'
+				]);
+				Route::get('edit/{id}',[
+					'as'=>'user.address.edit',
+					'uses'=>'AccountController@getEditAddressList'
+				]);
+				Route::post('edit',[
+					'as'=>'user.address.edit',
+					'uses'=>'AccountController@postEditAddressList'
+				]);
 
 
-		});
+			});
 		Route::group(['prefix'=>'profile'],function(){
 
 			Route::get('/',[
