@@ -11,11 +11,28 @@ use Auth;
 class AccountController extends Controller
 {
 	public function getLogin(){
-		return view('auth.login');
+		if (Auth::check()){
+			return redirect()->route('trangchu');
+		}
+		else
+		{
+			return view('auth.login');
+			
+	
+		}
+		
 	}
 
 	public function getSignUp(){
-		return view('auth.register');
+		if (Auth::check()){
+			return redirect()->route('trangchu');
+		}
+		else
+		{
+			return view('auth.register');
+	
+		}
+		
 	}
 
 	public function postSignUp(Request $req){
@@ -204,7 +221,7 @@ class AccountController extends Controller
 
 	public function getEditAddressList($id){
 		if (Auth::check()){
-			
+
 			return view('account.pages.chinhsuadiachi');
 		}
 		else
