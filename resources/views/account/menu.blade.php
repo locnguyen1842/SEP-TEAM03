@@ -15,7 +15,7 @@
 				</a>
 			</li>
 			<li id="address-book" class="sub">
-				<a href="#">
+				<a href="{{ route('user.address') }}">
 					Sổ địa chỉ
 				</a>
 			</li>	

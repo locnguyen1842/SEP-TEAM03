@@ -14,7 +14,7 @@
 
 					@if(Auth::check())
 					<li><a href="{{ route('user.quanly') }}"><i class="fa fa-user"></i>Tài khoản</a></li>
-					<li><a href="{{ route('dangky') }}">Chào! {{Auth::user()->customer->first()->name}}</a></li>
+					<li><a href="{{ route('user.quanly') }}">Chào! {{Auth::user()->customer->first()->name}}</a></li>
 					<li><a href="{{ route('dangxuat') }}">Đăng Xuất</a></li>
 
 					@else

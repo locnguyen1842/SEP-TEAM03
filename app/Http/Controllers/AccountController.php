@@ -190,30 +190,16 @@ class AccountController extends Controller
 
 	}
 
-
-	public function getForgotPwd(){
-		return view('pages.quenmatkhau');
-	}
-
-	public function postForgotPwd(Request $req){
-		$email = $req->txtEmail;
-		$checkEmail = User::where('email','$email')->get();
-		if(count($email)==0){
-			return redirect()->back()->with('error','Email không tồn tại trong hệ thống');
+	public function getAddressList(){
+		if (Auth::check()){
+			return view('account.pages.sodiachi');
 		}
-		else{
-			$to = $email;
-			$subject="Phục hồi mật khẩu - CloudBooth";
-			$message= "<a href=''>link</a>";
-			$headers = "MIME-Version: 1.0" . "\r\n";
-			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-// More headers
-			$headers .= 'From: <webmaster@example.com>' . "\r\n";
-			$headers .= 'Cc: myboss@example.com' . "\r\n";
-
-			mail($to,$subject,$message,$headers);
+		else
+		{
+			
+			return redirect()->route('dangnhap');
 		}
+		
 	}
 
 }
