@@ -34,8 +34,7 @@ Route::get('',[
 		'uses'=>'PageController@getGioiThieu'
 	]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 Route::get('san-pham-khuyen-mai',[
 	'as'=>'spkhuyenmai',
 	'uses'=>'PageController@getSpKhuyenMai'
@@ -45,17 +44,13 @@ Route::get('add-to-cart/{id}',[
 	'as'=>'themgiohang',
 	'uses'=>'PageController@getAddtoCart'
 ]);
-=======
-=======
->>>>>>> d7d7042ade63a90769f5ecac511a1da5f2d74484
+
+
 	Route::get('search',[
 		'as'=>'search',
 		'uses'=>'PageController@getSearch'
 	]);
-<<<<<<< HEAD
->>>>>>> d7d7042ade63a90769f5ecac511a1da5f2d74484
-=======
->>>>>>> d7d7042ade63a90769f5ecac511a1da5f2d74484
+
 
 	Route::get('san-pham-moi',[
 		'as'=>'spmoi',
