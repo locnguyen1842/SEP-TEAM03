@@ -11,29 +11,29 @@ use Auth;
 class AccountController extends Controller
 {
 	public function getLogin(){
-		return view('pages.dangnhap');
+		return view('auth.login');
 	}
 
 	public function getSignUp(){
-		return view('pages.dangky');
+		return view('auth.register');
 	}
 
 	public function postSignUp(Request $req){
 		$this->validate($req,
 			[
-				'txtEmail'=>'required|unique:account,email',
-				'txtPassword'=>'required|min:6|max:30',
-				'txtrePassword'=>'required|same:txtPassword'
+				'email'=>'required|unique:users,email',
+				'password'=>'required|min:6|max:30',
+				'repassword'=>'required|same:password'
 			],
 			[
-				'txtEmail.required'=>'Vui Lòng Nhập Email',
-				'txtEmail.email'=> 'Không đúng định dạng Email',
-				'txtEmail.unique'=>'Email đã tồn tại',
-				'txtPassword.required'=>'Vui Lòng Nhập Password',
-				'txtPassword.min'=>'Mật khẩu phải có độ dài từ 6 - 30 ký tự',
-				'txtPassword.max'=>'Mật khẩu phải có độ dài từ 6 - 30 ký tự',
-				'txtrePassword.required'=>'Vui Lòng Nhập Vào Ô Xác Nhận Mật Khẩu',
-				'txtrePassword.same'=>'Xác nhận mật khẩu không đúng'
+				'email.required'=>'Vui Lòng Nhập Email',
+				'email.email'=> 'Không đúng định dạng Email',
+				'email.unique'=>'Email đã tồn tại',
+				'password.required'=>'Vui Lòng Nhập Password',
+				'password.min'=>'Mật khẩu phải có độ dài từ 6 - 30 ký tự',
+				'password.max'=>'Mật khẩu phải có độ dài từ 6 - 30 ký tự',
+				'repassword.required'=>'Vui Lòng Nhập Vào Ô Xác Nhận Mật Khẩu',
+				'repassword.same'=>'Xác nhận mật khẩu không đúng'
 
 			]
 
@@ -41,11 +41,11 @@ class AccountController extends Controller
 		$address = new address;
 		$customer = new customer;
 		$account = new User;
-		$account->password = Hash::make($req->txtPassword);
-		$customer->name =  $req->txtName;
-		$account->email =  $req->txtEmail;
-		$customer->phone = $req->txtSDT;
-		$address->address = $req->txtDiachi;
+		$account->password = Hash::make($req->password);
+		$customer->name =  $req->name;
+		$account->email =  $req->email;
+		$customer->phone = $req->phone;
+		$address->address = $req->address;
 		$account->role = "customer";
 		$address->save();
 		$customer->save();

@@ -67,12 +67,12 @@ Route::post('dang-nhap',[
 
 Route::get('dang-ky',[
 	'as'=>'dangky',
-	'uses'=>'Auth\RegisterController@showRegistrationForm'
+	'uses'=>'AccountController@getSignUp'
 ]);
 
 Route::post('dang-ky',[
 	'as'=>'dangky',
-	'uses'=>'Auth\RegisterController@register'
+	'uses'=>'AccountController@postSignUp'
 ]);
 
 Route::get('dang-xuat',[
