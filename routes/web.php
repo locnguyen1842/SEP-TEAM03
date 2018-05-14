@@ -34,10 +34,23 @@ Route::get('index',[
 		'uses'=>'PageController@getGioiThieu'
 	]);
 
+
+Route::get('san-pham-khuyen-mai',[
+	'as'=>'spkhuyenmai',
+	'uses'=>'PageController@getSpKhuyenMai'
+]);
+
+Route::get('add-to-cart/{id}',[
+	'as'=>'themgiohang',
+	'uses'=>'PageController@getAddtoCart'
+]);
+
+
 	Route::get('search',[
 		'as'=>'search',
 		'uses'=>'PageController@getSearch'
 	]);
+
 
 	Route::get('san-pham-moi',[
 		'as'=>'spmoi',
@@ -187,3 +200,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('dat-hang',[
+    'as'=>'dathang',
+    'uses'=>'PageController@getCheckout'
+]);
+Route::post('dat-hang',[
+    'as'=>'dathang',
+    'uses'=>'PageController@postCheckout'
+]);

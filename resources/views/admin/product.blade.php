@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('content')
-<link href="admin/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+<link href="admin/vendors/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Tables</h1>
@@ -735,12 +735,6 @@
             </div>
 
 
-
-@endsection
-<script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-    <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
-
 <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
@@ -748,3 +742,5 @@
         });
     });
      </script>
+
+@endsection
