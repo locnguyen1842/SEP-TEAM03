@@ -12,7 +12,7 @@
 */
 
 
-Route::get('',[
+Route::get('index',[
 
 	'as'=>'trangchu',
 	'uses'=>'PageController@getIndex'
