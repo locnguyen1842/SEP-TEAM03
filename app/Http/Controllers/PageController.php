@@ -20,8 +20,8 @@ class PageController extends Controller
     public function getIndex(){
     	$slide = Slide::all();
     	// return view('pages.trangchu',['slide'->$slide]); 
-    	$new_product = Product::where('new',1)->paginate(4); //paginate so san pham tren dong
-    	$sanpham_khuyenmai = Product::where('promotion_price','<>','')->paginate(4);
+    	$new_product = Product::latest()->paginate(8); //paginate so san pham tren dong
+    	$sanpham_khuyenmai = Product::where('promotion_price','<>','')->inRandomOrder()->paginate(8);
     	
     	return view('pages.trangchu',compact('slide','new_product','sanpham_khuyenmai')); 	// truyen du lieu slide
     }

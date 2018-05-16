@@ -77,8 +77,8 @@ class AccountController extends Controller
 		);
 
 
-		$id = Auth::user()->customer()->first()->id;
-		$profile = customer::find($id);
+		$id = Auth::guard('customer')->user()->id;
+		$profile = Customer::find($id);
 		$profile->name = $req->txtName;
 		$profile->phone = $req->txtPhone;
 		$profile->birth_date  = $req->txtBd;
@@ -114,7 +114,7 @@ class AccountController extends Controller
 
 		);
 
-		$user = User::find(Auth::user()->id);
+		$user = Customer::find(Auth::guard('customer')->user()->id);
 		$user->password = Hash::make($req->txtNewPwd);
 		$user->save();
 

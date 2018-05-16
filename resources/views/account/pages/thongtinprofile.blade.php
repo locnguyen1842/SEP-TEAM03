@@ -11,7 +11,7 @@
 				Thông tin cá nhân
 			</div>
 			<div class="dashboard-item">
-				{{ Auth::user()->customer()->first()->name }}
+				{{ Auth::guard('customer')->user()->name }}
 			</div>
 			<div class="dashboard-item">
 				{{ Auth::user()->email }}

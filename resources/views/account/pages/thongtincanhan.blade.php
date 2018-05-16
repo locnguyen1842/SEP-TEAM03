@@ -14,7 +14,7 @@
 					Tên
 				</div>
 				<div class="profile-info">
-					{{ Auth::user()->customer()->first()->name }}
+					{{ Auth::guard('customer')->user()->name }}
 				</div>
 			</div>
 			<div class="col-sm-5">
@@ -22,7 +22,7 @@
 					Địa chỉ Email
 				</div>
 				<div class="profile-info">
-					{{ Auth::user()->email }}
+					{{Auth::guard('customer')->user()->email }}
 				</div>
 
 			</div>
@@ -31,7 +31,7 @@
 					Số điện thoại
 				</div>
 				<div class="profile-info">
-					{{ Auth::user()->customer()->first()->phone }}
+					{{ Auth::guard('customer')->user()->phone }}
 				</div>
 
 			</div>
@@ -43,7 +43,7 @@
 					Giới tính
 				</div>
 				<div class="profile-info">
-					{{ Auth::user()->customer()->first()->gender }}
+					{{ Auth::guard('customer')->user()->gender }}
 				</div>
 			</div>
 			<div class="col-sm-5">
@@ -51,7 +51,7 @@
 					Ngày sinh
 				</div>
 				<div class="profile-info">
-					{{ Auth::user()->customer()->first()->birth_date }}
+					{{ Auth::guard('customer')->user()->birth_date }}
 				</div>
 
 			</div>
@@ -60,7 +60,7 @@
 					Địa chỉ	
 				</div>
 				<div class="profile-info">
-					<a href="">Sổ địa chỉ</a>
+					<a href="{{ route('user.address') }}">Sổ địa chỉ</a>
 				</div>
 
 			</div>

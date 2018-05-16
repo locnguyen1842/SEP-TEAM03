@@ -62,7 +62,7 @@
 
 							<div class="row">
 								@foreach($new_product as $item)
-								<div class="col-sm-3">
+								<div class="col-sm-3" style="margin-top: 20px">
 
 									<div class="single-item">
 										@if($item->promotion_price != null)
@@ -111,7 +111,7 @@
 							
 							<div class="row">
 								@foreach($sanpham_khuyenmai as $item)
-								<div class="col-sm-3">
+								<div class="col-sm-3"  style="margin-top: 20px">
 									<div class="single-item">
 										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 										<div class="single-item-header">

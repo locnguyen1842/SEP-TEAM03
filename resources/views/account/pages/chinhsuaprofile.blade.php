@@ -34,7 +34,7 @@
 
 
 					</div>
-					<input disabled="true" style="width: 247px" id="Email Address" name="txtEmail" type="text" placeholder="" class="form-control input-md" value="{{ Auth::user()->email }}">
+					<input disabled="true" style="width: 247px" id="Email Address" name="txtEmail" type="text" placeholder="" class="form-control input-md" value="{{ Auth::guard('customer')->user()->email }}">
 
 				</div>
 
@@ -51,7 +51,7 @@
 
 					</i>
 				</div>
-				<input style="width: 247px" id="Name (Full name)" name="txtName" type="text" placeholder="Họ và Tên" class="form-control input-md" value="{{ Auth::user()->customer()->first()->name }}">
+				<input style="width: 247px" id="Name (Full name)" name="txtName" type="text" placeholder="Họ và Tên" class="form-control input-md" value="{{ Auth::guard('customer')->user()->name }}">
 			</div>
 
 
@@ -78,7 +78,7 @@
 
 
 			</div>
-			<input style="width: 247px" id="Date Of Birth" name="txtBd" type="date" placeholder="Date Of Birth" class="form-control" value="{{ Auth::user()->customer()->first()->birth_date }}">
+			<input style="width: 247px" id="Date Of Birth" name="txtBd" type="date" placeholder="Date Of Birth" class="form-control" value="{{ Auth::guard('customer')->user()->birth_date }}">
 		</div>
 
 
@@ -97,7 +97,7 @@
 
 
 			</div>
-			<input style="width: 247px" id="Phone Number" name="txtPhone" type="text" placeholder="Phone Number" class="form-control input-md" value="{{ Auth::user()->customer()->first()->phone }}">
+			<input style="width: 247px" id="Phone Number" name="txtPhone" type="text" placeholder="Phone Number" class="form-control input-md" value="{{ Auth::guard('customer')->user()->phone }}">
 
 		</div>
 
@@ -108,24 +108,24 @@
 <div class="form-group">
 	<label class="col-md-4 control-label" for="Gender">Giới tính</label>
 	<div class="col-md-4"> 
-		@if(Auth::user()->customer()->first()->gender =="Male")
+		@if(Auth::guard('customer')->user()->gender =="Nữ")
 		<label class="radio-inline" for="Gender-0">
 			
-			<input  type="radio" name="Gender" id="Gender-0" value="Male" checked="checked">
+			<input  type="radio" name="Gender" id="Gender-0" value="Nam">
 			Nam
 		</label> 
 		<label class="radio-inline" for="Gender-1">
-			<input type="radio" name="Gender" id="Gender-1" value="Female">
+			<input type="radio" name="Gender" id="Gender-1" value="Nữ"  checked="checked">
 			Nữ
 		</label> 
 		@else
 		<label class="radio-inline" for="Gender-0">
 			
-			<input  type="radio" name="Gender" id="Gender-0" value="Male">
+			<input  type="radio" name="Gender" id="Gender-0" value="Nam" checked="checked">
 			Nam
 		</label> 
 		<label class="radio-inline" for="Gender-1">
-			<input type="radio" name="Gender" id="Gender-1" value="Female" checked="checked">
+			<input type="radio" name="Gender" id="Gender-1" value="Nữ" >
 			Nữ
 		</label> 
 		@endif
