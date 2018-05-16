@@ -253,7 +253,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="{{ route('admin.logout') }}"><i class="fa fa-sign-out fa-fw"></i> Đăng Xuất</a>
+                        <li><a href="{{ route('supplier.logout') }}"><i class="fa fa-sign-out fa-fw"></i> Đăng Xuất</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

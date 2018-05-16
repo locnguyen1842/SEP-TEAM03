@@ -10,72 +10,12 @@ use Hash;
 use Auth;
 class AccountController extends Controller
 {
-	public function getLogin(){
-		if (Auth::check()){
-			return redirect()->route('trangchu');
-		}
-		else
-		{
-			return view('auth.login');
-			
+	public function __construct()
+	{
+		$this->middleware('auth:customer');
+	}
 	
-		}
-		
-	}
-
-	public function getSignUp(){
-		if (Auth::check()){
-			return redirect()->route('trangchu');
-		}
-		else
-		{
-			return view('auth.register');
 	
-		}
-		
-	}
-
-	public function postSignUp(Request $req){
-		$this->validate($req,
-			[
-				'email'=>'required|unique:users,email',
-				'password'=>'required|min:6|max:30',
-				'repassword'=>'required|same:password'
-			],
-			[
-				'email.required'=>'Vui Lòng Nhập Email',
-				'email.email'=> 'Không đúng định dạng Email',
-				'email.unique'=>'Email đã tồn tại',
-				'password.required'=>'Vui Lòng Nhập Password',
-				'password.min'=>'Mật khẩu phải có độ dài từ 6 - 30 ký tự',
-				'password.max'=>'Mật khẩu phải có độ dài từ 6 - 30 ký tự',
-				'repassword.required'=>'Vui Lòng Nhập Vào Ô Xác Nhận Mật Khẩu',
-				'repassword.same'=>'Xác nhận mật khẩu không đúng'
-
-			]
-
-		);
-		$address = new address;
-		$customer = new customer;
-		$account = new User;
-		$account->password = Hash::make($req->password);
-		$customer->name =  $req->name;
-		$account->email =  $req->email;
-		$customer->phone = $req->phone;
-		$address->address = $req->address;
-		$account->role = "customer";
-		$address->save();
-		$customer->save();
-		$customer->address()->attach($address);
-		$account->save();
-		$account->customer()->attach($customer);
-
-
-		
-		return redirect()->back()->with('thanhcong','Tạo tài khoản thành công');
-		
-
-	}
 
 	public function postLogin(Request $req){
 		$this->validate($req,
@@ -102,45 +42,26 @@ class AccountController extends Controller
 
 	}
 
-	public function getLogOut(){
-		Auth::logout();
-		return redirect()->route('trangchu');
-	}
 
 	public function getProfile(){
-		if (Auth::check()){
-			return view('account.pages.thongtinprofile');
-		}
-		else
-		{
-			
-			return redirect()->route('dangnhap');
-		}
+		
+		return view('account.pages.thongtinprofile');
+		
 		
 	}
 
 	public function getIndexProfile(){
-		if (Auth::check()){
-			return view('account.pages.thongtincanhan');
-		}
-		else
-		{
-			
-			return redirect()->route('dangnhap');
-		}
+		
+		return view('account.pages.thongtincanhan');
+		
 		
 	}
 
 	public function getEditProfile(){
 		
-		if (Auth::check()){
-			return view('account.pages.chinhsuaprofile');
-		}
-		else
-		{
-			
-			return redirect()->route('dangnhap');
-		}
+		
+		return view('account.pages.chinhsuaprofile');
+		
 		
 	}
 	public function postEditProfile(Request $req){
@@ -168,14 +89,8 @@ class AccountController extends Controller
 
 	public function getChangePassword(){
 
-		if (Auth::check()){
-			return view('account.pages.doimatkhau');
-		}
-		else
-		{
-			
-			return redirect()->route('dangnhap');
-		}
+		
+		return view('account.pages.doimatkhau');
 		
 	}
 
@@ -208,27 +123,15 @@ class AccountController extends Controller
 	}
 
 	public function getAddressList(){
-		if (Auth::check()){
-			return view('account.pages.sodiachi');
-		}
-		else
-		{
-			
-			return redirect()->route('dangnhap');
-		}
 		
+		return view('account.pages.sodiachi');
+
 	}
 
 	public function getEditAddressList($id){
-		if (Auth::check()){
+		
 
-			return view('account.pages.chinhsuadiachi');
-		}
-		else
-		{
-			
-			return redirect()->route('dangnhap');
-		}
+		return view('account.pages.chinhsuadiachi');
 		
 	}
 

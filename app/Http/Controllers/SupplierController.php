@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class SupplierController extends Controller
 {
      /**
      * Create a new controller instance.
@@ -13,14 +13,14 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth:supplier');
     }
     
     public function getIndex(){
-    	return view('admin.index'); 	
+    	return view('supplier.index'); 	
     }
 
     public function getProduct(){
-    	return view('admin.product');
+    	return view('supplier.product');
     }
 }

@@ -35,15 +35,15 @@ Route::get('index',[
 	]);
 
 
-Route::get('san-pham-khuyen-mai',[
-	'as'=>'spkhuyenmai',
-	'uses'=>'PageController@getSpKhuyenMai'
-]);
+	Route::get('san-pham-khuyen-mai',[
+		'as'=>'spkhuyenmai',
+		'uses'=>'PageController@getSpKhuyenMai'
+	]);
 
-Route::get('add-to-cart/{id}',[
-	'as'=>'themgiohang',
-	'uses'=>'PageController@getAddtoCart'
-]);
+	Route::get('add-to-cart/{id}',[
+		'as'=>'themgiohang',
+		'uses'=>'PageController@getAddtoCart'
+	]);
 
 
 	Route::get('search',[
@@ -70,31 +70,31 @@ Route::get('add-to-cart/{id}',[
 		'as'=>'xoagiohang',
 		'uses'=>'PageController@getDelItemCart'
 	]);
-//login route
+//user login route
 	Route::get('dang-nhap',[
 		'as'=>'dangnhap',
-		'uses'=>'Auth\LoginController@showLoginForm'
+		'uses'=>'Auth\CustomerLoginController@showLoginForm'
 	]);
 
 	Route::post('dang-nhap',[
 		'as'=>'dangnhap',
-		'uses'=>'Auth\LoginController@login'
+		'uses'=>'Auth\CustomerLoginController@login'
 	]);
 
 
 	Route::get('dang-ky',[
 		'as'=>'dangky',
-		'uses'=>'AccountController@getSignUp'
+		'uses'=>'PageController@getSignUp'
 	]);
 
 	Route::post('dang-ky',[
 		'as'=>'dangky',
-		'uses'=>'AccountController@postSignUp'
+		'uses'=>'PageController@postSignUp'
 	]);
 
 	Route::get('dang-xuat',[
 		'as'=>'dangxuat',
-		'uses'=>'Auth\LoginController@logout'
+		'uses'=>'Auth\CustomerLoginController@logout'
 	]);
 //forgot password route
 	Route::get('reset',[
@@ -117,20 +117,52 @@ Route::get('add-to-cart/{id}',[
 		'as'=>'pwdemail',
 		'uses'=>'Auth\ForgotPasswordController@sendResetLinkEmail'
 	]);
-
-
-
 //admin route
-
-	Route::get('admin/index',[
-		'as'=>'admin',
-		'uses'=>'AdminController@getIndex'
-	]);
-	Route::get('admin/product',[
-		'as'=>'product',
-		'uses'=>'AdminController@getProduct'
-	]);
-
+	Route::group(['prefix'=>'admin'],function(){
+		Route::get('login',[
+			'as'=>'admin.login',
+			'uses'=>'Auth\AdminLoginController@showLoginForm'
+		]);
+		Route::post('login',[
+			'as'=>'admin.login.submit',
+			'uses'=>'Auth\AdminLoginController@login'
+		]);
+		Route::get('logout',[
+			'as'=>'admin.logout',
+			'uses'=>'Auth\AdminLoginController@logout'
+		]);
+		Route::get('index',[
+			'as'=>'admin',
+			'uses'=>'AdminController@getIndex'
+		]);
+		Route::get('product',[
+			'as'=>'product',
+			'uses'=>'AdminController@getProduct'
+		]);
+	});
+//supplier route
+	Route::group(['prefix'=>'supplier'],function(){
+		Route::get('login',[
+			'as'=>'supplier.login',
+			'uses'=>'Auth\SupplierLoginController@showLoginForm'
+		]);
+		Route::post('login',[
+			'as'=>'supplier.login.submit',
+			'uses'=>'Auth\SupplierLoginController@login'
+		]);
+		Route::get('logout',[
+			'as'=>'supplier.logout',
+			'uses'=>'Auth\SupplierLoginController@logout'
+		]);
+		Route::get('index',[
+			'as'=>'supplier',
+			'uses'=>'SupplierController@getIndex'
+		]);
+		Route::get('product',[
+			'as'=>'product',
+			'uses'=>'SupplierController@getProduct'
+		]);
+	});
 //user route
 	Route::group(['prefix'=>'user'],function(){
 		Route::get('quan-ly',[
@@ -191,8 +223,6 @@ Route::get('add-to-cart/{id}',[
 		});
 		
 	});
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

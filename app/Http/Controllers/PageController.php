@@ -9,7 +9,10 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\productType;
 use Session;
+use App\address;
 use App\customer;
+use Hash;
+use Auth;
 
 class PageController extends Controller
 {
@@ -137,5 +140,55 @@ class PageController extends Controller
         return redirect()->back()->with('thongbao','Đặt hàng thành công');
 
     }
+    public function getSignUp(){
+        if(Auth::guard('customer')->check()){
+            return redirect()->route('trangchu');
+        }
+        return view('auth.register');
+
+    }
+
+    public function postSignUp(Request $req){
+        $this->validate($req,
+            [
+                'email'=>'required|unique:customers,email',
+                'password'=>'required|min:6|max:30',
+                'repassword'=>'required|same:password'
+            ],
+            [
+                'email.required'=>'Vui Lòng Nhập Email',
+                'email.email'=> 'Không đúng định dạng Email',
+                'email.unique'=>'Email đã tồn tại',
+                'password.required'=>'Vui Lòng Nhập Password',
+                'password.min'=>'Mật khẩu phải có độ dài từ 6 - 30 ký tự',
+                'password.max'=>'Mật khẩu phải có độ dài từ 6 - 30 ký tự',
+                'repassword.required'=>'Vui Lòng Nhập Vào Ô Xác Nhận Mật Khẩu',
+                'repassword.same'=>'Xác nhận mật khẩu không đúng'
+
+            ]
+
+        );
+        $address = new address;
+        $customer = new Customer;
+        $address->name = $req->name;
+        $address->phone = $req->phone;
+        $address->address = $req->address;
+        $customer->password = Hash::make($req->password);
+        $customer->name =  $req->name;
+        $customer->email =  $req->email;
+        $customer->phone = $req->phone;
+        $customer->save();
+        $address->id_customer= $customer->id;
+        $address->save();
+
+
+
+
+
+        return redirect()->back()->with('thanhcong','Tạo tài khoản thành công');
+
+
+    }
+    
 
 }

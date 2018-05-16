@@ -3,8 +3,8 @@
 		<div class="container">
 			<div class="pull-left auto-width-left">
 				<ul class="top-menu menu-beta l-inline">
-					<li><a href="{{ route('trangchu') }}"><i class="fa fa-home"></i> Văn lang uni</a></li>
-					<li><a href="{{ route('trangchu') }}"><i class="fa fa-phone"></i> 0163 253 0555</a></li>
+					<li><a href="{{ route('trangchu') }}"><i class="fa fa-home"></i>Cloud Booth</a></li>
+					<li><a href="{{ route('supplier') }}"><i class="fa fa-truck"></i>Đến trang bán hàng</a></li>
 				</ul>
 			</div>
 			<div class="pull-right auto-width-right">
@@ -12,9 +12,9 @@
 					
 
 
-					@if(Auth::check())
+					@if(Auth::guard('customer')->check())
 					<li><a href="{{ route('user.quanly') }}"><i class="fa fa-user"></i>Tài khoản</a></li>
-					<li><a href="{{ route('user.quanly') }}">Chào! {{Auth::user()->customer->first()->name}}</a></li>
+					<li><a href="{{ route('user.quanly') }}">Chào! {{Auth::guard('customer')->user()->name}}</a></li>
 					<li><a href="{{ route('dangxuat') }}">Đăng Xuất</a></li>
 
 					@else
@@ -97,7 +97,7 @@
 									</ul>
 								</li>
 								<li><a href="{{ route('gioithieu') }} ">Giới thiệu</a></li>
-								<li><a href="{{ route('admin') 	}}	">Admin</a></li>
+								
 
 							</ul>
 							<div class="clearfix"></div>
