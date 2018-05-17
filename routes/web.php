@@ -135,9 +135,21 @@ Route::get('index',[
 			'as'=>'admin',
 			'uses'=>'AdminController@getIndex'
 		]);
-		Route::get('product',[
-			'as'=>'product',
-			'uses'=>'AdminController@getProduct'
+		Route::get('supplier-list',[
+			'as'=>'admin.listsupplier',
+			'uses'=>'AdminController@getListSupplier'
+		]);
+		Route::get('supplier-create',[
+			'as'=>'admin.createsupplier',
+			'uses'=>'AdminController@getSupplierCreate'
+		]);
+		Route::post('supplier-create',[
+			'as'=>'admin.createsupplier',
+			'uses'=>'AdminController@postSupplierCreate'
+		]);
+		Route::get('supplier-delete/{id}',[
+			'as'=>'admin.deletesupplier',
+			'uses'=>'AdminController@getSupplierDelete'
 		]);
 	});
 //supplier route
@@ -159,7 +171,7 @@ Route::get('index',[
 			'uses'=>'SupplierController@getIndex'
 		]);
 		Route::get('product',[
-			'as'=>'product',
+			'as'=>'supplier.product',
 			'uses'=>'SupplierController@getProduct'
 		]);
 	});

@@ -292,7 +292,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="{{ route('product') }}"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a href="{{ route('admin.listsupplier') }}"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
@@ -322,15 +322,15 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i>Quản lý tài khoản Supplier<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="{{ route('admin.listsupplier') }}">Danh sách Supplier</a>
                                 </li>
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="{{ route('admin.createsupplier') }}">Tạo mới tài khoản Supplier</a>
                                 </li>
-                                <li>
+                               {{--  <li>
                                     <a href="#">Third Level <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
@@ -347,7 +347,7 @@
                                         </li>
                                     </ul>
                                     <!-- /.nav-third-level -->
-                                </li>
+                                </li> --}}
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
