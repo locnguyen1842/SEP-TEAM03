@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <base href="{{asset('')}}">
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Quản trị - Cloudbooth</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="admin/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="{{ route('admin') }}">Trang Quản Trị</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -277,7 +277,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{ route('admin') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
@@ -292,7 +292,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="{{ route('admin.listsupplier') }}"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a href=""><i class="fa fa-table fa-fw"></i> Quản lý sản tin tức</a>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
