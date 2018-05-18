@@ -30,7 +30,7 @@ class CustomerLoginController extends Controller
 
 
     	//if unsuccessfull 
-    	return redirect()->back()->withInput($request->only('email','remember'));
+    	return redirect()->back()->with(['flag'=>'danger','thongbao'=>'Email hoặc Mật Khẩu Không Đúng']);
 	}
 
 	public function logout(){
