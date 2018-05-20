@@ -75,6 +75,10 @@ Route::get('/xa','CountryController@getXa');
 		'as'=>'xoagiohang',
 		'uses'=>'PageController@getDelItemCart'
 	]);
+	Route::get('cart-details',[
+		'as'=>'chitietgiohang',
+		'uses'=>'PageController@getCartDetails'
+	]);
 //user login route
 	Route::get('dang-nhap',[
 		'as'=>'dangnhap',

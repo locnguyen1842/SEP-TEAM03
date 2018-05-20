@@ -42,9 +42,9 @@
 
 				<div class="beta-comp">
 					<div class="cart">
-						<div class="beta-select"><i class="fa fa-shopping-cart"></i>
+						<div class="beta-select"><a href="{{ route('chitietgiohang') }}"><i class="fa fa-shopping-cart"></i>
 							Giỏ hàng (@if(Session::has('cart')){{Session('cart')->totalQty}}
-                            @else Trống @endif) <i class="fa fa-chevron-down"></i></div>
+                            @else Trống @endif)</a></div>
 							<div class="beta-dropdown cart-body">
                          @if(Session::has('cart'))
                                 @foreach($product_cart as $product)
@@ -89,7 +89,7 @@
 						<nav class="main-menu">
 							<ul class="l-inline ov">
 								<li><a href="{{ route('trangchu') }}">Trang chủ</a></li>
-								<li><a href="loai-san-pham">Loại Sản Phẩm</a>
+								<li><a href="{{ URL::current() }}">Loại Sản Phẩm</a>
 									<ul class="sub-menu">
 										@foreach($loai_sp as $item)
 										<li><a href="{{ route('loaisp',$item->id) }} ">{{ $item->name }}</a></li>

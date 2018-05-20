@@ -60,7 +60,7 @@
 									<option value="5">5</option>
 								</select>
 								<a class="add-to-cart" href="{{route('themgiohang',$sp->id)}}"><i class="fa fa-shopping-cart"></i></a>
-								<div class="clearfix"></div>
+								<div class="clearfix" style="padding-top: 8px"><a href="{{route('themgiohang',$sp->id)}}" style="font-size: 18px;padding-left: 15px;">Thêm Vào Giỏ</a></div>
 							</div>
 						</div>
 					</div>

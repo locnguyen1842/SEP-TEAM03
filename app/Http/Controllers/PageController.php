@@ -17,7 +17,7 @@ class PageController extends Controller
 {
             //
     public function getIndex(){
-       $slide = Slide::all();
+              $slide = Slide::all();
             	// return view('pages.trangchu',['slide'->$slide]); 
             	$new_product = Product::latest()->paginate(8); //paginate so san pham tren dong
             	$sanpham_khuyenmai = Product::where('promotion_price','<>','')->inRandomOrder()->paginate(8);
@@ -208,6 +208,17 @@ class PageController extends Controller
         public function getXa(){
            $url_xa =file_get_contents('source/xa_phuong.json');
        }
-
+       public function getCartDetails(){
+        if(Session::has('cart')){
+                $oldCart = Session::get('cart');
+                $cart = new Cart($oldCart);
+                return view('pages.chitietgiohang',['product_cart'=>$cart->items,'totalPrice'=>$cart->totalPrice,
+                    'totalQty'=>$cart->totalQty]);
+            }
+            else
+            {
+                return view('pages.chitietgiohang');
+            }
+       }
 
    }

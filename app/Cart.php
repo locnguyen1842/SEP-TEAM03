@@ -23,6 +23,9 @@ class Cart
 				$giohang = $this->items[$id];
 			}
 		}
+		// if($item->promotion_price = ''){
+		// 	//làm gì đó
+		// }
 		$giohang['qty']++;
 		$giohang['price'] = $item->unit_price * $giohang['qty'];
 		$this->items[$id] = $giohang;

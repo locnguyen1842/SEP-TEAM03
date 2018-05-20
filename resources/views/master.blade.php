@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="source/assets/dest/rs-plugin/css/responsive.css">
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/style.css">
 	<link rel="stylesheet" href="source/assets/dest/css/animate.css">
-	
+	<link rel="stylesheet" title="style" href="source/assets/dest/css/cart.css">
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
 </head>
 <body>
@@ -41,95 +41,7 @@
 	<script src="source/assets/dest/js/waypoints.min.js"></script>
 	<script src="source/assets/dest/js/wow.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<!--customjs-->
-	{{-- <script type="text/javascript">
-      $('#tinh').on('change', function(e){
-        console.log(e);
-        var province_id = e.target.value;
-        $.get('/quan?tinh_id=' + province_id,function(data) {
-          console.log(data);
-          $('#quan').empty();
-          $('#quan').append('<option value="0" disable="true" selected="true">=== Select quan ===</option>');
 
-        
-          $('#xa').empty();
-          $('#xa').append('<option value="0" disable="true" selected="true">=== Select xa ===</option>');
-
-          $.each(data, function(index, quanObj){
-            $('#quan').append('<option value="'+ quanObj.code +'">'+ quanObj.name +'</option>');
-          })
-        });
-      });
-
-      $('#districts').on('change', function(e){
-        console.log(e);
-        var districts_id = e.target.value;
-        $.get('/xa?districts_id=' + districts_id,function(data) {
-          console.log(data);
-          $('#xa').empty();
-          $('#xa').append('<option value="0" disable="true" selected="true">=== Select xa ===</option>');
-
-          $.each(data, function(index, xaObj){
-            $('#xa').append('<option value="'+ xaObj.code +'">'+ xaObj.name +'</option>');
-          })
-        });
-      });
-
-
-    </script> --}}
-   <script>
-	$(document).ready(function(){
-
-		load_json_data('tinh');
-
-		function load_json_data(code, parent_code)
-		{
-			var html_code = '';
-			$.getJSON('https://api.myjson.com/bins/9emny', function(data){
-
-				html_code += '<option value="">Select '+code+'</option>';
-				$.each(data, function(key, value){
-					if(id =='tinh'){
-						html_code += '<option value="'+value.code+'">'+value.name+'</option>';	
-					}
-					else
-					{
-						if(value.parent_id == parent_id)
-						{
-							html_code += '<option value="'+value.id+'">'+value.name+'</option>';
-						}
-					}
-
-				});
-				$('#'+code).html(html_code);
-			});
-
-		}
-
-		$(document).on('change', '#tinh', function(){
-			var country_id = $(this).val();
-			if(country_id != '')
-			{
-				load_json_data('quan', country_id);
-			}
-			else
-			{
-				$('#quan').html('<option value="">Select state</option>');
-				$('#xa').html('<option value="">Select city</option>');
-			}
-		});
-		$(document).on('change', '#state', function(){
-			var state_id = $(this).val();
-			if(state_id != '')
-			{
-				load_json_data('xa', state_id);
-			}
-			else
-			{
-				$('#xa').html('<option value="">Select xa</option>');
-			}
-		});
-	});
 </script>
 	<script src="source/assets/dest/js/custom2.js"></script>
 	<script>
