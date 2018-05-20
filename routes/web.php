@@ -156,6 +156,7 @@ Route::get('/xa','CountryController@getXa');
 			'as'=>'admin.deletesupplier',
 			'uses'=>'AdminController@getSupplierDelete'
 		]);
+
 	});
 //supplier route
 	Route::group(['prefix'=>'supplier'],function(){
@@ -179,6 +180,18 @@ Route::get('/xa','CountryController@getXa');
 			'as'=>'supplier.product',
 			'uses'=>'SupplierController@getProduct'
 		]);
+		Route::group(['prefix'=>'Product'],function(){
+			//supplier/Product/ThemSP
+			Route::get('DanhsachSP','SupplierController@getDanhSachSP');
+			
+			Route::get('SuaSP/{id}','SupplierController@getSuaSP');
+			Route::post('SuaSP/{id}','SupplierController@postSuaSP');
+			
+			Route::get('ThemSP','SupplierController@getThemSP');
+			Route::post('ThemSP','SupplierController@postThemSP');
+			
+			Route::get('XoaSP/{id}','SupplierController@postXoaSP');
+		});
 	});
 //user route
 	Route::group(['prefix'=>'user'],function(){
