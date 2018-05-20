@@ -27,7 +27,8 @@ class SupplierController extends Controller
     }
 	
 	public function getDanhSachSP(){
-	$Sanpham = product::all();
+	$supplierid = Auth::guard('supplier')->user()->id;
+	$Sanpham = product::orderBy('id','DESC')->where('supplier_id','=',$supplierid)->get();
 	return view('supplier.Product.DanhsachSP',['Sanpham'=>$Sanpham]);
 	}
 	
@@ -51,7 +52,7 @@ class SupplierController extends Controller
 				'txtGia' => 'required',
 				'txtDonVi' => 'required',
 				'txtSoLuong' => 'required',
-				'txtMota' => 'required|min:20|max|1000'
+				'txtMoTa' => 'required|min:20|max:1000'
 								
 			],
 			[
@@ -62,9 +63,9 @@ class SupplierController extends Controller
 				'txtGia.required'=>'Bạn chưa nhập giá sản phẩm',
 				'txtDonVi.required'=>'Bạn chưa nhập đơn vị sản phẩm',
 				'txtSoLuong.required'=>'Bạn chưa nhập số lượng sản phẩm',
-				'txtMota.required'=>'Bạn chưa nhập mô tả cho sản phẩm',
-				'txtMota.min'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 1000 ký tự',
-				'txtMota.max'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 1000 ký tự',
+				'txtMoTa.required'=>'Bạn chưa nhập mô tả cho sản phẩm',
+				'txtMoTa.min'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 10000 ký tự',
+				'txtMoTa.max'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 10000 ký tự',
 				
 				
 			]);	

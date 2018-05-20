@@ -282,6 +282,9 @@
 						<li>
                             <a href="supplier/Product/ThemSP"><i class="fa fa-plus-square-o fa-fw"></i>Thêm Sản Phẩm</a>
                         </li>
+						<li>
+                            <a href="supplier/Product/ThemSP"><i class="fa fa-list fa-fw"></i>Danh Sách Sản Phẩm</a>
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
