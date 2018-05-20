@@ -292,7 +292,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="{{ route('product') }}"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
