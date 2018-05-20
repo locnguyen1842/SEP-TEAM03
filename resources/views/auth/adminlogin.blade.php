@@ -3,27 +3,45 @@
 <body>
 
     <div class="container">
-    <div class="row" style="margin-top: 80px">
         <div class="row">
-                <a href="{{ route('trangchu') }}" id="logo">Quay về trang chủ</a>
-            </div>
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary">
-                <div class="panel-heading">ADMIN Login</div>
-                <div class="panel-body">
+            <a href="{{ route('trangchu') }}" id="logo">Quay về trang chủ</a>
+        </div>
+        <div class="row" style="margin-top: 80px">
+
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">ADMIN Login</div>
+                    <div class="panel-body">
+
+                        
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.login.submit') }}">
                         {{ csrf_field() }}
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                           @if(count($errors)>0)
+                           <div class="alert alert-danger">
+                            @foreach($errors->all() as $error)
+                            {{ $error }} <br>
+                            @endforeach
+                        </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        @endif
+                        @if(Session::has('thongbao'))
+                        <div class="alert alert-danger">{{ Session::get('thongbao') }}</div>
+
+                        @endif
+                    </div>
+                </div>
+                        <div class="form-group">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
@@ -35,9 +53,9 @@
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>

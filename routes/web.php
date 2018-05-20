@@ -18,13 +18,18 @@ Route::get('index',[
 	'uses'=>'PageController@getIndex'
 
 ]);
+//tinh , quan , xa route
+Route::get('/tinh','CountryController@getTinh');
+Route::get('/quan','CountryController@getQuan');
+Route::get('/xa','CountryController@getXa');
+
 //home route
 	Route::get('loai-san-pham/{type?}',[
 		'as'=>'loaisp',
 		'uses'=>'PageController@getLoaiSP'
 	]);
 
-	Route::get('chi-tiet-san-pham/{id}',[
+	Route::get('chi-tiet-san-pham/{id?}',[
 		'as'=>'chitietsp',
 		'uses'=>'PageController@getChiTietSP'
 	]);
@@ -40,7 +45,7 @@ Route::get('index',[
 		'uses'=>'PageController@getSpKhuyenMai'
 	]);
 
-	Route::get('add-to-cart/{id}',[
+	Route::get('add-to-cart/{id?}',[
 		'as'=>'themgiohang',
 		'uses'=>'PageController@getAddtoCart'
 	]);
@@ -62,11 +67,11 @@ Route::get('index',[
 		'uses'=>'PageController@getSpKhuyenMai'
 	]);
 //cart route
-	Route::get('add-to-cart/{id}',[
+	Route::get('add-to-cart/{id?}',[
 		'as'=>'themgiohang',
 		'uses'=>'PageController@getAddtoCart'
 	]);
-	Route::get('del-cart/{id}',[
+	Route::get('del-cart/{id?}',[
 		'as'=>'xoagiohang',
 		'uses'=>'PageController@getDelItemCart'
 	]);
@@ -147,7 +152,7 @@ Route::get('index',[
 			'as'=>'admin.createsupplier',
 			'uses'=>'AdminController@postSupplierCreate'
 		]);
-		Route::get('supplier-delete/{id}',[
+		Route::get('supplier-delete/{id?}',[
 			'as'=>'admin.deletesupplier',
 			'uses'=>'AdminController@getSupplierDelete'
 		]);
@@ -211,7 +216,7 @@ Route::get('index',[
 					'as'=>'user.address',
 					'uses'=>'AccountController@getAddressList'
 				]);
-				Route::get('edit/{id}',[
+				Route::get('edit/{id?}',[
 					'as'=>'user.address.edit',
 					'uses'=>'AccountController@getEditAddressList'
 				]);
