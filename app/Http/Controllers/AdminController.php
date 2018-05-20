@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Auth;
 use App\Supplier;
+use App\product;
 use Illuminate\Http\Request;
 use Hash;
 class AdminController extends Controller
@@ -64,4 +65,6 @@ class AdminController extends Controller
         $supplier->delete();
         return redirect()->route('admin.listsupplier');
     }
+	
+
 }
