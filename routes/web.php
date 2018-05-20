@@ -194,7 +194,7 @@ Route::get('/xa','CountryController@getXa');
 			Route::get('ThemSP','SupplierController@getThemSP');
 			Route::post('ThemSP','SupplierController@postThemSP');
 			
-			Route::get('XoaSP/{id}','SupplierController@postXoaSP');
+			Route::get('XoaSP/{id}','SupplierController@getXoaSP');
 		});
 	});
 //user route

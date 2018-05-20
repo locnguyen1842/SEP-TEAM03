@@ -280,10 +280,16 @@
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
 						<li>
-                            <a href="supplier/Product/ThemSP"><i class="fa fa-plus-square-o fa-fw"></i>Thêm Sản Phẩm</a>
-                        </li>
-						<li>
-                            <a href="supplier/Product/ThemSP"><i class="fa fa-list fa-fw"></i>Danh Sách Sản Phẩm</a>
+                            <a href="#"><i class="fa fa-list fa-fw"></i> Sản Phẩm<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="supplier/Product/ThemSP"><i class="fa fa-plus-square-o fa-fw"></i>Thêm Sản Phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="supplier/Product/DanhsachSP"><i class="fa fa-list fa-fw"></i>Danh Sách Sản Phẩm</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
