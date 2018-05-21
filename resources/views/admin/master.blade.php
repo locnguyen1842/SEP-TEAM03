@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <base href="{{asset('')}}">
     <title>Quản trị - Cloudbooth</title>
-
+	<Base href="{{asset('')}}">
     <!-- Bootstrap Core CSS -->
     <link href="admin/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 

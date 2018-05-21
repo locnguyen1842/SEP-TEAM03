@@ -279,6 +279,18 @@
                         <li>
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
+						<li>
+                            <a href="#"><i class="fa fa-list fa-fw"></i> Sản Phẩm<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="supplier/Product/ThemSP"><i class="fa fa-plus-square-o fa-fw"></i>Thêm Sản Phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="supplier/Product/DanhsachSP"><i class="fa fa-list fa-fw"></i>Danh Sách Sản Phẩm</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -292,7 +304,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="{{ route('product') }}"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
@@ -372,6 +384,7 @@
 
         <div id="page-wrapper">
          @yield('content')
+		</div>
         <!-- /#page-wrapper -->
 
     </div>
@@ -396,7 +409,7 @@
     <script src="admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
     <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
-
+	<script type="text/javascript" language="javascript" src="admin/ckeditor/ckeditor.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -405,6 +418,7 @@
         });
     });
      </script>
+	 @yield('script')
 </body>
 
 </html>
