@@ -17,7 +17,8 @@
 					</div>
 					
 					<div class="col-xs-6">
-						<input type="number" name="qty-item-cart" class="form-control" placeholder="Số lượng" style="margin-top: 15px" min="1" max="10" oninput="validity.valid||(value='');">
+
+						<input required="true" type="number" name="color" class="form-control" placeholder="Số lượng" style="margin-top: 15px" min="1" max="10">
 					</div>
 					<div class="col-xs-6">
 						

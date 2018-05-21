@@ -99,58 +99,5 @@
 		</form>
 	</div> <!-- #content -->
 </div> <!-- .container -->
-<script>
-	$(document).ready(function(){
 
-		load_json_data('tinh');
-
-		function load_json_data(code, parent_code)
-		{
-			var html_code = '';
-			$.getJSON('https://api.myjson.com/bins/9emny', function(data){
-
-				html_code += '<option value="">Select '+code+'</option>';
-				$.each(data, function(key, value){
-					if(id =='tinh'){
-						html_code += '<option value="'+value.code+'">'+value.name+'</option>';	
-					}
-					else
-					{
-						if(value.parent_id == parent_id)
-						{
-							html_code += '<option value="'+value.id+'">'+value.name+'</option>';
-						}
-					}
-
-				});
-				$('#'+code).html(html_code);
-			});
-
-		}
-
-		$(document).on('change', '#tinh', function(){
-			var country_id = $(this).val();
-			if(country_id != '')
-			{
-				load_json_data('quan', country_id);
-			}
-			else
-			{
-				$('#quan').html('<option value="">Select state</option>');
-				$('#xa').html('<option value="">Select city</option>');
-			}
-		});
-		$(document).on('change', '#state', function(){
-			var state_id = $(this).val();
-			if(state_id != '')
-			{
-				load_json_data('xa', state_id);
-			}
-			else
-			{
-				$('#xa').html('<option value="">Select xa</option>');
-			}
-		});
-	});
-</script>
 @endsection
