@@ -7,24 +7,24 @@
 
 <fieldset style="background: #bdd5fb ; padding: 20px">
 	<div class="add-address">
-		<a href="#" class="add"><i class="fa fa-plus" style="color: #1a9cb7;font-size: 15px"></i>Thêm địa chỉ mới</a>
+		<a href="{{route('user.address.add')}}" class="add"><i class="fa fa-plus" style="color: #1a9cb7;font-size: 15px"></i>Thêm địa chỉ mới</a>
 	</div>
 	<div  class="panel panel-info">
-
+		@foreach($address as $item)
 		<div id="address" class="panel-body">
 			<p class="name">
 
-				Lộc Nguyễn
-				<a href="#" style="float: right;" class="edit-address"> Chỉnh sửa</a>
+				{{$item->name}}
+				<a href="{{route('user.address.edit',$item->id)}}" style="float: right;" class="edit-address"> Chỉnh sửa</a>
 			</p>
 			<p class="address">
 				<span>Địa chỉ: </span>
-				B
-
+				{{$item->addressde}}
+				<a href="{{route('user.address.delete',$item->id)}}" style="float: right;" class="edit-address"> Xóa</a>
 			</p>
 			<p class="phone">
 				<span>Điện thoại: </span>
-				C
+				{{$item->phone}}
 
 			</p>
 			<p class="action">
@@ -32,6 +32,7 @@
 
 			</p>
 		</div>
+		@endforeach
 	</div>
 
 

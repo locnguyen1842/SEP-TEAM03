@@ -199,19 +199,33 @@ Route::get('/xa','CountryController@getXa');
 		});
 		//address route
 			Route::group(['prefix'=>'address'],function(){
-				Route::get('/',[
+
+				Route::get('add',[
+					'as'=>'user.address.add',
+					'uses'=>'AccountController@getAddAddressList'
+				]);
+
+				Route::get('',[
 					'as'=>'user.address',
 					'uses'=>'AccountController@getAddressList'
 				]);
-				Route::get('edit/{id?}',[
+				Route::get('edit/{id}',[
 					'as'=>'user.address.edit',
 					'uses'=>'AccountController@getEditAddressList'
 				]);
-				Route::post('edit',[
+				Route::post('edit/{id}',[
 					'as'=>'user.address.edit',
 					'uses'=>'AccountController@postEditAddressList'
 				]);
-
+				Route::post('add',[
+					'as'=> 'user.address.add',
+					'uses'=>'AccountController@postadd'
+				]);
+				Route::get('delete/{id}',[
+					'as'=> 'user.address.delete',
+					'uses'=>'AccountController@getdelete'
+				]);
+				
 
 			});
 		Route::group(['prefix'=>'profile'],function(){
@@ -251,7 +265,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('dat-hang',[
     'as'=>'dathang',
     'uses'=>'PageController@getCheckout'
-]);
+]); 
 Route::post('dat-hang',[
     'as'=>'dathang',
     'uses'=>'PageController@postCheckout'

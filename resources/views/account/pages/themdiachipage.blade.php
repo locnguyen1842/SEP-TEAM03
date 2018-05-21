@@ -2,9 +2,9 @@
 @section('noidung')
 
 <div class="menu-title">
-	<span style="font-size: 36px">Chỉnh sửa địa chỉ</span>
+	<span style="font-size: 36px">Them Dia Chi</span>
 </div>
-<form class="form-horizontal" action="{{ route('user.address.edit',$address->id) }}" method="post">
+<form class="form-horizontal" action="{{ route('user.address.add',$address->id) }}" method="post">
 
 	<fieldset style="background: #bdd5fb ; padding: 20px">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -24,7 +24,6 @@
 					<div class="alert alert-success">{{ Session::get('thanhcong') }}</div>
 					@endif
 		</div>
-
 		<!-- Text input-->
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="Name (Full name)">Họ Tên</label>  
@@ -33,37 +32,19 @@
 					<div class="input-group-addon">
 					</i>
 				</div>
-				<input style="width: 247px" id="name" name="name" type="text" placeholder="Họ và Tên" class="form-control input-md" value="{{ $address->name }}">
+				<input style="width: 247px" id="name" name="name" type="text" placeholder="Họ và Tên" class="form-control input-md" >
 			</div>
-
-
 		</div>
-
-
 	</div>
-
-{{-- <!-- File Button --> 
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Upload photo">Upload photo</label>
-  <div class="col-md-4">
-    <input id="Upload photo" name="Upload photo" class="input-file" type="file">
-  </div>
-</div> --}}
-
 <!-- Text input-->
 <div class="form-group">
 	<label class="col-md-4 control-label" for="Date Of Birth">Địa chỉ</label>  
 	<div class="col-md-4">
-
 		<div class="input-group">
 			<div class="input-group-addon">
-
-
 			</div>
-			<input style="width: 247px" id="address" name="address" type="text" placeholder="Địa chỉ" class="form-control input-md" value="{{ $address->addressde}}">
+			<input style="width: 247px" id="address" name="address" type="text" placeholder="Địa chỉ" class="form-control input-md" ">
 		</div>
-
-
 	</div>
 </div>
 
@@ -79,7 +60,7 @@
 
 
 			</div>
-			<input style="width: 247px" id="phone" name="phone" type="text" placeholder="Số điện thoại" class="form-control input-md" value="{{ $address->phone }}">
+			<input style="width: 247px" id="phone" name="phone" type="text" placeholder="Số điện thoại" class="form-control input-md" >
 
 		</div>
 
