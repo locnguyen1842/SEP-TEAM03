@@ -163,7 +163,7 @@ class AccountController extends Controller
 
 		return view('account.pages.themdiachipage');
 	}
-	public function postaddAddressList(Request $req,$id)
+	public function postaddAddressList(Request $req)
 	{
 		$this->validate($req,[
 				'name'=>'required',
@@ -176,21 +176,21 @@ class AccountController extends Controller
 				'phone.required'=>'Vui Lòng Nhập Số Điện THoại'
 		]
 	);
-		
-		$address = address::find($id);
+		$address = new address;
 		$address->name = $req->name;
 		$address->addressde = $req->address;
 		$address->phone = $req->phone;
+		$address->id_customer = Auth::guard('customer')->user()->id;
 		$address->save();
 		return redirect()->route('user.address')->with('thanhcong','Lưu Thành Công');
 	
 
 		
 	}
-	public function getdelete()
+	public function getdelete($id)
 	{
-
-		$address = address.find(id);
+		
+		$address = address::find($id);
 		$address->delete();
 		return redirect()->route('user.address')->with('thanhcong','Xóa Thành Công');
 	}

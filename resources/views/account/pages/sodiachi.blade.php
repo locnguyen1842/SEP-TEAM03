@@ -9,8 +9,9 @@
 	<div class="add-address">
 		<a href="{{route('user.address.add')}}" class="add"><i class="fa fa-plus" style="color: #1a9cb7;font-size: 15px"></i>Thêm địa chỉ mới</a>
 	</div>
+	@foreach($address as $item)
 	<div  class="panel panel-info">
-		@foreach($address as $item)
+		
 		<div id="address" class="panel-body">
 			<p class="name">
 
@@ -32,9 +33,9 @@
 
 			</p>
 		</div>
-		@endforeach
+	
 	</div>
-
+	@endforeach
 
 </fieldset>
 

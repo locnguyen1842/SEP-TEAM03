@@ -4,7 +4,7 @@
 <div class="menu-title">
 	<span style="font-size: 36px">Them Dia Chi</span>
 </div>
-<form class="form-horizontal" action="{{ route('user.address.add',$address->id) }}" method="post">
+<form class="form-horizontal" action="{{ route('user.address.add')}}" method="post">
 
 	<fieldset style="background: #bdd5fb ; padding: 20px">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -236,7 +236,7 @@ Route::get('/xa','CountryController@getXa');
 				]);
 				Route::post('add',[
 					'as'=> 'user.address.add',
-					'uses'=>'AccountController@postadd'
+					'uses'=>'AccountController@postaddAddressList'
 				]);
 				Route::get('delete/{id}',[
 					'as'=> 'user.address.delete',
