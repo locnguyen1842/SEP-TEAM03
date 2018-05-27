@@ -205,6 +205,13 @@ Route::get('/json-xa','PageController@getXa');
 			
 			Route::get('XoaSP/{id}','SupplierController@getXoaSP');
 		});
+		Route::group(['prefix'=>'ThongTin'],function(){
+			//supplier/Info
+			Route::get('ThongTinSup','SupplierController@getThongTinSup');
+			
+			Route::get('SuaThongTinSup/{id}','SupplierController@getSuaThongTinSup');
+			Route::post('SuaThongTinSup/{id}','SupplierController@postSuaThongTinSup');
+		});
 	});
 //user route
 	Route::group(['prefix'=>'user'],function(){

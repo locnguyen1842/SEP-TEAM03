@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <base href="{{asset('')}}">
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+ 
 
     <!-- Bootstrap Core CSS -->
     <link href="admin/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,9 @@
 
     <!-- Morris Charts CSS -->
     <link href="admin/vendors/morrisjs/morris.css" rel="stylesheet">
+	
+	<!-- DatetimePicker CSS -->
+    <link href="admin/vendors/DatetimePicker/jquery.datetimepicker.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -276,10 +279,14 @@
                             <!-- /input-group -->
                         </li>
                         <li>
+<<<<<<< HEAD
                             <a href="{{ route('supplier') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="{{ route('supplier.info') }}"><i class="fa fa-user fa-fw"></i> Thông tin gian hàng</a>
+=======
+                            <a href="supplier/ThongTinSup"><i class="fa fa-dashboard fa-fw"></i>Thông Tin Tài Khoản</a>
+>>>>>>> d8d3c087218ad6b66514c5c7a03e3a9e3ebc5602
                         </li>
 						<li>
                             <a href="#"><i class="fa fa-list fa-fw"></i> Sản Phẩm<span class="fa arrow"></span></a>
@@ -329,6 +336,8 @@
     <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
 	<script type="text/javascript" language="javascript" src="admin/ckeditor/ckeditor.js"></script>
+	<!-- DatetimePicker JavaScript -->
+    <script src="admin/vendors/DatetimePicker/jquery.datetimepicker.full.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -336,7 +345,9 @@
             responsive: true
         });
     });
+	$("#datetimepicker").datetimepicker();
      </script>
+
 	 @yield('script')
 </body>
 
