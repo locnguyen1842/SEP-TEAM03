@@ -18,8 +18,8 @@
 					
 					<div class="col-xs-6">
 
-						<input required="true" type="number" name="color" class="form-control" placeholder="Số lượng" style="margin-top: 15px" min="1" max="10">
-					</div>
+						{{$product['qty']}}*<span>@if($product['item']['promotion_price']==0)
+								{{$product['item']['unit_price']}} @else {{number_format($product['item']['promotion_price'])}}@endif</span>					</div>
 					<div class="col-xs-6">
 						
 					</div>
