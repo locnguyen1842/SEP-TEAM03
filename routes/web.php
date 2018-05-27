@@ -181,13 +181,17 @@ Route::get('/json-xa','PageController@getXa');
 			'as'=>'supplier',
 			'uses'=>'SupplierController@getIndex'
 		]);
-		Route::get('product',[
-			'as'=>'supplier.product',
-			'uses'=>'SupplierController@getProduct'
-		]);
-		Route::get('product',[
+		Route::get('info',[
 			'as'=>'supplier.info',
 			'uses'=>'SupplierController@getInfo'
+		]);
+		Route::get('info/edit',[
+			'as'=>'supplier.info.edit',
+			'uses'=>'SupplierController@getEditInfo'
+		]);
+		Route::post('info/edit',[
+			'as'=>'supplier.info.edit',
+			'uses'=>'SupplierController@postEditInfo'
 		]);
 		Route::group(['prefix'=>'Product'],function(){
 			//supplier/Product/ThemSP

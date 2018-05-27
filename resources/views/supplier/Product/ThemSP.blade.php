@@ -40,13 +40,21 @@
 							</select>
 						</div>
 						<div class="form-group">
+							<label>Mã SKU</label>	
+							<input class="form-control" name="sku" placeholder="Nhập mã SKU" />
+						</div>
+						<div class="row">
+							<div class="form-group col-md-6">
 							<label>Giá</label>	
 							<input class="form-control" name="txtGia"  type="number" placeholder="Nhập giá cho 1 đơn vị (VNĐ)"/>
 						</div>
-						<div class="form-group">
+						<div class="form-group col-md-6">
 							<label>Đơn vị</label>	
 							<input class="form-control" name="txtDonVi" placeholder="Nhập đơn vị tính (Kg, gram, hộp...)"/>
 						</div>
+
+						</div>
+						
 						<div class="form-group">
 							<label>Số lượng</label>	
 							<input class="form-control" name="txtSoLuong" type="number" placeholder="Nhập sô lượng sản phẩm (Trên đơn vị đã nhập)"/>
@@ -68,7 +76,7 @@
 							<textarea id="demo" name="txtMoTa"class="form-control ckeditor" rows="5"></textarea>
 						</div>
 						<button type="submit" class="btn btn-default">Thêm</button>
-						<button type="submit" class="btn btn-default">Hủy bỏ</button>
+						<button type="reset" class="btn btn-default">Hủy bỏ</button>
 					</form>
                 </div>
                 <!-- /.col-lg-12 -->

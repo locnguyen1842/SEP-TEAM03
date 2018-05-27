@@ -28,7 +28,7 @@
                                 <thead>
                                     <tr>
 										<th>Hình ảnh</th>
-                                        <th>Tên Sản Phẩm</th>
+                                        <th>Tên</th>
                                         <th>Loại</th>
                                         <th>Giá</th>
                                         <th>Đơn vị</th>
@@ -42,13 +42,13 @@
                                 <tbody>
 									@foreach($Sanpham as $sp)
 										<tr class="odd gradeX">
-											<td><img width="100px" src="Image/{{$sp->image}}"/></td>
-											<td>{{$sp->name}}</td>
+											<td><img width="100px" src="source/image/product/{{$sp->image}}"/></td>
+											<td><a href="{{ route('chitietsp',$sp->id) }}">{{$sp->name}}</a></td>
 											<td>{{$sp->product_Type->name}}</td>
 											<td>{{$sp->unit_price}}</td>
 											<td>{{$sp->unit}}</td>
 											<td>{{$sp->new}}</td>
-											<td>{{$sp->promotion}}</td>
+											<td><span>{{$sp->promotion_price}}</span></td>
 											<td>{{$sp->created_at}}</td>
 											
 											<td class="center"><i class="fa fa-pencil fa-fw"></i><a href="supplier/Product/SuaSP/{{$sp->id}}">Sửa</a></td>

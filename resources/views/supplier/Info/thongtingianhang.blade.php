@@ -20,7 +20,8 @@
                 </div>             
                 <div class="col-xs-12 col-sm-4 text-center">
                     <figure>
-                        <img src="{{ $supplier->logo }}">
+                        <img src="source/supplierlogo/{{ $supplier->logo }}">
+                         <p>Logo</p>
 
                     </figure>
                 </div>
@@ -40,7 +41,7 @@
                     <h2><strong> </strong></h2>                    
                     <p><small></small></p>
                     <div class="btn-group dropup btn-block">
-                      <button style="margin-top: 62px"  type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Chỉnh sửa </button>
+                      <a href="{{ route('supplier.info.edit') }}"><button style="margin-top: 62px"  type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Chỉnh sửa </button></a>
                       
                   </div>
               </div>
