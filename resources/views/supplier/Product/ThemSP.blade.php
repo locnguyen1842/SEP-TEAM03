@@ -40,10 +40,20 @@
 							</select>
 						</div>
 						<div class="form-group">
+							<label>Mã SKU</label>	
+							<input class="form-control" name="sku" placeholder="Nhập mã SKU" />
+						</div>
+						<div class="row">
+							<div class="form-group col-md-6">
 							<label>Giá</label>	
 							<input class="form-control" name="txtGia"  type="number" placeholder="Nhập giá cho 1 đơn vị (VNĐ)"/>
+<<<<<<< HEAD
+						</div>
+						<div class="form-group col-md-6">
+=======
 						</div>						
 						<div class="form-group">
+>>>>>>> d8d3c087218ad6b66514c5c7a03e3a9e3ebc5602
 							<label>Đơn vị</label>	
 							<select class="form-control" name="txtDonVi">							
 									<option value="Kg">Kg</option>
@@ -53,6 +63,9 @@
 									<option value="Nải">Nải</option>
 							</select>
 						</div>
+
+						</div>
+						
 						<div class="form-group">
 							<label>Số lượng</label>	
 							<input class="form-control" name="txtSoLuong" type="number" placeholder="Nhập tổng số lượng sản phẩm (Trên đơn vị đã nhập)"/>
@@ -74,7 +87,7 @@
 							<textarea id="demo" name="txtMoTa"class="form-control ckeditor" rows="5"></textarea>
 						</div>
 						<button type="submit" class="btn btn-default">Thêm</button>
-						<button type="submit" class="btn btn-default">Hủy bỏ</button>
+						<button type="reset" class="btn btn-default">Hủy bỏ</button>
 					</form>
                 </div>
                 <!-- /.col-lg-12 -->

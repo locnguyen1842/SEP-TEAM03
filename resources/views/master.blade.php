@@ -41,9 +41,11 @@
 	<script src="source/assets/dest/js/waypoints.min.js"></script>
 	<script src="source/assets/dest/js/wow.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-</script>
+	{{-- custom js --}}
+	
 	<script src="source/assets/dest/js/custom2.js"></script>
+</script>
+	
 	<script>
 		$(document).ready(function($) {    
 			$(window).scroll(function(){

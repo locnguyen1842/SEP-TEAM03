@@ -19,9 +19,7 @@
 			<div class="dashboard-item last">
 				<a href="{{ route('user.profile.edit') }}">Chỉnh sửa</a>
 			</div>
-
 		</div>
-
 		<div id="dashboard" class="col-sm-6">
 			<div class="dashboard-title">
 				Sổ địa chỉ
@@ -30,20 +28,22 @@
 				địa chỉ nhận hàng
 			</div>
 			<div class="dashboard-item-address-name">
-				<b>Nguyễn Xuân Lộc</b>
+				<b>{{ $address->name }}</b>
 			</div>
 			<div class="dashboard-item-address">
-				Trần hưng đạo, quận 1 , TP HCM
+				{{ $address->addressde }} , {{ $address->mavung }}
 			</div>
+
 			<div class="dashboard-item-address">
-				0163-253-0666
+				{{ $address->phone }}
 			</div>
 			<div class="dashboard-item last">
-				<a href="#">Chỉnh sửa</a>
+				<a href="{{ route('user.address') }}">Xem sổ địa chỉ</a>
 			</div>
 		</div>
 	</div>
 
 </div>
+
 @endsection
 

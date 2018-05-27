@@ -23,6 +23,11 @@
 				{{$item->addressde}}
 				<a href="{{route('user.address.delete',$item->id)}}" style="float: right;" class="edit-address"> Xóa</a>
 			</p>
+			<p class="address">
+				<span>Mã vùng: </span>
+				{{$item->mavung}}
+				
+			</p>
 			<p class="phone">
 				<span>Điện thoại: </span>
 				{{$item->phone}}
