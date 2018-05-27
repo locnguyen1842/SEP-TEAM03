@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <base href="{{asset('')}}">
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+ 
 
     <!-- Bootstrap Core CSS -->
     <link href="admin/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,9 @@
 
     <!-- Morris Charts CSS -->
     <link href="admin/vendors/morrisjs/morris.css" rel="stylesheet">
+	
+	<!-- DatetimePicker CSS -->
+    <link href="admin/vendors/DatetimePicker/jquery.datetimepicker.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -277,7 +280,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="supplier/ThongTinSup"><i class="fa fa-dashboard fa-fw"></i>Thông Tin Tài Khoản</a>
                         </li>
 						<li>
                             <a href="#"><i class="fa fa-list fa-fw"></i> Sản Phẩm<span class="fa arrow"></span></a>
@@ -410,6 +413,8 @@
     <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
 	<script type="text/javascript" language="javascript" src="admin/ckeditor/ckeditor.js"></script>
+	<!-- DatetimePicker JavaScript -->
+    <script src="admin/vendors/DatetimePicker/jquery.datetimepicker.full.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -417,7 +422,9 @@
             responsive: true
         });
     });
+	$("#datetimepicker").datetimepicker();
      </script>
+
 	 @yield('script')
 </body>
 

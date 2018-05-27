@@ -172,5 +172,11 @@ class SupplierController extends Controller
 			return redirect('supplier/Product/DanhsachSP')->with('thongbao','Xóa thành công');
 	}
 	
+	public function getThongTinSup(){
+		$supplierid = Auth::guard('supplier')->user()->id;
+		$InfoSup = supplier::where('id','=',$supplierid)->get();
+		return view('supplier.ThongTinSup',['InfoSup'=>$InfoSup]);
+	}
+	
 	
 }

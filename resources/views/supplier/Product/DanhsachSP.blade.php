@@ -33,10 +33,11 @@
                                         <th>Giá</th>
                                         <th>Đơn vị</th>
                                         <th>Số lượng</th>
-										<th>% Giảm giá</th>
+										<th>Giá giảm giá</th>
 										<th>Ngày đăng</th>
-										<th>Sửa</th>
-										<th>Xóa</th>
+										<th>Hạn sử dụng</th>
+										<th>Chỉnh Sửa</th>
+										<th>Ẩn/Hiện</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,11 +49,12 @@
 											<td>{{$sp->unit_price}}</td>
 											<td>{{$sp->unit}}</td>
 											<td>{{$sp->new}}</td>
-											<td>{{$sp->promotion}}</td>
+											<td>{{$sp->promotion_price}}</td>
 											<td>{{$sp->created_at}}</td>
+											<td></td>
 											
 											<td class="center"><i class="fa fa-pencil fa-fw"></i><a href="supplier/Product/SuaSP/{{$sp->id}}">Sửa</a></td>
-											<td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="supplier/Product/XoaSP/{{$sp->id}}">Xóa</a></td>
+											<td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="supplier/Product/XoaSP/{{$sp->id}}">Ẩn</a></td>
 										</tr>
 									@endforeach
                                 </tbody>

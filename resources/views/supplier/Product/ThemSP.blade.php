@@ -42,22 +42,28 @@
 						<div class="form-group">
 							<label>Giá</label>	
 							<input class="form-control" name="txtGia"  type="number" placeholder="Nhập giá cho 1 đơn vị (VNĐ)"/>
-						</div>
+						</div>						
 						<div class="form-group">
 							<label>Đơn vị</label>	
-							<input class="form-control" name="txtDonVi" placeholder="Nhập đơn vị tính (Kg, gram, hộp...)"/>
+							<select class="form-control" name="txtDonVi">							
+									<option value="Kg">Kg</option>
+									<option value="Gram">Gram</option>
+									<option value="Thùng">Thùng</option>
+									<option value="Hộp">Hộp</option>
+									<option value="Nải">Nải</option>
+							</select>
 						</div>
 						<div class="form-group">
 							<label>Số lượng</label>	
-							<input class="form-control" name="txtSoLuong" type="number" placeholder="Nhập sô lượng sản phẩm (Trên đơn vị đã nhập)"/>
+							<input class="form-control" name="txtSoLuong" type="number" placeholder="Nhập tổng số lượng sản phẩm (Trên đơn vị đã nhập)"/>
 						</div>
 						<div class="form-group">
 							<label>Hạn sử dụng</label>	
-							<input class="form-control" name="txtHSD" type="number" placeholder="Nhập thời hạn sử dụng của sản phẩm (Ngày)"/>
+							<input class="form-control" name="txtHSD" type="datetime" id="datetimepicker" placeholder="Nhập thời hạn sử dụng của sản phẩm"/>
 						</div>
 						<div class="form-group">
 							<label>Giảm giá</label>	
-							<input class="form-control" name="txtGiamGia" type="number" placeholder="Nhập % giảm giá khi còn 1 phần 3 hạn sử dụng (Có thể không nhập)"/>
+							<input class="form-control" name="txtGiamGia" type="number" placeholder="Nhập giá giảm giá khi còn 1 phần 3 hạn sử dụng (Có thể không nhập)"/>
 						</div>
 						<div>
 							<label>Hình ảnh</label>
@@ -74,5 +80,4 @@
                 <!-- /.col-lg-12 -->
             </div>
 </div>
-
 @endsection
