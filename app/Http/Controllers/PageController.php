@@ -120,7 +120,7 @@ class PageController extends Controller
             $customer->gender = $req->gender;
             $customer->email = $req->email;
             $customer->address = $req->address;
-            $customer->phone_number = $req->phone;
+            $customer->phone = $req->phone;
             $customer->note = $req->notes;
             $customer->save();
 
