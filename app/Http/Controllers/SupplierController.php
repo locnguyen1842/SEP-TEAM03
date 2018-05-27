@@ -45,7 +45,7 @@ class SupplierController extends Controller
      			'txtDonVi' => 'required',
      			'txtSoLuong' => 'required',
      			'txtMoTa' => 'required|min:20|max:1000',
-     			'sku'=> 'required|unique:product',	
+     			'sku'=> 'required',	
 
      		],
      		[
@@ -59,7 +59,7 @@ class SupplierController extends Controller
      			'txtMoTa.required'=>'Bạn chưa nhập mô tả cho sản phẩm',
      			'txtMoTa.min'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 10000 ký tự',
      			'txtMoTa.max'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 10000 ký tự',		
-     			'sku.unique' =>	'Mã SKU đã tồn tại',
+     		
      			'sku.required' =>	'Vui lòng nhập mã SKU ',
      		]);	
      	$Sanpham->name = $request->txtTenSP;
@@ -110,7 +110,7 @@ class SupplierController extends Controller
      			'txtDonVi' => 'required',
      			'txtSoLuong' => 'required',
      			'txtMoTa' => 'required|min:20|max:1000',
-     			'sku'=> 'required|unique:product',	
+     			'sku'=> 'required',	
 
      		],
      		[
@@ -124,7 +124,7 @@ class SupplierController extends Controller
      			'txtMoTa.required'=>'Bạn chưa nhập mô tả cho sản phẩm',
      			'txtMoTa.min'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 10000 ký tự',
      			'txtMoTa.max'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 10000 ký tự',
-     			'sku.unique' =>	'Mã SKU đã tồn tại',
+
      			'sku.required' =>	'Vui lòng nhập mã SKU ',
 
      		]);	
@@ -190,7 +190,7 @@ class SupplierController extends Controller
      		[
      			'name' => 'required|min:2|max:100',
      			'phone' => 'required',
-     			'Hinh' =>'required|dimensions:max_height=100,max_width=200'
+     			'Hinh' =>'dimensions:max_height=100,max_width=200'
 
      		],
      		[
@@ -198,7 +198,7 @@ class SupplierController extends Controller
      			'name.min'=>'Tên chủ sở hữu phải có độ dài từ 2 đến 100 ký tự',
      			'name.max'=>'Tên chủ sở hữu phải có độ dài từ 2 đến 100 ký tự',
      			'phone.required'=>'Bạn chưa chọn loại sản phẩm',
-     			'Hinh.required' => 'Bạn chưa chọn logo',
+     		
      			// 'Hinh.max_height' => 'Logo có chiều cao tối đa 100px',
      			// 'Hinh.max_width' => 'Logo có chiều rộng tối đã 200px',
      			'Hinh.dimensions' => 'Logo có có kích thước vượt quá 200px x 100px'
@@ -235,6 +235,9 @@ class SupplierController extends Controller
      			$supplier->logo = $TenHinh;
      		
      		
+     	}
+     	else{
+     		$supplier->logo = $supplier->logo;
      	}
      	$supplier->save();
      	return view('supplier.Info.thongtingianhang',compact('supplier'));

@@ -279,14 +279,13 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-<<<<<<< HEAD
+
                             <a href="{{ route('supplier') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="{{ route('supplier.info') }}"><i class="fa fa-user fa-fw"></i> Thông tin gian hàng</a>
-=======
-                            <a href="supplier/ThongTinSup"><i class="fa fa-dashboard fa-fw"></i>Thông Tin Tài Khoản</a>
->>>>>>> d8d3c087218ad6b66514c5c7a03e3a9e3ebc5602
+
+
                         </li>
 						<li>
                             <a href="#"><i class="fa fa-list fa-fw"></i> Sản Phẩm<span class="fa arrow"></span></a>

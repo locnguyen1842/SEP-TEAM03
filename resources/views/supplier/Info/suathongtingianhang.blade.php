@@ -34,7 +34,7 @@
 							<p>
 							<img width="200px" src="source/supplierlogo/{{ $supplier->logo }}"/>
 							</p>
-							<input type="file" name="Hinh" required="true" class="form-control"	/>
+							<input type="file" name="Hinh"  class="form-control"	/>
 						</div>
 						<div class="form-group">
 							<label>Tên Chủ Sở Hữu</label>	
