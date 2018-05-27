@@ -19,9 +19,9 @@ Route::get('index',[
 
 ]);
 //tinh , quan , xa route
-Route::get('/tinh','CountryController@getTinh');
-Route::get('/quan','CountryController@getQuan');
-Route::get('/xa','CountryController@getXa');
+
+Route::get('/json-quan','PageController@getQuan');
+Route::get('/json-xa','PageController@getXa');
 
 //home route
 	Route::get('loai-san-pham/{type?}',[
@@ -161,6 +161,7 @@ Route::get('/xa','CountryController@getXa');
 			'uses'=>'AdminController@getSupplierDelete'
 		]);
 
+
 	});
 //supplier route
 	Route::group(['prefix'=>'supplier'],function(){
@@ -183,6 +184,10 @@ Route::get('/xa','CountryController@getXa');
 		Route::get('product',[
 			'as'=>'supplier.product',
 			'uses'=>'SupplierController@getProduct'
+		]);
+		Route::get('product',[
+			'as'=>'supplier.info',
+			'uses'=>'SupplierController@getInfo'
 		]);
 		Route::group(['prefix'=>'Product'],function(){
 			//supplier/Product/ThemSP

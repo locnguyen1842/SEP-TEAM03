@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 use App\customer;
 use App\User;
 use App\address;
+use App\quan_huyen;
+use App\tinh_tp;
+use App\xa_phuong;
 use Hash;
 use Auth;
+
 class AccountController extends Controller
 {
 	public function __construct()
@@ -44,8 +48,10 @@ class AccountController extends Controller
 
 
 	public function getProfile(){
+		$id = Auth::guard('customer')->user()->id;
+		$address = address::where('id_customer','=',$id)->first();
 		
-		return view('account.pages.thongtinprofile');
+		return view('account.pages.thongtinprofile',compact('address'));
 		
 		
 	}
@@ -130,9 +136,9 @@ class AccountController extends Controller
 	}
 
 	public function getEditAddressList($id){
-		
+		$tinh_tp = tinh_tp::all();
 		$address = address::find($id);
-		return view('account.pages.chinhsuadiachi',compact('address'));
+		return view('account.pages.chinhsuadiachi',compact('address','tinh_tp'));
 		
 	}
 	public function postEditAddressList(Request $req,$id)
@@ -154,36 +160,40 @@ class AccountController extends Controller
 		$address = address::find($id); //tìm vị trí dòng có id = id getEditAddressList là dc khỏi tìm id user
 		$address->name = $req->name;
 		$address->addressde = $req->address;
+		$xa_phuong = xa_phuong::where('code',$req->xa_phuong)->first();
+		$address->mavung = $xa_phuong->path_with_type;
 		$address->phone = $req->phone;
 		$address->save();
 		return redirect()->route('user.address')->with('thanhcong','Lưu Thành Công');;
 	}
 	public function getAddAddressList()
 	{
-
-		return view('account.pages.themdiachipage');
+		$tinh_tp = tinh_tp::all();
+		return view('account.pages.themdiachipage',compact('tinh_tp'));
 	}
 	public function postaddAddressList(Request $req)
 	{
 		$this->validate($req,[
-				'name'=>'required',
-				'address'=>'required',
-				'phone'=>'required'
-			],
-			[
-				'name.required'=>'Vui lòng nhập tên',
-				'address.required'=>'Vui Lòng Nhập Địa Chỉ',
-				'phone.required'=>'Vui Lòng Nhập Số Điện THoại'
+			'name'=>'required',
+			'address'=>'required',
+			'phone'=>'required'
+		],
+		[
+			'name.required'=>'Vui lòng nhập tên',
+			'address.required'=>'Vui Lòng Nhập Địa Chỉ',
+			'phone.required'=>'Vui Lòng Nhập Số Điện THoại'
 		]
 	);
 		$address = new address;
 		$address->name = $req->name;
 		$address->addressde = $req->address;
+		$xa_phuong = xa_phuong::where('code',$req->xa_phuong)->first();
+		$address->mavung = $xa_phuong->path_with_type;
 		$address->phone = $req->phone;
 		$address->id_customer = Auth::guard('customer')->user()->id;
 		$address->save();
 		return redirect()->route('user.address')->with('thanhcong','Lưu Thành Công');
-	
+
 
 		
 	}

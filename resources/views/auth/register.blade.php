@@ -56,23 +56,26 @@
 					</div>
 					<div class="form-block">
 						<label for="adress">Tỉnh/Thành Phố</label>
-						<select class="form-control" id="tinh" name="tinh">
-							<option selected="true" value="">--Chọn Tỉnh/Thành Phố--</option>
+						<select class="form-control" id="tinh_tp" name="tinh_tp">
+							<option selected="true" disabled="true" value="0">--Chọn Tỉnh/Thành Phố--</option>
+							@foreach ($tinh_tp as $key => $value)
+							<option value="{{$value->code}}">{{ $value->name }}</option>
+							@endforeach
 							
 							
 						</select>
 					</div>
 					<div class="form-block">
 						<label for="adress">Quận/Huyện</label>
-						<select class="form-control" id="quan" name="quan">
-							<option class="active" value="">--Chọn Tỉnh/Thành Phố--</option>
+						<select class="form-control" id="quan_huyen" name="quan_huyen">
+							<option selected="true" disabled="true" value="0">--Vui lòng chọn tỉnh/thành phố trước--</option>
 							
 						</select>
 					</div>
 					<div class="form-block">
 						<label for="adress">Phường/Xã</label>
-						<select class="form-control" id="xa" name="xa">
-							<option class="active" value="">--Chọn Tỉnh/Thành Phố--</option>
+						<select class="form-control" id="xa_phuong" name="xa_phuong">
+							<option selected="true" disabled="true" value="0">--Vui lòng chọn quận/huyện trước--</option>
 							
 						</select>
 					</div>
@@ -99,5 +102,41 @@
 		</form>
 	</div> <!-- #content -->
 </div> <!-- .container -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+      $('#tinh_tp').on('change', function(e){
+        console.log(e);
+        var parent_code = e.target.value;
+        $.get('/SEP-TEAM03/public/json-quan?parent_code=' + parent_code,function(data) {
+          console.log(data);
+          $('#quan_huyen').empty();
+          $('#quan_huyen').append('<option value="0" disable="true" selected="true">--Chọn Quận/Huyện--</option>');
+
+          $('#xa_phuong').empty();
+          $('#xa_phuong').append('<option value="0" disable="true" selected="true">--Vui lòng chọn quận/huyện trước--</option>');
+
+        
+
+          $.each(data, function(index, quan_huyen){
+            $('#quan_huyen').append('<option value="'+ quan_huyen.code +'">'+ quan_huyen.name +'</option>');
+          })
+        });
+      });
+
+      $('#quan_huyen').on('change', function(e){
+        console.log(e);
+        var parent_code = e.target.value;
+        $.get('/SEP-TEAM03/public/json-xa?parent_code=' + parent_code,function(data) {
+          console.log(data);
+          $('#xa_phuong').empty();
+          $('#xa_phuong').append('<option value="0" disable="true" selected="true">--Chọn Xã/Phường--</option>');
+
+          $.each(data, function(index, xa_phuong){
+            $('#xa_phuong').append('<option value="'+ xa_phuong.code +'">'+ xa_phuong.name +'</option>');
+          })
+        });
+      });
+
+    </script>
 
 @endsection

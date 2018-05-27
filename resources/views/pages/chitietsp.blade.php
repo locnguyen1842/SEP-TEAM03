@@ -43,9 +43,9 @@
 							<div class="clearfix"></div>
 							<div class="space20">&nbsp;</div>
 
-							<div class="single-item-desc">
+							{{-- <div class="single-item-desc">
 								<p>{{ $sp->description }}</p>
-							</div>
+							</div> --}}
 							<div class="space20">&nbsp;</div>
 
 							<p>Số lượng ({{ $sp->unit }})</p>
@@ -73,7 +73,8 @@
 						</ul>
 
 						<div class="panel" id="tab-description">
-							{{ $sp->description }}
+							
+							{!! $sp->description  !!}
 						</div>
 						{{-- <div class="panel" id="tab-reviews">
 							<p>No Reviews</p>
