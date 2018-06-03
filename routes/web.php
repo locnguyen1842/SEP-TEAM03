@@ -105,27 +105,25 @@ Route::get('/json-xa','PageController@getXa');
 		'as'=>'dangxuat',
 		'uses'=>'Auth\CustomerLoginController@logout'
 	]);
+	
 //forgot password route
-	Route::get('reset',[
-		'as'=>'pwdforgot',
+	Route::get('password/reset',[
+		'as'=>'password.request',
 		'uses'=>'Auth\ForgotPasswordController@showLinkRequestForm'
 	]);
-	Route::get('password/reset/{token?}',[
-		'as'=>'pwdreset',
+	Route::get('password/reset/{token}',[
+		'as'=>'password.reset',
 		'uses'=>'Auth\ResetPasswordController@showResetForm'
 	]);
-	Route::post('reset',[
-		'as'=>'pwdreset',
+	Route::post('password/reset',[
+		'as'=>'password.rs',
 		'uses'=>'Auth\ResetPasswordController@reset'
 	]);
-	Route::post('email',[
-		'as'=>'pwdemail',
+	Route::post('password/email',[
+		'as'=>'password.email',
 		'uses'=>'Auth\ForgotPasswordController@sendResetLinkEmail'
 	]);
-	Route::post('email',[
-		'as'=>'pwdemail',
-		'uses'=>'Auth\ForgotPasswordController@sendResetLinkEmail'
-	]);
+	
 //admin route
 	Route::group(['prefix'=>'admin'],function(){
 		Route::get('login',[
@@ -161,6 +159,25 @@ Route::get('/json-xa','PageController@getXa');
 			'uses'=>'AdminController@getSupplierDelete'
 		]);
 
+		//admin resetpwd
+		Route::post('password/email',[
+			'as'=>'admin.password.email',
+			'uses'=>'Auth\AdminForgotPasswordController@sendResetLinkEmail'
+		]);
+		Route::get('password/reset',[
+			'as'=>'admin.password.request',
+			'uses'=>'Auth\AdminForgotPasswordController@showLinkRequestForm'
+		]);
+		Route::post('password/reset',[
+			'as'=>'admin.password.rs',
+			'uses'=>'Auth\AdminResetPasswordController@reset'
+		]);
+		Route::get('password/reset/{token}',[
+			'as'=>'admin.password.reset',
+			'uses'=>'Auth\AdminResetPasswordController@showResetForm'
+		]);
+
+
 
 	});
 //supplier route
@@ -193,6 +210,25 @@ Route::get('/json-xa','PageController@getXa');
 			'as'=>'supplier.info.edit',
 			'uses'=>'SupplierController@postEditInfo'
 		]);
+		//supplier reset pwd
+			Route::post('password/email',[
+				'as'=>'supplier.password.email',
+				'uses'=>'Auth\SupplierForgotPasswordController@sendResetLinkEmail'
+			]);
+			Route::get('password/reset',[
+				'as'=>'supplier.password.request',
+				'uses'=>'Auth\SupplierForgotPasswordController@showLinkRequestForm'
+			]);
+			Route::post('password/reset',[
+				'as'=>'supplier.password.rs',
+				'uses'=>'Auth\SupplierResetPasswordController@reset'
+			]);
+			Route::get('password/reset/{token}',[
+				'as'=>'supplier.password.reset',
+				'uses'=>'Auth\SupplierResetPasswordController@showResetForm'
+			]);
+
+
 		Route::group(['prefix'=>'Product'],function(){
 			//supplier/Product/ThemSP
 			Route::get('DanhsachSP','SupplierController@getDanhSachSP');

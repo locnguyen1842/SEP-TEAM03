@@ -76,8 +76,8 @@
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
+                                <a class="btn btn-link" href="{{ route('admin.password.request') }}">
+                                    Quên Mật Khẩu?
                                 </a>
                             </div>
                         </div>

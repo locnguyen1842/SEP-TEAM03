@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use Auth;
 use Password;
-class ResetPasswordController extends Controller
+class SupplierResetPasswordController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/index';
+    protected $redirectTo = '/supplier/index';
 
     /**
      * Create a new controller instance.
@@ -36,20 +36,21 @@ class ResetPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:customer');
+        $this->middleware('guest:supplier');
     }
 
     protected function guard(){
-        return Auth::guard('customer');
+        return Auth::guard('supplier');
     }
 
     protected function broker(){
-        return Password::broker('customers');
+        return Password::broker('suppliers');
     }
     public function showResetForm(Request $request, $token = null)
     {
-        return view('auth.passwords.reset')->with(
+        return view('auth.passwords.reset-supplier')->with(
             ['token' => $token, 'email' => $request->email]
         );
     }
+
 }

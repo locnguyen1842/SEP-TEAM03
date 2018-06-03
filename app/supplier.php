@@ -4,6 +4,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\SupplierResetPasswordNotification;
+
 
 class Supplier extends Authenticatable
 {
@@ -30,5 +32,10 @@ class Supplier extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new SupplierResetPasswordNotification($token));
+    }
 }
 

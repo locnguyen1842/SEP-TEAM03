@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Password;
-class ForgotPasswordController extends Controller
+class SupplierForgotPasswordController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -27,15 +27,14 @@ class ForgotPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:customer');
+        $this->middleware('guest:supplier');
     }
-
-     protected function broker(){
-        return Password::broker('customers');
+    protected function broker(){
+        return Password::broker('suppliers');
     }
 
     public function showLinkRequestForm()
     {
-        return view('auth.passwords.email');
+        return view('auth.passwords.email-supplier');
     }
 }

@@ -25,7 +25,7 @@ class SupplierLoginController extends Controller
   //   	//attempt to log the user in
 		if (Auth::guard('supplier')->attempt(['email'=>$request->email,'password'=>$request->password])){
 			//if successfull
-			return redirect()->intended(route('supplier'));
+			return redirect()->route('supplier');
 		}
 
 

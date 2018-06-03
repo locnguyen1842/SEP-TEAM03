@@ -40,7 +40,7 @@
 					</div>
 					<div class="form-group" style="margin-right: 20px">
 						<button type="submit" class="btn btn-primary" style="float: right;">Login</button>
-						<a href="{{ route('pwdforgot') }}" style="float: right; margin-right: 20px;margin-top: 7px; color: blue">Quên mật khẩu ?</a>
+						<a href="{{ route('password.request') }}" style="float: right; margin-right: 20px;margin-top: 7px; color: blue">Quên mật khẩu ?</a>
 					</div>
 				</div>
 				<div class="col-sm-3"></div>

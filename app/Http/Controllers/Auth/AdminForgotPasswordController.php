@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Password;
-class ForgotPasswordController extends Controller
+class AdminForgotPasswordController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -27,15 +27,16 @@ class ForgotPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:customer');
+        $this->middleware('guest:admin');
     }
 
-     protected function broker(){
-        return Password::broker('customers');
+    protected function broker(){
+        return Password::broker('admins');
     }
 
     public function showLinkRequestForm()
     {
-        return view('auth.passwords.email');
+        return view('auth.passwords.email-admin');
     }
+
 }

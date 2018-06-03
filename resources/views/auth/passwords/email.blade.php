@@ -7,7 +7,7 @@
 		</div>
 		<div class="pull-right">
 			<div class="beta-breadcrumb">
-				<a href="{{ route('trangchu') }}">Home</a> / <span>Quên mật khẩu</span>
+				<a href="{{ route('dangnhap') }}">Quay lại</a> / <span>Quên mật khẩu</span>
 			</div>
 		</div>
 		<div class="clearfix"></div>
@@ -17,7 +17,7 @@
 <div class="container">
 	<div id="content">
 		
-		<form action="{{ route('pwdemail') }}" method="post" class="beta-form-checkout">
+		<form action="{{ route('password.email') }}" method="post" class="beta-form-checkout">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<div class="row">
 				<div class="col-sm-3"></div>

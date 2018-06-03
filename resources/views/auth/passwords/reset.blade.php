@@ -17,9 +17,9 @@
 <div class="container">
 	<div id="content">
 		
-		<form action="{{ route('pwdreset') }}" method="post" class="beta-form-checkout">
-			 <input type="hidden" name="token" value="{{ $token }}">
-			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		<form action="{{ route('password.request') }}" method="post" class="beta-form-checkout">
+			  <input type="hidden" name="token" value="{{ $token }}">
+							{{ csrf_field() }}
 			<div class="row">
 				<div class="col-sm-3"></div>
 				@if(session('status'))
@@ -28,15 +28,35 @@
 				<div class="col-sm-6">
 					<h4>Quên mật khẩu</h4>
 					<div class="space20">&nbsp;</div>
-					
-					
-					<div class="form-block">
-						<label for="email">Mật khẩu mới</label>
-						<input class="form-control" type="password" id="email" name="password" required ">
+					<div class="form-block{{ $errors->has('email') ? ' has-error' : '' }}">
+						<label for="email">Email</label>
+						<input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
+						  @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
 					</div>
-					<div class="form-block">
-						<label for="email">Xác nhận mật khẩu</label>
-						<input class="form-control" type="password" id="email" name="repassword" required ">
+					
+					<div class="form-block{{ $errors->has('password') ? ' has-error' : '' }}">
+						<label for="password">Mật khẩu mới</label>
+						<input id="password" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+					</div>
+					<div class="form-block"{{ $errors->has('password_confirmation') ? ' has-error' : '' }}>
+						<label for="password_confirmation">Xác nhận mật khẩu</label>
+						<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
 					</div>
 					<div class="form-block" style="margin-right: 20px">
 						<button  type="submit" class="btn btn-primary" style="float: right;">OK</button>
