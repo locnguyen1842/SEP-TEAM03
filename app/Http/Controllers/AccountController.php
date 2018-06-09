@@ -9,6 +9,7 @@ use App\address;
 use App\quan_huyen;
 use App\tinh_tp;
 use App\xa_phuong;
+use App\bill;
 use Hash;
 use Auth;
 
@@ -203,6 +204,12 @@ class AccountController extends Controller
 		$address = address::find($id);
 		$address->delete();
 		return redirect()->route('user.address')->with('thanhcong','Xóa Thành Công');
+	}
+
+	public function getOrders(){
+		$orders= bill::where('id_user',Auth::guard('customer')->user()->id)->get();
+		
+		return view('account.pages.donhangcuatoi',compact('orders'));
 	}
 
 }

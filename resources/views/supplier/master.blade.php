@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <base href="{{asset('')}}">
- 
+ <Base href="{{asset('')}}">
 
     <!-- Bootstrap Core CSS -->
     <link href="admin/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -334,20 +334,21 @@
     <script src="admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
     <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
-	<script type="text/javascript" language="javascript" src="admin/ckeditor/ckeditor.js"></script>
-	<!-- DatetimePicker JavaScript -->
-    <script src="admin/vendors/DatetimePicker/jquery.datetimepicker.full.js"></script>
+
 
 <script>
     $(document).ready(function() {
-        $('#dataTables-example').DataTable({
+        $('#dataTables-supplier-sanpham').DataTable({
             responsive: true
         });
     });
-	$("#datetimepicker").datetimepicker();
-     </script>
+</script>
 
-	 @yield('script')
+<script>
+	$("#datetimepicker").datetimepicker();
+</script>
+
+@yield('script')
 </body>
 
 </html>

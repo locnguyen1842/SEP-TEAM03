@@ -13,11 +13,11 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
+                                    <i class="fa fa-home fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>New Comments!</div>
+                                    <div class="huge">{{ count($product) }}</div>
+                                    <div>Sản phẩm</div>
                                 </div>
                             </div>
                         </div>
@@ -60,8 +60,8 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>New Orders!</div>
+                                    <div class="huge">{{ count($bill) }}</div>
+                                    <div>Đơn hàng</div>
                                 </div>
                             </div>
                         </div>

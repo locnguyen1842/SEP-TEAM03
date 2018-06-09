@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Supplier;
 use App\product;
+use App\bill;
 use Illuminate\Http\Request;
 use Hash;
 class AdminController extends Controller
@@ -19,7 +20,9 @@ class AdminController extends Controller
     }
     
     public function getIndex(){
-    	return view('admin.index'); 	
+        $product = product::all();
+        $bill = bill::all();
+    	return view('admin.index',compact('product','bill')); 	
     }
 
     public function getListSupplier(){
@@ -30,6 +33,15 @@ class AdminController extends Controller
     public function getSupplierCreate(){
         
         return view('admin.taotaikhoansupplier');
+    }
+    public function getListProduct(){
+        $Sanpham = product::all();
+        return view ('admin.listproduct',compact('Sanpham'));
+    }
+    public function getDeleteProduct($id){
+        $product = product::find($id);
+        $product->delete();
+        return redirect()->back();
     }
 
     public function postSupplierCreate(Request $req){

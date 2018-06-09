@@ -279,7 +279,10 @@
                         <li>
                             <a href="{{ route('admin') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                        <li>
+                         <li>
+                            <a href="{{ route('admin.listproduct') }}"> Danh sách sản phẩm</a>
+                        </li>
+                     {{--    <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -290,14 +293,12 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href=""><i class="fa fa-table fa-fw"></i> Quản lý sản tin tức</a>
-                        </li>
-                        <li>
+                        </li> --}}
+                   
+                       {{--  <li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
-                        <li>
+                        </li> --}}
+                       {{--  <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -320,9 +321,9 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
+                        </li> --}}
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i>Quản lý tài khoản Supplier<span class="fa arrow"></span></a>
+                            <a href="#">Quản lý tài khoản Supplier<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{ route('admin.listsupplier') }}">Danh sách Supplier</a>
@@ -351,7 +352,10 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                             <li>
+                            <a href="#">About Us</a>
+                        </li>
+                       {{--  <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -362,7 +366,7 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

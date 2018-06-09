@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\productType;
 use App\product;
 use App\supplier;
+use App\billdetail;
 use Auth;
 class SupplierController extends Controller
 {
@@ -20,7 +21,22 @@ class SupplierController extends Controller
      }
 
      public function getIndex(){
-     	return view('supplier.index'); 	
+          $sanphams = product::where('supplier_id',Auth::guard('supplier')->user()->id)->get();
+         
+          $product = product::where('supplier_id',Auth::guard('supplier')->user()->id)->get();
+          $billdetail = billdetail::all();
+          $slorders = 0;
+          foreach ($billdetail as $item) {
+               foreach ($product as $key) {
+                    if ($item->id_product == $key->id){
+                         $slorders++;
+                    }
+               }
+          }
+          
+          
+          
+     	return view('supplier.index',compact('sanphams','slorders')); 	
      }
 
      public function getDanhSachSP(){
@@ -34,7 +50,17 @@ class SupplierController extends Controller
      	$LoaiSP = productType::all();
      	return view('supplier.Product.SuaSP',['Sanpham'=>$Sanpham,'LoaiSP'=>$LoaiSP]);
      }
-
+     public function postShowHide($id){
+          $product = product::find($id);
+          if($product->active == 1 ){
+               $product->active = 0;
+          }
+          else {
+                $product->active = 1;
+          }
+          $product->save();
+          return redirect()->back();
+     }
      public function postSuaSP(Request $request,$id){
      	$Sanpham = product::find($id);
      	$this->validate($request,

@@ -24,20 +24,17 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-supplier-sanpham">
                                 <thead>
                                     <tr>
 										<th>Hình ảnh</th>
                                         <th>Tên</th>
-                                        <th>Loại</th>
-                                        <th>Giá</th>
-                                        <th>Đơn vị</th>
-                                        <th>Số lượng</th>
-										<th>Giá giảm giá</th>
+                                        <th>SKU</th>
+                                       
 										<th>Ngày đăng</th>
-										<th>Hạn sử dụng</th>
-										<th>Chỉnh Sửa</th>
-										<th>Ẩn/Hiện</th>
+									    <th>Hiển thị</th>
+										<th>Thao tác</th>
+										
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,20 +42,20 @@
 										<tr class="odd gradeX">
 											<td><img width="100px" src="source/image/product/{{$sp->image}}"/></td>
 											<td><a href="{{ route('chitietsp',$sp->id) }}">{{$sp->name}}</a></td>
-											<td>{{$sp->product_Type->name}}</td>
-											<td>{{$sp->unit_price}}</td>
-											<td>{{$sp->unit}}</td>
-											<td>{{$sp->new}}</td>
+											<td>{{ $sp->SKU }}</td>
+											
 
-											<td><span>{{$sp->promotion_price}}</span></td>
-
-											<td>{{$sp->promotion_price}}</td>
+											
 
 											<td>{{$sp->created_at}}</td>
-											<td></td>
+                                            @if($sp->active == 1)
+                                            <td><span style="color: green">Có</span></td>
+                                            @endif
+                                            @if($sp->active == 0)
+                                            <td><span style="color: red">Không</span></td>
+                                            @endif
+											<td class="center"><i class="fa fa-pencil fa-fw"></i><a href="supplier/Product/SuaSP/{{$sp->id}}">Sửa</a> | <a href="{{ route('supplier.product.showhide',$sp->id) }}">Ẩn/Hiện</a>|<a href="supplier/Product/XoaSP/{{$sp->id}}" onclick="return confirm('Bạn có muốn xóa sản phẩm có SKU : {{ $sp->SKU }} hay không?');">Xóa</a></td>
 											
-											<td class="center"><i class="fa fa-pencil fa-fw"></i><a href="supplier/Product/SuaSP/{{$sp->id}}">Sửa</a></td>
-											<td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="supplier/Product/XoaSP/{{$sp->id}}">Ẩn</a></td>
 										</tr>
 									@endforeach
                                 </tbody>

@@ -22,7 +22,7 @@
 		</ul>
 	</li>
 	<li class="item" id="orders">
-		<a class="active" href="#">
+		<a class="active" href="{{ route('user.orders') }}">
 			<span>Đơn hàng của tôi</span>
 		</a>
 		
