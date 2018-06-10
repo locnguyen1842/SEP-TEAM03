@@ -11,4 +11,7 @@ class address extends Model
    public function customers(){
     	return $this->belongsTo('App\customer','id_customer','id');
     }
+    public function bills(){
+    	return $this->hasMany('App\bill','address_id','id');
+    }
 }

@@ -15,7 +15,7 @@ class bill extends Model
     	return $this->belongsTo('App\customer','id_user','id');
     }
 
-    public function shipper(){
-    	return $this->belongsTo('App\shipper','shipper_id','id');
+    public function address(){
+    	return $this->belongsTo('App\address','address_id','id');
     }
 }

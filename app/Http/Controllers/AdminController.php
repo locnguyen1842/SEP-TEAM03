@@ -36,12 +36,20 @@ class AdminController extends Controller
     }
     public function getListProduct(){
         $Sanpham = product::all();
-        return view ('admin.listproduct',compact('Sanpham'));
+        return view ('admin.thongkesanpham',compact('Sanpham'));
     }
     public function getDeleteProduct($id){
         $product = product::find($id);
         $product->delete();
         return redirect()->back();
+    }
+    public function getListOrder(){
+        $bill = bill::all();
+        return view('admin.thongkedonhang',compact('bill'));
+    }
+    public function getDetailOrder($id){
+        $bill = bill::find($id);
+        return view('admin.chitietdonhang',compact('bill'));
     }
 
     public function postSupplierCreate(Request $req){
