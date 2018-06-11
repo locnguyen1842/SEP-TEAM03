@@ -162,6 +162,14 @@ Route::group(['prefix'=>'admin'],function(){
 		'as'=>'admin.listproduct',
 		'uses'=>'AdminController@getListProduct'
 	]);
+	Route::get('order-list',[
+		'as'=>'admin.listorder',
+		'uses'=>'AdminController@getListOrder'
+	]);
+	Route::get('order-detail/{id}',[
+		'as'=>'admin.orderdetail',
+		'uses'=>'AdminController@getDetailOrder'
+	]);
 	Route::get('product-delete/{id}',[
 		'as'=>'admin.deleteproduct',
 		'uses'=>'AdminController@getDeleteProduct'

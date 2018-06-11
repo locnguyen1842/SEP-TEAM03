@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <base href="{{asset('')}}">
     <title>Quản trị - Cloudbooth</title>
-	<Base href="{{asset('')}}">
+    <Base href="{{asset('')}}">
     <!-- Bootstrap Core CSS -->
     <link href="admin/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -53,11 +53,11 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
+                {{-- <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
+                    </a> --}}
+                    {{-- <ul class="dropdown-menu dropdown-messages">
                         <li>
                             <a href="#">
                                 <div>
@@ -186,8 +186,8 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
+                    </a> --}}
+                 {{--    <ul class="dropdown-menu dropdown-alerts">
                         <li>
                             <a href="#">
                                 <div>
@@ -239,20 +239,20 @@
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
-                    </ul>
+                    </ul> --}}
                     <!-- /.dropdown-alerts -->
-                </li>
+                {{-- </li> --}}
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        {{-- <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
+                        </li> --}}
+                       {{--  <li class="divider"></li> --}}
                         <li><a href="{{ route('admin.logout') }}"><i class="fa fa-sign-out fa-fw"></i> Đăng Xuất</a>
                         </li>
                     </ul>
@@ -262,26 +262,24 @@
             </ul>
             <!-- /.navbar-top-links -->
 
-        <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
                             </div>
                             <!-- /input-group -->
                         </li>
                         <li>
                             <a href="{{ route('admin') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                         <li>
-                            <a href="{{ route('admin.listproduct') }}"> Danh sách sản phẩm</a>
-                        </li>
+                      
                      {{--    <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -294,7 +292,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li> --}}
-                   
+
                        {{--  <li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
                         </li> --}}
@@ -351,8 +349,40 @@
                                 </li> --}}
                             </ul>
                             <!-- /.nav-second-level -->
+
                         </li>
-                             <li>
+                       <li>
+                            <a href="#">Thống kê<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ route('admin.listproduct') }}">Thống kê sản phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.listorder') }}">Thống kê đơn hàng</a>
+                                </li>
+                               {{--  <li>
+                                    <a href="#">Third Level <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li> --}}
+                            </ul>
+                            <!-- /.nav-second-level -->
+
+                        </li>
+                        <li>
                             <a href="#">About Us</a>
                         </li>
                        {{--  <li>
@@ -375,40 +405,40 @@
         </nav>
 
         <div id="page-wrapper">
-         @yield('content')
-        <!-- /#page-wrapper -->
+           @yield('content')
+           <!-- /#page-wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+       </div>
+       <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="admin/vendors/jquery/jquery.min.js"></script>
+       <!-- jQuery -->
+       <script src="admin/vendors/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="admin/vendors/bootstrap/js/bootstrap.min.js"></script>
+       <!-- Bootstrap Core JavaScript -->
+       <script src="admin/vendors/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="admin/vendors/metisMenu/metisMenu.min.js"></script>
+       <!-- Metis Menu Plugin JavaScript -->
+       <script src="admin/vendors/metisMenu/metisMenu.min.js"></script>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="admin/vendors/raphael/raphael.min.js"></script>
-    <script src="admin/vendors/morrisjs/morris.min.js"></script>
-    <script src="admin/data/morris-data.js"></script>
+       <!-- Morris Charts JavaScript -->
+       <script src="admin/vendors/raphael/raphael.min.js"></script>
+       <script src="admin/vendors/morrisjs/morris.min.js"></script>
+       <script src="admin/data/morris-data.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="admin/dist/js/sb-admin-2.js"></script>
-    <script src="admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
-    <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
+       <!-- Custom Theme JavaScript -->
+       <script src="admin/dist/js/sb-admin-2.js"></script>
+       <script src="admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
+       <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
+       <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
 
 
-<script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
+       <script>
+        $(document).ready(function() {
+            $('#dataTables-example').DataTable({
+                responsive: true
+            });
         });
-    });
-     </script>
+    </script>
 </body>
 
 </html>

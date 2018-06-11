@@ -42,8 +42,8 @@
                                         <tr class="odd gradeX">
                                           <td><img width="100px" src="source/image/product/{{$sp->image}}"/></td>
                                             <td><a href="{{ route('chitietsp',$sp->id) }}">{{$sp->name}}</a></td>
-                                            <td>{{ $sp->product_type()->first()->name }}</td>
                                             
+                                            <td>{{ $sp->product_type()->first()->name }}</td>
 
                                             
 
