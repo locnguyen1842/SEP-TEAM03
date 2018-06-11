@@ -362,3 +362,7 @@ Route::post('dat-hang',[
 	'as'=>'dathang',
 	'uses'=>'PageController@postCheckout'
 ]);
+
+
+
+Route::get('mua-hang/{id}/{tensanpham}',['as'=>'muahang','uses'=>'WellcomController@muahang']);

@@ -226,6 +226,10 @@ class PageController extends Controller
             }
           }
 
+          public function muahang(){
+
+          }
+
 
 
 
