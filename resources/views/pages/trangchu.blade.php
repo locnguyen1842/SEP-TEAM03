@@ -85,7 +85,7 @@
 													<div class="single-item-caption" style="margin-top: 10px">
 
 
-														<a class="add-to-cart pull-left" href="{{route('themgiohang',$item->id)}}"><i class="fa fa-shopping-cart"></i></a>
+														<a class="add-to-cart pull-left" href="{{ route('chitietsp',$item->id) }}"><i class="fa fa-shopping-cart"></i></a>
 														<a class="beta-btn primary" href="{{ route('chitietsp',$item->id) }}">Details <i class="fa fa-chevron-right"></i></a>
 
 													</div>
@@ -123,7 +123,7 @@
 													</div>
 													<div class="single-item-caption" style="margin-top: 10px">
 
-														<a class="add-to-cart pull-left" href="{{route('themgiohang',$item->id)}}"><i class="fa fa-shopping-cart"></i></a>
+														<a class="add-to-cart pull-left" href="{{ route('chitietsp',$item->id) }}"><i class="fa fa-shopping-cart"></i></a>
 														<a class="beta-btn primary" href="{{ route('chitietsp',$item->id) }}">Details <i class="fa fa-chevron-right"></i></a>
 														<div class="clearfix"></div>
 													</div>

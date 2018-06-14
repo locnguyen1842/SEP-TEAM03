@@ -44,10 +44,22 @@ Route::get('san-pham-khuyen-mai',[
 	'as'=>'spkhuyenmai',
 	'uses'=>'PageController@getSpKhuyenMai'
 ]);
+Route::get('cart',[
+	'as'=>'cart.index',
+	'uses'=>'CartController@index'
+]);
+Route::get('cart-update/{id}',[
+	'as'=>'cart.update',
+	'uses'=>'CartController@update'
+]);
+Route::delete('cart-delete/{id}',[
+	'as'=>'cart.destroy',
+	'uses'=>'CartController@destroy'
+]);
 
-Route::get('add-to-cart/{id?}',[
-	'as'=>'themgiohang',
-	'uses'=>'PageController@getAddtoCart'
+Route::post('cart',[
+	'as'=>'cart.store',
+	'uses'=>'CartController@store'
 ]);
 
 
@@ -66,19 +78,11 @@ Route::get('san-pham-khuyen-mai',[
 	'as'=>'spkhuyenmai',
 	'uses'=>'PageController@getSpKhuyenMai'
 ]);
-//cart route
-Route::get('add-to-cart/{id?}',[
-	'as'=>'themgiohang',
-	'uses'=>'PageController@getAddtoCart'
-]);
-Route::get('del-cart/{id?}',[
-	'as'=>'xoagiohang',
-	'uses'=>'PageController@getDelItemCart'
-]);
-Route::get('cart-details',[
-	'as'=>'chitietgiohang',
-	'uses'=>'PageController@getCartDetails'
-]);
+//checkout route
+	Route::get('checkout','CheckoutController@index')->name('checkout.index');
+	Route::get('checkoutss','CheckoutController@checkoutss')->name('checkout.success');
+	Route::post('checkout','CheckoutController@store')->name('checkout.store');
+
 //user login route
 Route::get('dang-nhap',[
 	'as'=>'dangnhap',
@@ -361,12 +365,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('dat-hang',[
-	'as'=>'dathang',
-	'uses'=>'PageController@getCheckout'
-]); 
-Route::post('dat-hang',[
-	'as'=>'dathang',
-	'uses'=>'PageController@postCheckout'
-]);

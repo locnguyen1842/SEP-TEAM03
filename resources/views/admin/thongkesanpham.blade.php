@@ -23,12 +23,13 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-thongkesp">
                                 <thead>
                                     <tr>
                                         <th>Hình ảnh</th>
                                         <th>Tên</th>
-                                        <th>Loại</th>
+                                        <th></th>
                                        
                                          <th>Gian hàng</th>
                                         <th>Ngày đăng</th>
@@ -49,7 +50,7 @@
 
                                             
                                             <td>{{ $sp->supplier()->first()->shopname }}</td>
-                                            <td>{{$sp->created_at}}</td>
+                                            <td>{{ date('Y-m-d', strtotime($sp->created_at)) }}</td>
                                            
                                            
                                             

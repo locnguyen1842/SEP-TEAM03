@@ -23,45 +23,56 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                        <thead>
-                            <tr>
-                                <th>Mã đơn hàng</th>
-                                <th>Ngày đặt</th>
-                                <th>Trạng thái</th>
-                                <th>Người mua</th>
+                    <div class="form-inline">
+                        <div class="form-group" style="margin-bottom: 5px">
+                            <label>Date Range </label>
+                            <input style="width: 200px" class="form-control input-sm" name="date_range" id="date_range" type="text" />
+                           
+                        </div>
+                     
+                    </div>
+                   
+                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Ngày đặt</th>
+                            <th>Trạng thái</th>
+                            <th>Người mua</th>
 
 
 
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($bill as $sp)
-                            <tr class="odd gradeX">
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($bill as $sp)
+                        <tr class="odd gradeX">
 
-                                <td><a href="{{ route('admin.orderdetail',$sp->id) }}">{{$sp->bill_number}}</td></a>
-                                <td>{{ $sp->created_at }}</td>
-
-
+                            <td><a href="{{ route('admin.orderdetail',$sp->id) }}">{{$sp->bill_number}}</td></a>
+                            <td>{{ date('Y-m-d', strtotime($sp->created_at)) }}</td>
 
 
 
 
-                                <td>{{$sp->note}}</td>
-                                <td>{{$sp->customer()->first()->email}}</td>
 
 
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /.panel-body -->
+                            <td>{{$sp->note}}</td>
+                            <td>{{$sp->customer()->first()->email}}</td>
+
+
+                        </tr>
+                        @endforeach
+                    </tbody>
+                 
+                </table>
             </div>
-            <!-- /.panel -->
+            <!-- /.panel-body -->
         </div>
-        <!-- /.col-lg-12 -->
+        <!-- /.panel -->
     </div>
+    <!-- /.col-lg-12 -->
 </div>
+</div>
+
 @endsection

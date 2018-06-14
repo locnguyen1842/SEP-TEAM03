@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use App\bill;
 use App\billdetail;
-use App\Cart;
+use Cart;
 use App\Slide;
 use Illuminate\Http\Request;
 use App\Product;

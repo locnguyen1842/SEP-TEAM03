@@ -193,7 +193,7 @@ class AccountController extends Controller
 		$address->phone = $req->phone;
 		$address->id_customer = Auth::guard('customer')->user()->id;
 		$address->save();
-		return redirect()->route('user.address')->with('thanhcong','Lưu Thành Công');
+		return redirect()->back();
 
 
 		
