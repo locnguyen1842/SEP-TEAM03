@@ -3,8 +3,8 @@
 <div class="container" style="margin-top: 20px;margin-bottom: 20px">
 	@if(Cart::instance('default')->count() > 0)
 	<div class="col-sm-8" >
-		<h4 style="margin-bottom: 20px" >Giỏ hàng</h4 >	
-		
+		<h4 style="margin-bottom: 20px" >Giỏ hàng</h4 >
+
 		<div  class="panel panel-info">
 			<?php $count=1;?>
 			@foreach(Cart::content() as $item)
@@ -16,6 +16,7 @@
 					<div class="col-xs-12" style="word-wrap: break-word;">
 						<a href="{{ route('chitietsp',$item->model->id) }}">Sản phẩm: {{ $item->model->name }}</a>
 					</div>
+<<<<<<< HEAD
 					<form class="form-inline">
 						<div style="margin-top: 15px" class="col-xs-12 form-group">
 							<label style="font-weight: 500"> Số lượng :</label>
@@ -30,8 +31,20 @@
 					
 					<div class="col-xs-12">
 						<p style="margin-top: 15px">Nhà Phân Phối : {{ $item->model->supplier()->first()->shopname }}</p>	
+=======
+
+					<div class="col-xs-6">
+
+						{{$product['qty']}}*<span>@if($product['item']['promotion_price']==0)
+								{{$product['item']['unit_price']}} @else {{number_format($product['item']['promotion_price'])}}@endif</span>					</div>
+					<div class="col-xs-6">
+
 					</div>
-					
+					<div class="col-xs-12">
+						<p style="margin-top: 15px">Nhà Phân Phối : {{ $product['item']['supplier_id'] }}</p>
+>>>>>>> 7b01d4a898136cfec2d7a13edab0a67c1c5ad2a5
+					</div>
+
 				</div>
 				<div class="col-xs-3 price-item-cart">
 					@if($item->model->promotion_price == 0)
@@ -40,12 +53,16 @@
 					<span class="flash-sale">
 						{{ number_format($item->model->promotion_price) }} đ
 					</span>
+					@if($product['item']['promotion_price']=='')
+					<p>{{ number_format($product['item']['unit_price']) }} đ</p>
+					@else
+					<span class="flash-sale">{{ number_format($product['item']['promotion_price']) }} đ / {{ $product['item']['unit'] }} </span>
 					<br>
 					<span class="flash-del">{{ number_format($item->model->unit_price ) }} đ</span>
 					<br>
 					@endif
 
-					
+
 				</div>
 				<div class="col-xs-1 action">
 					<form action="{{ route('cart.destroy',$item->rowId) }}" method="POST">
@@ -67,11 +84,16 @@
 	</div>
 	<div class="col-sm-4">
 		<div  class="panel panel-info" style="margin-top: 60px">
-			
+
 			<div id="cart" class="panel-body" style="min-height: 160px">
 				<div class="col-sm-12">
+<<<<<<< HEAD
 					<div class="col-sm-7 label-thanhtoan">
 						Tạm tính : 
+=======
+					<div class="col-sm-8 label-thanhtoan">
+						Tạm tính :
+>>>>>>> 7b01d4a898136cfec2d7a13edab0a67c1c5ad2a5
 					</div>
 					<div class="col-sm-5 gia-thanhtoan">
 						{{ number_format(Cart::subtotal()) }}
@@ -86,8 +108,13 @@
 					</div>
 				</div>
 				<div class="col-sm-12">
+<<<<<<< HEAD
 					<div class="col-sm-7 label-thanhtoan">
 						Phí vận chuyển 
+=======
+					<div class="col-sm-8 label-thanhtoan">
+						Phí vận chuyển
+>>>>>>> 7b01d4a898136cfec2d7a13edab0a67c1c5ad2a5
 					</div>
 					<div class="col-sm-5 gia-thanhtoan">
 						Miễn phí
@@ -95,21 +122,27 @@
 				</div>
 				<div class="col-sm-12" style="min-height:20px"></div>
 				<div class="col-sm-12" style="background: #ded6d6; border-radius: 20px">
+<<<<<<< HEAD
 					<div class="col-sm-7 label-tongcong">
 						<p class="label-tongcong">Tổng cộng</p> 
+=======
+					<div class="col-sm-8 label-tongcong">
+						<p class="label-tongcong">Tổng cộng</p>
+>>>>>>> 7b01d4a898136cfec2d7a13edab0a67c1c5ad2a5
 					</div>
 					<div class="col-sm-5 gia-thanhtoan">
 						{{ number_format(Cart::total()) }} đ
 					</div>
 				</div>
 				<br>
-				
+
 				<div class="col-sm-12" style="margin-top: 10px">
 					<a href="{{ route('checkout.index') }}"><button class="btn btn-block btn-success">Tiến Hành Thanh Toán</button></a>
 				</div>
-				
+
 			</div>
 		</div>
+<<<<<<< HEAD
 		
 
 		
@@ -123,6 +156,18 @@
 		<div id="cart" class="panel-body" style="text-align: center;">
 			<h1>Hiện Tại Không Có Sản Phẩm Nào Trong Giỏ Hàng </h1>
 			<h1><a href="{{ route('trangchu') }}">TIếp Tục Mua Sắm</a> </h1>
+=======
+
+
+
+	</div>
+	@else
+	<h4 style="margin-bottom: 20px" >Giỏ hàng</h4 >
+	<div  class="panel panel-info" style="margin-top: 20px">
+
+			<div id="cart" class="panel-body" style="text-align: center;">
+				<h1>Hiện Tại Không Có Sản Phẩm Nào Trong Giỏ Hàng </h1>
+>>>>>>> 7b01d4a898136cfec2d7a13edab0a67c1c5ad2a5
 
 		</div>
 	</div>

@@ -365,19 +365,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-<<<<<<< HEAD
-=======
-
-Route::get('dat-hang',[
-	'as'=>'dathang',
-	'uses'=>'PageController@getCheckout'
-]); 
-Route::post('dat-hang',[
-	'as'=>'dathang',
-	'uses'=>'PageController@postCheckout'
-]);
-
-
-
-Route::get('mua-hang/{id}/{tensanpham}',['as'=>'muahang','uses'=>'WellcomController@muahang']);
->>>>>>> 7b01d4a898136cfec2d7a13edab0a67c1c5ad2a5
