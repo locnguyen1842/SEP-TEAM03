@@ -47,16 +47,19 @@
 
 				</div>
 				<div class="col-xs-3 price-item-cart">
+<<<<<<< HEAD
 					@if($item->model->promotion_price == 0)
 					<p>{{ number_format($item->model->unit_price) }} đ</p>
 					@else	
 					<span class="flash-sale">
 						{{ number_format($item->model->promotion_price) }} đ
 					</span>
+=======
 					@if($product['item']['promotion_price']=='')
 					<p>{{ number_format($product['item']['unit_price']) }} đ</p>
 					@else
 					<span class="flash-sale">{{ number_format($product['item']['promotion_price']) }} đ / {{ $product['item']['unit'] }} </span>
+>>>>>>> 7b01d4a898136cfec2d7a13edab0a67c1c5ad2a5
 					<br>
 					<span class="flash-del">{{ number_format($item->model->unit_price ) }} đ</span>
 					<br>
