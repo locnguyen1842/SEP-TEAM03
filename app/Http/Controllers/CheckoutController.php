@@ -66,8 +66,10 @@ class CheckoutController extends Controller
             ]
         );
             $bill = new bill;
-            $dateString = Carbon::now();
-            $billnumber = date('Y', strtotime($dateString)).''.date('m', strtotime($dateString)).''.date('d', strtotime($dateString)).''.Auth::guard('customer')->user()->id;
+            $dateString = Carbon::now()->format('Y-m-d\TH:i:s');
+
+            $billnumber = date('Y', strtotime($dateString)).''.date('m', strtotime($dateString)).''.date('d', strtotime($dateString)).''.date('His', strtotime($dateString)).''.Auth::guard('customer')->user()->id;
+           
             $bill->bill_number = $billnumber;
             $bill->id_user = Auth::guard('customer')->user()->id;
             $bill->total = Cart::total();

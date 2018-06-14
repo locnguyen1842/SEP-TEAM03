@@ -11,7 +11,7 @@
 			<tr>
 				<th scope="col">Mã đơn hàng</th>
 				<th scope="col">Ngày đặt hàng</th>
-				<th scope="col">Sản phẩm</th>
+				
 				<th scope="col">Tổng tiền </th>
 				<th scope="col">Trạng thái</th>
 			</tr>
@@ -20,9 +20,10 @@
 			@foreach($orders as $item)
 				
 				<tr>
-					<th scope="row">{{$item->bill_number}}</th>
+					<td scope="row">{{$item->bill_number}}</td>
 					<td>{{$item->created_at}}</td>
-					<td>{{$item->bill_detail()->first()->product()->first()->name}}</td>
+					
+					
 					<td>{{$item->total}}</td>
 					<td>{{$item->note}}</td>
 				</tr>
