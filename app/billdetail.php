@@ -14,5 +14,8 @@ class billdetail extends Model
     public function product(){
     	return $this->belongsTo('App\product','id_product','id');
     }
+    public function supplier(){
+    	return $this->belongsTo('App\Supplier','id_supplier','id');
+    }
 
 }

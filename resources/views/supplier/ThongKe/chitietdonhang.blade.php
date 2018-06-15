@@ -1,4 +1,5 @@
-@extends('admin.master')
+@extends('supplier.master')
+
 @section('content')
 <div>
   <div class="row">
@@ -37,9 +38,12 @@
           <h3 class="panel-title">Thông tin giao hàng</h3>
         </div>
         <div class="panel-body">
+          <p>Tên Người Mua: <span>{{ $bill->address()->first()->name }}</span></p>
+          <p>Số Điện Thoại Người Mua: <span>{{ $bill->address()->first()->phone }}</span></p>
           <p>Địa chỉ giao hàng : <span>{{ $bill->address()->first()->addressde }}, {{ $bill->address()->first()->mavung }}</span></p>
           <p>Phương thức thanh toán: <span>COD</span></p>
           <p>Tình trạng đơn hàng: <span>{{ $bill->note }}</span></p>
+
 
         </div>
       </div>
@@ -75,9 +79,9 @@
                <td><a target="_blank" href="{{ route('chitietsp',$item->product->id) }}">{{ $item->product->name }}</a></td>
                <td>{{ $item->quantity }}</td>
                @if($item->product->promotion_price >0)
-               <td>{{ $item->product->promotion_price }}</td>
+               <td>{{ number_format($item->product->promotion_price) }}</td>
                @else
-               <td>{{ $item->product->unit_price }}</td>
+               <td>{{ number_format($item->product->unit_price)}}</td>
                @endif
                
                </tr> 

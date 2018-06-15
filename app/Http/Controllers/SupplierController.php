@@ -7,6 +7,7 @@ use App\productType;
 use App\product;
 use App\supplier;
 use App\billdetail;
+use App\bill;
 use Auth;
 class SupplierController extends Controller
 {
@@ -268,5 +269,59 @@ class SupplierController extends Controller
      	$supplier->save();
      	return view('supplier.Info.thongtingianhang',compact('supplier'));
      }
+     public function getThongKeDonHang(){
+          
+          $bill = billdetail::where('id_supplier',Auth::guard('supplier')->user()->id)->get();
 
+          
+          return view('supplier.ThongKe.thongkedonhang',compact('bills','bill'));
+     }
+     public function getChiTietDonHang($id){
+          $bill = bill::find($id);
+          $billdetail = billdetail::where([['id_bill',$bill->id],['id_supplier',Auth::guard('supplier')->user()->id]])->get();
+          return view('supplier.ThongKe.chitietdonhang',compact('billdetail','bill'));
+     }
+     public function getEditStatusOrders($id){
+          $billdetail = billdetail::find($id);
+          return view('supplier.ThongKe.chinhsuadonhang',compact('billdetail'));
+
+     }
+     public function postEditStatusOrders(Request $req,$id){
+
+         
+          $billdetail = billdetail::find($id);
+          $bills = billdetail::where('id_bill',$billdetail->id_bill)->get();
+          $bill = bill::find($billdetail->id_bill);
+          $billdetail->status = $req->status;
+          $billdetail->save();
+          foreach ($bills as $item ) {
+               if($item->status == "Đang Giao"){
+                    $bills->note = "Đang Giao";
+               }
+               else {
+                    $bill->note = "Đặt Thành Công";
+               }
+               if ($item->status == "Đã Hủy"){
+                    $bill->note = "Đã Hủy";
+               }
+               else{
+                    $bill->note = "Đặt Thành Công";
+               }
+               if ($item->status == "Đã Giao"){
+                    $bill->note = "Đã Giao";
+               }
+               else{
+                    $bill->note = "Đặt Thành Công";
+               }
+               if ($item->status == "Đang Chờ Xử Lý"){
+                    $bill->note = "Đang Chờ Xử Lý";
+               }
+               else{
+                    $bill->note = "Đặt Thành Công";
+               }
+          }
+          $bill->save();
+          return redirect()->back()->with('thongbao','Thay Đổi Thành Công');
+
+     }
  }

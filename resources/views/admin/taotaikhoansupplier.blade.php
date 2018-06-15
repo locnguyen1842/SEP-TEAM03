@@ -40,6 +40,10 @@
                                 <label>Email</label>
                                 <input name="email" class="form-control" type="email" placeholder="Nhập địa chỉ email" required="">
                             </div>
+                             <div class="form-group">
+                                <label>Tên Gian Hàng</label>
+                                <input name="shopname" class="form-control" type="text" placeholder="Nhập tên gian hàng" required="">
+                            </div>
                             <div class="form-group">
                                 <label>Mật Khẩu</label>
                                 <input name="password" class="form-control" type="password" placeholder="Nhập mật khẩu" required="">

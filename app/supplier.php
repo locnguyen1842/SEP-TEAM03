@@ -15,6 +15,9 @@ class Supplier extends Authenticatable
     public function products(){
         return $this->hasMany('App\product','supplier_id','id');
     }
+    public function bill_detail(){
+        return $this->hasMany('App\billdetail','id_supplier','id');
+    }
     /**
      * The attributes that are mass assignable.
      *

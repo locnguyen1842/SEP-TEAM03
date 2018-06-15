@@ -25,6 +25,7 @@
 	
 	<!-- DatetimePicker CSS -->
     <link href="admin/vendors/DatetimePicker/jquery.datetimepicker.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <!-- Custom Fonts -->
     <link href="admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -291,10 +292,22 @@
                             <a href="#"><i class="fa fa-list fa-fw"></i> Sản Phẩm<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="supplier/Product/ThemSP"><i class="fa fa-plus-square-o fa-fw"></i>Thêm Sản Phẩm</a>
+                                    <a href="{{ route('supplier.product.add') }}"><i class="fa fa-plus-square-o fa-fw"></i>Thêm Sản Phẩm</a>
                                 </li>
                                 <li>
-                                    <a href="supplier/Product/DanhsachSP"><i class="fa fa-list fa-fw"></i>Danh Sách Sản Phẩm</a>
+                                    <a href="{{ route('supplier.product.index') }}"><i class="fa fa-list fa-fw"></i>Danh Sách Sản Phẩm</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-list fa-fw"></i> Thống kê<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ route('supplier.thongkedonhang.index') }}">Thống Kê Đơn Hàng</a>
+                                </li>
+                                <li>
+                                    <a href="supplier/Product/DanhsachSP">Thống Kê Sản Phẩm</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -328,13 +341,75 @@
     <script src="admin/vendors/raphael/raphael.min.js"></script>
     <script src="admin/vendors/morrisjs/morris.min.js"></script>
     <script src="admin/data/morris-data.js"></script>
-
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+      <script type="text/javascript" src="daterangepicker-master/daterangepicker.js"></script>
     <!-- Custom Theme JavaScript -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="admin/dist/js/sb-admin-2.js"></script>
     <script src="admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
     <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
 
+<script type="text/javascript">
+    $(document).ready( function () {
+    var table = $('#dataTables-supplier-tkdonhang').DataTable();
+        
+    //END of the data table
+
+    // Date range script - Start of the sscript
+    $('#date_range').daterangepicker({
+        autoUpdateInput: false,
+        locale: {
+            "cancelLabel": "Clear",
+            }
+    });
+
+    $('#date_range').on('apply.daterangepicker', function(ev, picker) {
+          $(this).val(picker.startDate.format('YYYY-MM-DD') + ' đến ' + picker.endDate.format('YYYY-MM-DD'));
+          table.draw();
+    });
+
+    $('#date_range').on('cancel.daterangepicker', function(ev, picker) {
+          $(this).val('');
+          table.draw();
+    });
+    // Date range script - END of the script
+
+    $.fn.dataTableExt.afnFiltering.push(
+    function( oSettings, aData, iDataIndex ) {
+        
+        var grab_daterange = $("#date_range").val();
+        var give_results_daterange = grab_daterange.split(" đến ");
+        var filterstart = give_results_daterange[0];
+        var filterend = give_results_daterange[1];
+        var iStartDateCol = 1; //using column 2 in this instance
+        var iEndDateCol = 1;
+        var tabledatestart = aData[iStartDateCol];
+        var tabledateend= aData[iEndDateCol];
+        
+        if ( !filterstart && !filterend )
+        {
+            return true;
+        }
+        else if ((moment(filterstart).isSame(tabledatestart) || moment(filterstart).isBefore(tabledatestart)) && filterend === "")
+        {
+            return true;
+        }
+        else if ((moment(filterstart).isSame(tabledatestart) || moment(filterstart).isAfter(tabledatestart)) && filterstart === "")
+        {
+            return true;
+        }
+        else if ((moment(filterstart).isSame(tabledatestart) || moment(filterstart).isBefore(tabledatestart)) && (moment(filterend).isSame(tabledateend) || moment(filterend).isAfter(tabledateend)))
+        {
+            return true;
+        }
+        return false;
+    }
+    );
+
+    //End of the datable
+     });
+</script>
 
 <script>
     $(document).ready(function() {

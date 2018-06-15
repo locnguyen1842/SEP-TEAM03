@@ -252,22 +252,23 @@ Route::group(['prefix'=>'supplier'],function(){
 
 	Route::group(['prefix'=>'Product'],function(){
 			//supplier/Product/ThemSP
-		Route::get('DanhsachSP','SupplierController@getDanhSachSP');
+		Route::get('DanhsachSP','SupplierController@getDanhSachSP')->name('supplier.product.index');
 
-		Route::get('SuaSP/{id}','SupplierController@getSuaSP');
-		Route::post('SuaSP/{id}','SupplierController@postSuaSP');
+		Route::get('SuaSP/{id}','SupplierController@getSuaSP')->name('supplier.product.edit');
+		Route::post('SuaSP/{id}','SupplierController@postSuaSP')->name('supplier.product.edit');
 
-		Route::get('ThemSP','SupplierController@getThemSP');
-		Route::post('ThemSP','SupplierController@postThemSP');
+		Route::get('ThemSP','SupplierController@getThemSP')->name('supplier.product.add');
+		Route::post('ThemSP','SupplierController@postThemSP')->name('supplier.product.add');
 		Route::get('ShowHide/{id}','SupplierController@postShowHide')->name('supplier.product.showhide');
-		Route::get('XoaSP/{id}','SupplierController@getXoaSP');
+		Route::get('XoaSP/{id}','SupplierController@getXoaSP')->name('supplier.product.delete');
 	});
-	Route::group(['prefix'=>'ThongTin'],function(){
+	Route::group(['prefix'=>'thongke'],function(){
 			//supplier/Info
-		Route::get('ThongTinSup','SupplierController@getThongTinSup');
+		Route::get('thong-ke-don-hang','SupplierController@getThongKeDonHang')->name('supplier.thongkedonhang.index');
 
-		Route::get('SuaThongTinSup/{id}','SupplierController@getSuaThongTinSup');
-		Route::post('SuaThongTinSup/{id}','SupplierController@postSuaThongTinSup');
+		Route::get('chi-tiet-don-hang/{id}','SupplierController@getChiTietDonHang')->name('supplier.chitietdonhang.index');
+		Route::get('trang-thai-don-hang/{id}','SupplierController@getEditStatusOrders')->name('supplier.thongkedonhang.edit');
+		Route::post('trang-thai-don-hang/{id}','SupplierController@postEditStatusOrders')->name('supplier.thongkedonhang.edit');
 	});
 });
 //user route

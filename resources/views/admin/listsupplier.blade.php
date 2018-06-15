@@ -19,7 +19,7 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Tên công ty</th>
+                                        <th>Tên Gian Hàng</th>
                                         <th>Email</th>
                                         <th>Số điện thoại</th>
                                         <th> </th>
@@ -29,7 +29,7 @@
                                     @foreach($suppliers as $item)
                                     <tr class="odd gradeX">
                                         
-                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->shopname }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->phone }}</td>
                                         <td class="center">

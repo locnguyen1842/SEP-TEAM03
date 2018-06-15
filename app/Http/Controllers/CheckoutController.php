@@ -74,7 +74,7 @@ class CheckoutController extends Controller
             $bill->bill_number = $billnumber;
             $bill->id_user = Auth::guard('customer')->user()->id;
             $bill->total = Cart::total();
-
+            $bill->note = 'Đặt Thành Công';
             $bill->address_id = $request->rdaddress;
             $bill->save();
             foreach (Cart::content() as $item) {
@@ -82,7 +82,7 @@ class CheckoutController extends Controller
                 $billdetail->id_bill = $bill->id;
                 $billdetail->id_product = $item->model->id;
                 $billdetail->quantity = $item->qty;
-
+                $billdetail->status = 'Đang Chờ Xử Lý';
                
                 $product = product::where('id',$billdetail->id_product)->first();
                 if($product->promotion_price > 0){
