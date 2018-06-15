@@ -7,6 +7,7 @@ use App\address;
 use App\tinh_tp;
 use App\bill;
 use App\billdetail;
+use App\product;
 use Carbon\Carbon;
 use Cart;
 class CheckoutController extends Controller
@@ -81,7 +82,18 @@ class CheckoutController extends Controller
                 $billdetail->id_bill = $bill->id;
                 $billdetail->id_product = $item->model->id;
                 $billdetail->quantity = $item->qty;
-                $billdetail->unit_price = $item->model->unit_price;
+
+               
+                $product = product::where('id',$billdetail->id_product)->first();
+                if($product->promotion_price > 0){
+
+                     $billdetail->unit_price = $item->model->promotion_price;
+                }
+                else
+                {
+                     $billdetail->unit_price = $item->model->unit_price;
+                }
+                $billdetail->id_supplier = $product->supplier->id;
                 $billdetail->save();
             }
             Cart::destroy();
