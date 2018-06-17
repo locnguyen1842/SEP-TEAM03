@@ -16,12 +16,12 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
   	<div class="item active">
-      <img src="source/image/slide/{{ $slideA->image }}" alt="Chania"  width="100%" height="450px">
+      <img src="source/image/slide/{{ $slideA->image }}" alt="Chania"  width="100%" >
     </div>
   @foreach($slide as $s)
  
     <div class="item">
-      <img src="source/image/slide/{{ $s->image }}" alt="Chania"  width="100%" height="450px">
+      <img src="source/image/slide/{{ $s->image }}" alt="Chania"  width="100%" >
     </div>
 @endforeach
   </div>

@@ -27,7 +27,7 @@
 			</div>
 			@endif
 			
-			<form action="supplier/Product/SuaSP/{{$Sanpham->id}}" method="POST" enctype="multipart/form-data">
+			<form action="{{ route('supplier.product.edit',$Sanpham->id) }}" method="POST" enctype="multipart/form-data">
 				<input type="hidden" name="_token" value="{{csrf_token()}}"/>
 				<div class="form-group">
 					<label>Tên sản phẩm</label>	

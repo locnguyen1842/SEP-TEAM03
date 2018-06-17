@@ -74,11 +74,16 @@ class AccountController extends Controller
 	public function postEditProfile(Request $req){
 		$this->validate($req,
 			[
-				'txtName'=>'required',
+				'txtName'=>'required|min:6|max:50',
+				'txtPhone'=>'min:8|max:12'
 
 			],
 			[
 				'txtName.required'=>'Vui Lòng Nhập Tên',
+				'txtName.min'=>'Họ Tên phải có đọ dài từ 6-30 ký tự',
+				'txtName.max'=>'Họ Tên phải có đọ dài từ 6-30 ký tự',
+				'txtPhone.min'=>'Số điện thoại phải có đọ dài từ 8-12 ký tự',
+				'txtPhone.max'=>'Số điện thoại phải có đọ dài từ 8-12 ký tự',
 			]
 
 		);
@@ -146,14 +151,20 @@ class AccountController extends Controller
 	{
 		$this->validate($req,
 			[
-				'name'=>'required',
-				'address'=>'required',
-				'phone'=>'required'
+				'name'=>'required|min:6|max:50',
+				'address'=>'required|min:6|max:100',
+				'phone'=>'required|min:8|max:12'
 			],
 			[
 				'name.required'=>'Vui lòng nhập tên',
 				'address.required'=>'Vui Lòng Nhập Địa Chỉ',
-				'phone.required'=>'Vui Lòng Nhập Số Điện THoại'
+				'phone.required'=>'Vui Lòng Nhập Số Điện THoại',
+				'phone.min'=>'Số điện thoại phải có độ dài từ 8 - 12 ký tự',
+				'phone.max'=>'Số điện thoại phải có độ dài từ 8 - 12 ký tự',
+				'name.min'=>'Họ tên phải có độ dài từ 6 - 50 ký tự',
+				'name.max'=>'Họ tên phải có độ dài từ 6 - 50 ký tự',
+				'address.min'=>'Địa chỉ phải có độ dài từ 6 - 100 ký tự',
+				'address.max'=>'Địa chỉ phải có độ dài từ 6 - 100 ký tự',
 			]
 
 		);
@@ -175,14 +186,20 @@ class AccountController extends Controller
 	public function postaddAddressList(Request $req)
 	{
 		$this->validate($req,[
-			'name'=>'required',
-			'address'=>'required',
-			'phone'=>'required'
+			'name'=>'required|min:6|max:50',
+			'address'=>'required|min:6|max:100',
+			'phone'=>'required|min:8|max:12'
 		],
 		[
 			'name.required'=>'Vui lòng nhập tên',
 			'address.required'=>'Vui Lòng Nhập Địa Chỉ',
-			'phone.required'=>'Vui Lòng Nhập Số Điện THoại'
+			'phone.required'=>'Vui Lòng Nhập Số Điện THoại',
+			'name.min'=>'Họ tên phải có độ dài từ 6 - 50 ký tự',
+			'name.max'=>'Họ tên phải có độ dài từ 6 - 50 ký tự',
+			'address.min'=>'Địa chỉ phải có độ dài từ 6 - 100 ký tự',
+			'address.max'=>'Địa chỉ phải có độ dài từ 6 - 100 ký tự',
+			'phone.min'=>'Số điện thoại phải có độ dài từ 8 - 12 ký tự',
+			'phone.max'=>'Số điện thoại phải có độ dài từ 8 - 12 ký tự',
 		]
 	);
 		$address = new address;

@@ -25,8 +25,8 @@
                 <div class="panel-body">
                     <div class="form-inline">
                         <div class="form-group" style="margin-bottom: 5px">
-                            <label>Date Range </label>
-                            <input style="width: 200px" class="form-control input-sm" name="date_range" id="date_range" type="text" />
+                            
+                            <input style="width: 200px" class="form-control input-sm" name="date_range" placeholder="Ngày bắt đầu - Ngày kết thúc" id="date_range" type="text" />
                            
                         </div>
                      
@@ -75,4 +75,64 @@
 </div>
 </div>
 
+<script type="text/javascript">
+    $(document).ready( function () {
+    var table = $('#dataTables-example').DataTable();
+        
+    //END of the data table
+
+    // Date range script - Start of the sscript
+    $('#date_range').daterangepicker({
+        autoUpdateInput: false,
+        locale: {
+            "cancelLabel": "Clear",
+            }
+    });
+
+    $('#date_range').on('apply.daterangepicker', function(ev, picker) {
+          $(this).val(picker.startDate.format('YYYY-MM-DD') + ' đến ' + picker.endDate.format('YYYY-MM-DD'));
+          table.draw();
+    });
+
+    $('#date_range').on('cancel.daterangepicker', function(ev, picker) {
+          $(this).val('');
+          table.draw();
+    });
+    // Date range script - END of the script
+
+    $.fn.dataTableExt.afnFiltering.push(
+    function( oSettings, aData, iDataIndex ) {
+        
+        var grab_daterange = $("#date_range").val();
+        var give_results_daterange = grab_daterange.split(" đến ");
+        var filterstart = give_results_daterange[0];
+        var filterend = give_results_daterange[1];
+        var iStartDateCol = 1; //using column 2 in this instance
+        var iEndDateCol = 1;
+        var tabledatestart = aData[iStartDateCol];
+        var tabledateend= aData[iEndDateCol];
+        
+        if ( !filterstart && !filterend )
+        {
+            return true;
+        }
+        else if ((moment(filterstart).isSame(tabledatestart) || moment(filterstart).isBefore(tabledatestart)) && filterend === "")
+        {
+            return true;
+        }
+        else if ((moment(filterstart).isSame(tabledatestart) || moment(filterstart).isAfter(tabledatestart)) && filterstart === "")
+        {
+            return true;
+        }
+        else if ((moment(filterstart).isSame(tabledatestart) || moment(filterstart).isBefore(tabledatestart)) && (moment(filterend).isSame(tabledateend) || moment(filterend).isAfter(tabledateend)))
+        {
+            return true;
+        }
+        return false;
+    }
+    );
+
+    //End of the datable
+     });
+</script>
 @endsection

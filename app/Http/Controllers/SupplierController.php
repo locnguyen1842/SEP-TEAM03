@@ -138,6 +138,7 @@ class SupplierController extends Controller
      			'txtSoLuong' => 'required',
      			'txtMoTa' => 'required|min:20|max:1000',
      			'sku'=> 'required',	
+                    'Hinh'=> 'required',     
 
      		],
      		[
@@ -151,7 +152,7 @@ class SupplierController extends Controller
      			'txtMoTa.required'=>'Bạn chưa nhập mô tả cho sản phẩm',
      			'txtMoTa.min'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 10000 ký tự',
      			'txtMoTa.max'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 10000 ký tự',
-
+                    'Hinh.required' =>   'Vui lòng chọn hình ảnh ',
      			'sku.required' =>	'Vui lòng nhập mã SKU ',
 
      		]);	
@@ -188,10 +189,7 @@ class SupplierController extends Controller
      		$file->move("source/image/product/",$TenHinh);
      		$Sanpham->image = $TenHinh;
      	}
-     	else
-     	{
-     		$Sanpham->image = "";
-     	}
+     	
      	$Sanpham->save();
 
      	return redirect('supplier/Product/ThemSP')->with('thongbao','Bạn đã thêm sản phẩm thành công');
@@ -290,37 +288,32 @@ class SupplierController extends Controller
 
          
           $billdetail = billdetail::find($id);
-          $bills = billdetail::where('id_bill',$billdetail->id_bill)->get();
+          $bills = billdetail::where('id_bill',$billdetail->id_bill)->orderBy('updated_at', 'asc')->get();      
           $bill = bill::find($billdetail->id_bill);
           $billdetail->status = $req->status;
           $billdetail->save();
+         
           foreach ($bills as $item ) {
                if($item->status == "Đang Giao"){
-                    $bills->note = "Đang Giao";
+                    $bill->note = "Đang Giao";
                }
                else {
-                    $bill->note = "Đặt Thành Công";
-               }
-               if ($item->status == "Đã Hủy"){
-                    $bill->note = "Đã Hủy";
-               }
-               else{
-                    $bill->note = "Đặt Thành Công";
-               }
-               if ($item->status == "Đã Giao"){
+                     if($item->status == "Đã Giao"){
                     $bill->note = "Đã Giao";
+                    }
+                    if($item->status == "Đã Hủy"){
+                         $bill->note = "Đã Hủy";
+                    }
+                    if($item->status == "Đang Chờ Xử Lý"){
+                         $bill->note = "Đã Đặt Hàng";
+                    }
                }
-               else{
-                    $bill->note = "Đặt Thành Công";
-               }
-               if ($item->status == "Đang Chờ Xử Lý"){
-                    $bill->note = "Đang Chờ Xử Lý";
-               }
-               else{
-                    $bill->note = "Đặt Thành Công";
-               }
+              
+               $bill->save();
           }
-          $bill->save();
+          
+         
+         
           return redirect()->back()->with('thongbao','Thay Đổi Thành Công');
 
      }

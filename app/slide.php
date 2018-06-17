@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class slide extends Model
 {
 	protected $table ="slide";
+	public $timestamps = false;
     //
 }

@@ -300,17 +300,11 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-list fa-fw"></i> Thống kê<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{ route('supplier.thongkedonhang.index') }}">Thống Kê Đơn Hàng</a>
-                                </li>
-                                <li>
-                                    <a href="supplier/Product/DanhsachSP">Thống Kê Sản Phẩm</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                        
+                         <li>
+                            <a href="{{ route('supplier.thongkedonhang.index') }}"><i class="fa fa-shopping-cart fa-fw"></i>Quản Lý Đơn Hàng</a>
+
+
                         </li>
                        
                     </ul>
@@ -382,8 +376,8 @@
         var give_results_daterange = grab_daterange.split(" đến ");
         var filterstart = give_results_daterange[0];
         var filterend = give_results_daterange[1];
-        var iStartDateCol = 1; //using column 2 in this instance
-        var iEndDateCol = 1;
+        var iStartDateCol = 3; //using column 2 in this instance
+        var iEndDateCol = 3;
         var tabledatestart = aData[iStartDateCol];
         var tabledateend= aData[iEndDateCol];
         

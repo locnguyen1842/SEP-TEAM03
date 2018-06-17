@@ -22,7 +22,7 @@ class PageController extends Controller
             //
   public function getIndex(){
     $slideA = Slide::first();
-    $slide = Slide::all()->forget(0);
+    $slide = Slide::where('index',1)->get()->forget(0);
             	// return view('pages.trangchu',['slide'->$slide]); 
             	$new_product = Product::latest()->where('active',1)->paginate(8); //paginate so san pham tren dong
             	$sanpham_khuyenmai = Product::where([['promotion_price','<>',''],['active',1]])->inRandomOrder()->paginate(8);

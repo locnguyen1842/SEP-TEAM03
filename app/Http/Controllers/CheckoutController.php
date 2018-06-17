@@ -74,7 +74,7 @@ class CheckoutController extends Controller
             $bill->bill_number = $billnumber;
             $bill->id_user = Auth::guard('customer')->user()->id;
             $bill->total = Cart::total();
-            $bill->note = 'Đặt Thành Công';
+            $bill->note = 'Đã Đặt Hàng';
             $bill->address_id = $request->rdaddress;
             $bill->save();
             foreach (Cart::content() as $item) {

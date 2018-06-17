@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Supplier;
 use App\product;
+use App\slide;
 use App\bill;
+use App\productType;
 use App\billdetail;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
 use Hash;
 class AdminController extends Controller
 {
@@ -95,6 +98,141 @@ class AdminController extends Controller
         $supplier->delete();
         return redirect()->route('admin.listsupplier');
     }
+    public function getListCategory(){
+        $category = productType::all();
+        return view('admin.listcategory',compact('category'));
+    }
+    public function getAddCategory(){
+        return view('admin.addcategory');
+    }
+    public function postAddCategory(Request $req){
+        $this->validate($req,
+            [
+                'name'=>'required|unique:type_product',
+                'mota'=>'required',
+                
+            ],
+            [
+                'name.required'=>'Vui lòng nhập tên loại sản phẩm',               
+                'name.unique'=>'Loại sản phẩm này đã tồn tại',
+                'mota.required'=> 'Vui lòng nhập mô tả loại sản phẩm',
+                
+
+            ]
+
+        );
+        $category = new productType;
+        $category->name = $req->name;
+        $category->desciption = $req->mota;
+        $category->save();
+         return redirect()->back()->with('thanhcong','Thêm loại sản phẩm thành công');
+    }
+    public function getEditCategory($id){
+        $category = productType::find($id);
+        return view('admin.editcategory',compact('category'));
+    }
+    public function postEditCategory(Request $req,$id){
+         $this->validate($req,
+            [
+                'name'=>'required|unique:type_product',
+                'mota'=>'required',
+                
+            ],
+            [
+                'name.required'=>'Vui lòng nhập tên loại sản phẩm',               
+                'name.unique'=>'Loại sản phẩm này đã tồn tại',
+                'mota.required'=> 'Vui lòng nhập mô tả loại sản phẩm',
+                
+
+            ]
+
+        );
+        $category = productType::find($id);
+        $category->name = $req->name;
+        $category->desciption = $req->mota;
+        $category->save();
+        return redirect()->back()->with('thanhcong','Sửa loại sản phẩm thành công');
+
+    }
+    public function getDeleteCategory($id){
+        $category = productType::find($id);
+        $category->delete();
+        return redirect()->back();
+
+    }
+    public function getListSlider(){
+        $slider = slide::all();
+        return view('admin.listslider',compact('slider'));
+
+    }
+     public function postShowHideSlider($id){
+        $slider = slide::find($id);
+        if($slider->index == 0 ){
+            $slider->index = 1;
+            
+        }
+        else{
+            $slider->index = 0;
+             
+        }
+        
+        $slider->save();
+        return redirect()->back();
+        
+    }
+
+    public function getAddSlider(){
+       
+        return view('admin.addslider');
+
+        
+    }
+    public function postAddSlider(Request $req){
+        $this->validate($req,
+            [
+                'image'=>'required|max:2048',
+                'mota'=>'required',
+                
+            ],
+            [
+                'image.required'=>'Vui lòng nhập tên loại sản phẩm',   
+            
+                'mota.required'=> 'Vui lòng nhập mô tả loại sản phẩm',
+                
+
+            ]
+
+        );
+        $slider = new slide;
+        $slider->description = $req->mota;
+        $slider->index = 0;
+            
+         
+        if($req->hasFile('image'))
+        {
+            
+            $image = $req->file('image');
+            $duoi = $image->getClientOriginalExtension();
+            $nameimage = 'slide'.((slide::all()->last()->id)+1).'.'.$duoi;
+            $image_resize = Image::make($image->getRealPath());              
+            $image_resize->resize(900, 400);
+            $image_resize->save(public_path('/source/image/slide/' .$nameimage));
+            
+           
+            $slider->image = $nameimage;
+        }
+        
+        $slider->save();
+        return redirect()->back()->with('thanhcong','Thêm slider thành công');
+        
+    }
+    public function getDeleteSlider($id){
+        $slider = slide::find($id);
+        $slider->delete();
+        return redirect()->back();
+        
+    }
+    
 	
 
 }

@@ -54,7 +54,11 @@
                                             @if($sp->active == 0)
                                             <td><span style="color: red">Không</span></td>
                                             @endif
-											<td class="center"><i class="fa fa-pencil fa-fw"></i><a href="supplier/Product/SuaSP/{{$sp->id}}">Sửa</a> | <a href="{{ route('supplier.product.showhide',$sp->id) }}">Ẩn/Hiện</a>|<a href="supplier/Product/XoaSP/{{$sp->id}}" onclick="return confirm('Bạn có muốn xóa sản phẩm có SKU : {{ $sp->SKU }} hay không?');">Xóa</a></td>
+											<td class="center"><i class="fa fa-pencil fa-fw"></i>
+                                                <a href="{{ route('supplier.product.edit',$sp->id) }}">Sửa</a> | 
+                                                <a href="{{ route('supplier.product.showhide',$sp->id) }}">Ẩn/Hiện</a>|
+                                                <a href="{{ route('supplier.product.delete',$sp->id) }}" onclick="return confirm('Bạn có muốn xóa sản phẩm có SKU : {{ $sp->SKU }} hay không?');">Xóa</a>
+                                            </td>
 											
 										</tr>
 									@endforeach

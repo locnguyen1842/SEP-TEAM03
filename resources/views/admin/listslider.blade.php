@@ -3,7 +3,7 @@
 <div>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Danh Sách Loại Sản Phẩm</h1>
+                    <h1 class="page-header">Danh Sách Slider</h1>
                 </div>
                 <!-- /.col-lg-12 -->
                 <div class="col-lg-12">
@@ -25,35 +25,29 @@
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
-                                   <tr>
-                                        <th>Hình ảnh</th>
-                                        <th>Tên</th>
-                                        <th>Loại</th>
+                                     <tr>
+                                        <th>Hình Ảnh</th>
+                                        <th>Mô Tả</th>
+                                        <th>Hiển Thị</th>
+                                        <td>Thao Tác</td>
                                        
-                                         <th>Gian hàng</th>
-                                        <th>Ngày đăng</th>
-                                       
-                                        <th>Thao tác</th>
                                        
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($Sanpham as $sp)
-                                        <tr class="odd gradeX">
-                                          <td><img width="100px" src="source/image/product/{{$sp->image}}"/></td>
-                                            <td><a href="{{ route('chitietsp',$sp->id) }}">{{$sp->name}}</a></td>
-                                            <td>{{ $sp->product_type()->first()->name }}</td>
-                                            
-
-                                            
-
-                                            
-                                            <td>{{ $sp->supplier()->first()->shopname }}</td>
-                                            <td>{{$sp->created_at}}</td>
+                                    @foreach($slider as $item)
+                                        <tr class="odd gradeX">                                    
+                                            <td><img width="100px" src="source/image/slide/{{$item->image}}"/></td>
+                                            <td style="width: 50%">{{$item->description}}</td>  
                                            
-                                           
-                                            
-                                            <td class="center"><i class="fa fa-pencil fa-fw"></i><a href="{{ route('admin.deleteproduct',$sp->id) }}"  onclick="return confirm('Bạn có muốn xóa sản phẩm  hay không?')">Xóa</a></td>
+                                                @if($item->index == 1)
+                                                    <td><span style="color: green"> Có</span> </td>
+                                                @else
+                                                    <td><span style="color: red"> Không</span> </td>
+                                                @endif
+
+                                                                                       
+                                            <td class="center"><a href="{{ route('admin.slider.showhide',$item->id) }}" >Hiển Thị/Ẩn</a>|<a href="{{ route('admin.slider.delete',$item->id) }}"  style="color: red" onclick="return confirm('Bạn có muốn hay không?')">Xóa</a></td>
                                             
                                         </tr>
                                     @endforeach

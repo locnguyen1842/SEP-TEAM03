@@ -25,7 +25,29 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"> --}}
     <!-- Custom Fonts -->
     <link href="admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    {{-- Script --}}
+     <script src="admin/vendors/jquery/jquery.min.js"></script>
+{{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> --}}
+     <!-- Bootstrap Core JavaScript -->
+     <script src="admin/vendors/bootstrap/js/bootstrap.min.js"></script>
 
+     <!-- Metis Menu Plugin JavaScript -->
+     <script src="admin/vendors/metisMenu/metisMenu.min.js"></script>
+     <!-- Morris Charts JavaScript -->
+     <script src="admin/vendors/raphael/raphael.min.js"></script>
+     {{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script> --}}
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+      <script type="text/javascript" src="daterangepicker-master/daterangepicker.js"></script>
+
+     <script src="admin/vendors/morrisjs/morris.min.js"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     <script src="admin/data/morris-data.js"></script>
+
+     <!-- Custom Theme JavaScript -->
+     <script src="admin/dist/js/sb-admin-2.js"></script>
+     <script src="admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
+     <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
+     <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -269,6 +291,34 @@
                         <li>
                             <a href="{{ route('admin') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
+                        <li>
+                            <a href="#">Quản lý Loại Sản Phẩm<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ route('admin.category.index') }}">Danh sách Loại Sản Phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.category.add') }}">Thêm Loại Sản Phẩm</a>
+                                </li>
+                              
+                            </ul>
+                         
+
+                        </li>
+                        <li>
+                            <a href="#">Quản lý Slider<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ route('admin.slider.index') }}">Danh sách Slider</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.slider.add') }}">Thêm Slider</a>
+                                </li>
+                              
+                            </ul>
+                         
+
+                        </li>
 
                      {{--    <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
@@ -319,26 +369,9 @@
                                 <li>
                                     <a href="{{ route('admin.createsupplier') }}">Tạo mới tài khoản Supplier</a>
                                 </li>
-                               {{--  <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li> --}}
+                              
                             </ul>
-                            <!-- /.nav-second-level -->
+                         
 
                         </li>
                         <li>
@@ -393,7 +426,7 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
+        {{-- Script --}}
         <div id="page-wrapper">
          @yield('content')
          <!-- /#page-wrapper -->
@@ -402,115 +435,9 @@
      <!-- /#wrapper -->
 
      <!-- jQuery -->
-     <script src="admin/vendors/jquery/jquery.min.js"></script>
-{{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> --}}
-     <!-- Bootstrap Core JavaScript -->
-     <script src="admin/vendors/bootstrap/js/bootstrap.min.js"></script>
-
-     <!-- Metis Menu Plugin JavaScript -->
-     <script src="admin/vendors/metisMenu/metisMenu.min.js"></script>
-     <!-- Morris Charts JavaScript -->
-     <script src="admin/vendors/raphael/raphael.min.js"></script>
-     {{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script> --}}
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
-      <script type="text/javascript" src="daterangepicker-master/daterangepicker.js"></script>
-
-     <script src="admin/vendors/morrisjs/morris.min.js"></script>
-     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-     <script src="admin/data/morris-data.js"></script>
-
-     <!-- Custom Theme JavaScript -->
-     <script src="admin/dist/js/sb-admin-2.js"></script>
-     <script src="admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
-     <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
-     <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
+    
      {{-- <script src="https://cdn.datatables.net/plug-ins/1.10.16/filtering/row-based/range_dates.js" ></script> --}}
-<script>
-$(document).ready(function() {
 
-   var table = $('#dataTables-thongkesp').DataTable( {
-        initComplete: function () {
-            
-            this.api().columns([2]).every( function () {
-                var column = this;
-                var select = $('<select><option value="">Loại Sản Phẩm</option></select>')
-                    .appendTo($(column.header()))
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
-                 column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            } );
-        }
-    } );
-} );
- </script>
-<script type="text/javascript">
-    $(document).ready( function () {
-    var table = $('#dataTables-example').DataTable();
-        
-    //END of the data table
-
-    // Date range script - Start of the sscript
-    $('#date_range').daterangepicker({
-        autoUpdateInput: false,
-        locale: {
-            "cancelLabel": "Clear",
-            }
-    });
-
-    $('#date_range').on('apply.daterangepicker', function(ev, picker) {
-          $(this).val(picker.startDate.format('YYYY-MM-DD') + ' đến ' + picker.endDate.format('YYYY-MM-DD'));
-          table.draw();
-    });
-
-    $('#date_range').on('cancel.daterangepicker', function(ev, picker) {
-          $(this).val('');
-          table.draw();
-    });
-    // Date range script - END of the script
-
-    $.fn.dataTableExt.afnFiltering.push(
-    function( oSettings, aData, iDataIndex ) {
-        
-        var grab_daterange = $("#date_range").val();
-        var give_results_daterange = grab_daterange.split(" đến ");
-        var filterstart = give_results_daterange[0];
-        var filterend = give_results_daterange[1];
-        var iStartDateCol = 1; //using column 2 in this instance
-        var iEndDateCol = 1;
-        var tabledatestart = aData[iStartDateCol];
-        var tabledateend= aData[iEndDateCol];
-        
-        if ( !filterstart && !filterend )
-        {
-            return true;
-        }
-        else if ((moment(filterstart).isSame(tabledatestart) || moment(filterstart).isBefore(tabledatestart)) && filterend === "")
-        {
-            return true;
-        }
-        else if ((moment(filterstart).isSame(tabledatestart) || moment(filterstart).isAfter(tabledatestart)) && filterstart === "")
-        {
-            return true;
-        }
-        else if ((moment(filterstart).isSame(tabledatestart) || moment(filterstart).isBefore(tabledatestart)) && (moment(filterend).isSame(tabledateend) || moment(filterend).isAfter(tabledateend)))
-        {
-            return true;
-        }
-        return false;
-    }
-    );
-
-    //End of the datable
-     });
-</script>
 
 </body>
 

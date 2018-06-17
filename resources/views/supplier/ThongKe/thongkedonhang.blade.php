@@ -26,8 +26,8 @@
                 <div class="panel-body">
                     <div class="form-inline">
                         <div class="form-group" style="margin-bottom: 5px">
-                            <label>Date Range </label>
-                            <input style="width: 200px" class="form-control input-sm" name="date_range" id="date_range" type="text" />
+                            <label></label>
+                            <input style="width: 200px" class="form-control input-sm" placeholder="Ngày bắt đầu - Ngày kết thúc" name="date_range" id="date_range" type="text" />
                            
                         </div>
                      
