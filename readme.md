@@ -31,3 +31,4 @@ Hướng dẫn cài đặt :
 
 - Mở xampp và start 2 Module : Apache và MySQL 
 - Tiến hành kiểm tra kết nối bằng cách gõ localhost trên trình duyệt (localhost:[port]/[tên thư mục vừa clone]/public/index )
+- Nếu có lỗi gì vui lòng vào issues của project github này xem. ( nếu k có trong issues vui lòng liên hệ nhóm trưởng giải quyết ).
