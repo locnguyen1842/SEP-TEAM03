@@ -33,7 +33,7 @@
 
      <!-- Metis Menu Plugin JavaScript -->
      <script src="admin/vendors/metisMenu/metisMenu.min.js"></script>
-     <!-- Morris Charts JavaScript -->
+     <script src="source/assets/dest/ckeditor/ckeditor.js"></script>     <!-- Morris Charts JavaScript -->
      <script src="admin/vendors/raphael/raphael.min.js"></script>
      {{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script> --}}
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
@@ -48,6 +48,7 @@
      <script src="admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
      <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
      <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
+     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -406,7 +407,7 @@
 
                         </li>
                         <li>
-                            <a href="#">About Us</a>
+                            <a href="{{ route('admin.aboutus.index') }}">About Us</a>
                         </li>
                        {{--  <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>

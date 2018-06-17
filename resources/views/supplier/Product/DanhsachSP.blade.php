@@ -24,13 +24,13 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-supplier-sanpham">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-danhsachsp">
                                 <thead>
                                     <tr>
 										<th>Hình ảnh</th>
                                         <th>Tên</th>
                                         <th>SKU</th>
-                                       
+                                        <th>Loại sản phẩm</th>
 										<th>Ngày đăng</th>
 									    <th>Hiển thị</th>
 										<th>Thao tác</th>
@@ -43,7 +43,7 @@
 											<td><img width="100px" src="source/image/product/{{$sp->image}}"/></td>
 											<td><a href="{{ route('chitietsp',$sp->id) }}">{{$sp->name}}</a></td>
 											<td>{{ $sp->SKU }}</td>
-											
+											<td>{{ $sp->product_type->name }}</td>
 
 											
 
@@ -72,5 +72,32 @@
                 <!-- /.col-lg-12 -->
             </div>
 </div>
+<script>
+$(document).ready(function() {
 
+   var table = $('#dataTables-danhsachsp').dataTable( {
+        
+        initComplete: function () {
+            
+            this.api().columns([3]).every( function () {
+                var column = this;
+                var select = $('<select><option value="">Loại Sản Phẩm</option></select>')
+                    .appendTo($(column.header()).empty())
+                    .on('change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+                        column
+                            
+                            .search( val ? '^'+val+'$' : '', true, false  )
+                            .draw();
+                    } );
+                 column.data().unique().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
+});
+ </script>
 @endsection

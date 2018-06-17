@@ -36,6 +36,7 @@
 	<script src="source/assets/dest/vendors/animo/Animo.js"></script>
 	<script src="source/assets/dest/vendors/dug/dug.js"></script>
 	<script src="source/assets/dest/js/scripts.min.js"></script>
+	
 	<script src="source/assets/dest/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
 	<script src="source/assets/dest/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 	<script src="source/assets/dest/js/waypoints.min.js"></script>

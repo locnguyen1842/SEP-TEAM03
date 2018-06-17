@@ -6,6 +6,7 @@ use App\Supplier;
 use App\product;
 use App\slide;
 use App\bill;
+use App\aboutUs;
 use App\productType;
 use App\billdetail;
 use Illuminate\Http\Request;
@@ -65,8 +66,8 @@ class AdminController extends Controller
          $this->validate($req,
             [
                 'email'=>'required|unique:suppliers,email',
-                'shopname'=>'required|unique:suppliers',
-                'password'=>'required|min:6|max:30',
+                'shopname'=>'required|unique:suppliers|min:4|max:30|alpha_num',
+                'password'=>'required|min:6|max:30|alpha_num',
                 'repassword'=>'required|same:password',
             ],
             [
@@ -75,7 +76,11 @@ class AdminController extends Controller
                 'email.unique'=>'Email đã tồn tại',
                 'shopname.required'=>'Vui Lòng Nhập Tên Gian Hàng',
                 'shopname.unique'=>'Tên Gian Hàng Đã Tồn Tại',
+                'shopname.min'=>'Tên Gian Hàng phải có độ dài từ 4 - 30 ký tự',
+                'shopname.max'=>'Tên Gian Hàng phải có độ dài từ 4 - 30 ký tự',
+                'shopname.alpha_num'=>'Tên Gian Hàng chỉ được chưa chữ hoặc số',
                 'password.required'=>'Vui Lòng Nhập Password',
+                'password.alpha_num'=>'Mật khẩu chỉ được chưa chữ hoặc số',
                 'password.min'=>'Mật khẩu phải có độ dài từ 6 - 30 ký tự',
                 'password.max'=>'Mật khẩu phải có độ dài từ 6 - 30 ký tự',
                 'repassword.required'=>'Vui Lòng Nhập Vào Ô Xác Nhận Mật Khẩu',
@@ -108,14 +113,18 @@ class AdminController extends Controller
     public function postAddCategory(Request $req){
         $this->validate($req,
             [
-                'name'=>'required|unique:type_product',
-                'mota'=>'required',
+                'name'=>'required|unique:type_product|min:4|max:50',
+                'mota'=>'required|min:4|max:50',
                 
             ],
             [
                 'name.required'=>'Vui lòng nhập tên loại sản phẩm',               
                 'name.unique'=>'Loại sản phẩm này đã tồn tại',
+                'name.min'=>'Tên loại sản phẩm phải có độ dài từ 4-50 ký tự',
+                'name.max'=>'Tên loại sản phẩm phải có độ dài từ 4-50 ký tự',
                 'mota.required'=> 'Vui lòng nhập mô tả loại sản phẩm',
+                'mota.min'=>'Mô tả sản phẩm phải có độ dài từ 4-50 ký tự',
+                'mota.max'=>'Mô tả sản phẩm phải có độ dài từ 4-50 ký tự',
                 
 
             ]
@@ -133,15 +142,19 @@ class AdminController extends Controller
     }
     public function postEditCategory(Request $req,$id){
          $this->validate($req,
-            [
-                'name'=>'required|unique:type_product',
-                'mota'=>'required',
+           [
+                'name'=>'required|unique:type_product|min:4|max:50',
+                'mota'=>'required|min:4|max:50',
                 
             ],
             [
                 'name.required'=>'Vui lòng nhập tên loại sản phẩm',               
                 'name.unique'=>'Loại sản phẩm này đã tồn tại',
+                'name.min'=>'Tên loại sản phẩm phải có độ dài từ 4-50 ký tự',
+                'name.max'=>'Tên loại sản phẩm phải có độ dài từ 4-50 ký tự',
                 'mota.required'=> 'Vui lòng nhập mô tả loại sản phẩm',
+                'mota.min'=>'Mô tả sản phẩm phải có độ dài từ 4-50 ký tự',
+                'mota.max'=>'Mô tả sản phẩm phải có độ dài từ 4-50 ký tự',
                 
 
             ]
@@ -190,14 +203,16 @@ class AdminController extends Controller
     public function postAddSlider(Request $req){
         $this->validate($req,
             [
-                'image'=>'required|max:2048',
-                'mota'=>'required',
+                'image'=>'required|image|max:2048',
+                'mota'=>'required|min:4|max:50',
                 
             ],
             [
-                'image.required'=>'Vui lòng nhập tên loại sản phẩm',   
-            
-                'mota.required'=> 'Vui lòng nhập mô tả loại sản phẩm',
+                'image.required'=>'Vui lòng chọn hình ảnh',   
+                'image.image'=>'Vui lòng chọn file có định dạng hình ảnh',  
+                'mota.required'=> 'Vui lòng nhập mô tả slide',
+                'mota.min'=>'Mô tả sản phẩm phải có độ dài từ 4-50 ký tự',
+                'mota.max'=>'Mô tả sản phẩm phải có độ dài từ 4-50 ký tự',
                 
 
             ]
@@ -232,7 +247,38 @@ class AdminController extends Controller
         return redirect()->back();
         
     }
-    
+    public function getIndexAboutUs(){
+        $ab = aboutUs::find(1);
+        return view('admin.indexaboutus',compact('ab'));
+
+    }
+     public function getEditAboutUs(){
+        $ab = aboutUs::find(1);
+        return view('admin.editaboutus',compact('ab'));
+
+    }
+     public function postEditAboutUs(Request $req){
+        $this->validate($req,
+            [
+                'content'=>'required|min:30|max:10000',
+              
+                
+            ],
+            [
+                
+                'content.required'=> 'Vui lòng nhập mô tả slide',
+                'content.min'=>'Mô tả sản phẩm phải có độ dài từ 30-10000 ký tự',
+                'content.max'=>'Mô tả sản phẩm phải có độ dài từ 30-10000 ký tự',
+                
+
+            ]
+
+        );
+        $ab = aboutUs::find(1);
+        $ab->content = $req->content;
+        $ab->save();
+        return redirect()->back()->with('thanhcong','Chỉnh sửa thành công');
+    }
 	
 
 }

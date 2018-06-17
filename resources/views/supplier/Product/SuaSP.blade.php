@@ -117,5 +117,8 @@
 		<!-- /.col-lg-12 -->
 	</div>
 </div>
-
+</div>
+<script type="text/javascript"> CKEDITOR.replace('txtMoTa',{
+   language: 'vi',
+});</script>
 @endsection

@@ -146,6 +146,19 @@ Route::group(['prefix'=>'admin'],function(){
 		'as'=>'admin',
 		'uses'=>'AdminController@getIndex'
 	]);
+	//about us
+		Route::get('aboutUs-index',[
+		'as'=>'admin.aboutus.index',
+		'uses'=>'AdminController@getIndexAboutUs'
+		]);
+		Route::get('aboutUs-edit',[
+		'as'=>'admin.aboutus.edit',
+		'uses'=>'AdminController@getEditAboutUs'
+		]);
+		Route::post('aboutUs-edit',[
+		'as'=>'admin.aboutus.edit',
+		'uses'=>'AdminController@postEditAboutUs'
+		]);
 	//slider
 		Route::get('slider-list',[
 		'as'=>'admin.slider.index',

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Input;
 use App\productType;
 use Session;
 use App\address;
+use App\aboutUs;
 use App\customer;
 use App\tinh_tp;
 use App\xa_phuong;
@@ -20,15 +21,15 @@ use Auth;
 class PageController extends Controller
 {
             //
-  public function getIndex(){
-    $slideA = Slide::first();
-    $slide = Slide::where('index',1)->get()->forget(0);
-            	// return view('pages.trangchu',['slide'->$slide]); 
-            	$new_product = Product::latest()->where('active',1)->paginate(8); //paginate so san pham tren dong
-            	$sanpham_khuyenmai = Product::where([['promotion_price','<>',''],['active',1]])->inRandomOrder()->paginate(8);
-            	
-            	return view('pages.trangchu',compact('slide','new_product','sanpham_khuyenmai','slideA')); 	// truyen du lieu slide
-            }
+            public function getIndex(){
+              $slideA = Slide::first();
+              $slide = Slide::where('index',1)->get()->forget(0);
+              	// return view('pages.trangchu',['slide'->$slide]); 
+              	$new_product = Product::latest()->where('active',1)->paginate(8); //paginate so san pham tren dong
+              	$sanpham_khuyenmai = Product::where([['promotion_price','<>',''],['active',1]])->inRandomOrder()->paginate(8);
+              	
+              	return view('pages.trangchu',compact('slide','new_product','sanpham_khuyenmai','slideA')); 	// truyen du lieu slide
+              }
             public function getLoaiSP($type){
             	$loaisp = productType::all();
 
@@ -46,10 +47,12 @@ class PageController extends Controller
               return view('pages.chitietsp',compact('sp','sp_tuongtu','sp_khuyenmai','new_product'));
             }
             public function getGioiThieu(){
-             return view('pages.gioithieu');
-           }
 
-           public function getSearch(Request $request){
+              $ab = aboutUs::find(1);
+              return view('pages.gioithieu',compact('ab'));
+            }
+
+            public function getSearch(Request $request){
              $loaisp = productType::all();
              $product = Product::where([['name','like','%'.$request->key.'%'],['active',1]])
              ->orWhere('unit_price',$request->key)

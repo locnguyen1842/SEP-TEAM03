@@ -84,7 +84,7 @@
 				</div>
 				<div class="form-group">
 					<label>Mô tả</label>	
-					<textarea id="demo" name="txtMoTa"class="form-control ckeditor" rows="5"></textarea>
+					<textarea id="txtMoTa" name="txtMoTa"class="form-control ckeditor" rows="5"></textarea>
 				</div>
 				<button type="submit" class="btn btn-default">Thêm</button>
 				<button type="reset" class="btn btn-default">Hủy bỏ</button>
@@ -93,4 +93,7 @@
 		<!-- /.col-lg-12 -->
 	</div>
 </div>
+<script type="text/javascript"> CKEDITOR.replace('txtMoTa',{
+   language: 'vi',
+});</script>
 @endsection

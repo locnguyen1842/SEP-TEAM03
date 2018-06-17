@@ -68,11 +68,12 @@ class SupplierController extends Controller
      		[
      			'txtTenSP' => 'required|min:2|max:100',
      			'Loai' => 'required',
-     			'txtGia' => 'required',
+     			'txtGia' => 'required|numeric',
      			'txtDonVi' => 'required',
-     			'txtSoLuong' => 'required',
+     			'txtSoLuong' => 'required|numeric',
      			'txtMoTa' => 'required|min:20|max:1000',
      			'sku'=> 'required',	
+                    'Hinh'=> 'required',  
 
      		],
      		[
@@ -81,12 +82,14 @@ class SupplierController extends Controller
      			'txtTenSP.max'=>'Tên sản phẩm phải có độ dài từ 2 đến 100 ký tự',
      			'Loai.required'=>'Bạn chưa chọn loại sản phẩm',
      			'txtGia.required'=>'Bạn chưa nhập giá sản phẩm',
+                    'txtGia.numeric'=>'Giá chỉ được nhập số',
      			'txtDonVi.required'=>'Bạn chưa nhập đơn vị sản phẩm',
      			'txtSoLuong.required'=>'Bạn chưa nhập số lượng sản phẩm',
+                    'txtSoLuong.numeric'=>'Số lượng chỉ được nhập số',
      			'txtMoTa.required'=>'Bạn chưa nhập mô tả cho sản phẩm',
      			'txtMoTa.min'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 10000 ký tự',
      			'txtMoTa.max'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 10000 ký tự',		
-     		
+     		     'Hinh.required' =>   'Vui lòng chọn hình ảnh ',
      			'sku.required' =>	'Vui lòng nhập mã SKU ',
      		]);	
      	$Sanpham->name = $request->txtTenSP;
@@ -133,9 +136,9 @@ class SupplierController extends Controller
      		[
      			'txtTenSP' => 'required|min:2|max:100',
      			'Loai' => 'required',
-     			'txtGia' => 'required',
+     			'txtGia' => 'required|numeric',
      			'txtDonVi' => 'required',
-     			'txtSoLuong' => 'required',
+     			'txtSoLuong' => 'required|numeric',
      			'txtMoTa' => 'required|min:20|max:1000',
      			'sku'=> 'required',	
                     'Hinh'=> 'required',     
@@ -147,8 +150,10 @@ class SupplierController extends Controller
      			'txtTenSP.max'=>'Tên sản phẩm phải có độ dài từ 2 đến 100 ký tự',
      			'Loai.required'=>'Bạn chưa chọn loại sản phẩm',
      			'txtGia.required'=>'Bạn chưa nhập giá sản phẩm',
+                    'txtGia.numeric'=>'Giá chỉ được nhập số',
      			'txtDonVi.required'=>'Bạn chưa nhập đơn vị sản phẩm',
      			'txtSoLuong.required'=>'Bạn chưa nhập số lượng sản phẩm',
+                    'txtSoLuong.numeric'=>'Số lượng chỉ được nhập số',
      			'txtMoTa.required'=>'Bạn chưa nhập mô tả cho sản phẩm',
      			'txtMoTa.min'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 10000 ký tự',
      			'txtMoTa.max'=>'Mô tả sản phẩm phải có độ dài từ 20 đến 10000 ký tự',
@@ -213,7 +218,7 @@ class SupplierController extends Controller
      } public function postEditInfo(Request $request){
      	$this->validate($request,
      		[
-     			'name' => 'required|min:2|max:100',
+     			'name' => 'required|min:2|max:100|alpha_num',
      			'phone' => 'required',
      			'Hinh' =>'dimensions:max_height=100,max_width=200'
 
@@ -222,10 +227,8 @@ class SupplierController extends Controller
      			'name.required'=>'Bạn chưa nhập tên chủ sở hữu',
      			'name.min'=>'Tên chủ sở hữu phải có độ dài từ 2 đến 100 ký tự',
      			'name.max'=>'Tên chủ sở hữu phải có độ dài từ 2 đến 100 ký tự',
+                    'name.alpha_num'=>'Tên chỉ được chứa chữ và số',
      			'phone.required'=>'Bạn chưa chọn loại sản phẩm',
-     		
-     			// 'Hinh.max_height' => 'Logo có chiều cao tối đa 100px',
-     			// 'Hinh.max_width' => 'Logo có chiều rộng tối đã 200px',
      			'Hinh.dimensions' => 'Logo có có kích thước vượt quá 200px x 100px'
 
      			

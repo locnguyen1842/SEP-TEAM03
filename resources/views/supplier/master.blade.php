@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <base href="{{asset('')}}">
- <Base href="{{asset('')}}">
+    <Base href="{{asset('')}}">
 
     <!-- Bootstrap Core CSS -->
     <link href="admin/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,14 +22,36 @@
 
     <!-- Morris Charts CSS -->
     <link href="admin/vendors/morrisjs/morris.css" rel="stylesheet">
-	
-	<!-- DatetimePicker CSS -->
+
+    <!-- DatetimePicker CSS -->
     <link href="admin/vendors/DatetimePicker/jquery.datetimepicker.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <!-- Custom Fonts -->
     <link href="admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    {{-- Script --}}
+    <script src="admin/vendors/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="admin/vendors/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="admin/vendors/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="admin/vendors/raphael/raphael.min.js"></script>
+    <script src="admin/vendors/morrisjs/morris.min.js"></script>
+    <script src="admin/data/morris-data.js"></script>
+     <script src="source/assets/dest/ckeditor/ckeditor.js"></script> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+    <script type="text/javascript" src="daterangepicker-master/daterangepicker.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="admin/dist/js/sb-admin-2.js"></script>
+    <script src="admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -265,17 +287,17 @@
             </ul>
             <!-- /.navbar-top-links -->
 
-        <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
                             </div>
                             <!-- /input-group -->
                         </li>
@@ -288,7 +310,7 @@
 
 
                         </li>
-						<li>
+                        <li>
                             <a href="#"><i class="fa fa-list fa-fw"></i> Sản Phẩm<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -301,12 +323,12 @@
                             <!-- /.nav-second-level -->
                         </li>
                         
-                         <li>
+                        <li>
                             <a href="{{ route('supplier.thongkedonhang.index') }}"><i class="fa fa-shopping-cart fa-fw"></i>Quản Lý Đơn Hàng</a>
 
 
                         </li>
-                       
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -315,95 +337,17 @@
         </nav>
 
         <div id="page-wrapper">
-         @yield('content')
-		</div>
-        <!-- /#page-wrapper -->
+           @yield('content')
+       </div>
+       <!-- /#page-wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+   </div>
+   <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="admin/vendors/jquery/jquery.min.js"></script>
+   <!-- jQuery -->
+   
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="admin/vendors/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="admin/vendors/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="admin/vendors/raphael/raphael.min.js"></script>
-    <script src="admin/vendors/morrisjs/morris.min.js"></script>
-    <script src="admin/data/morris-data.js"></script>
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
-      <script type="text/javascript" src="daterangepicker-master/daterangepicker.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="admin/dist/js/sb-admin-2.js"></script>
-    <script src="admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
-    <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
-
-<script type="text/javascript">
-    $(document).ready( function () {
-    var table = $('#dataTables-supplier-tkdonhang').DataTable();
-        
-    //END of the data table
-
-    // Date range script - Start of the sscript
-    $('#date_range').daterangepicker({
-        autoUpdateInput: false,
-        locale: {
-            "cancelLabel": "Clear",
-            }
-    });
-
-    $('#date_range').on('apply.daterangepicker', function(ev, picker) {
-          $(this).val(picker.startDate.format('YYYY-MM-DD') + ' đến ' + picker.endDate.format('YYYY-MM-DD'));
-          table.draw();
-    });
-
-    $('#date_range').on('cancel.daterangepicker', function(ev, picker) {
-          $(this).val('');
-          table.draw();
-    });
-    // Date range script - END of the script
-
-    $.fn.dataTableExt.afnFiltering.push(
-    function( oSettings, aData, iDataIndex ) {
-        
-        var grab_daterange = $("#date_range").val();
-        var give_results_daterange = grab_daterange.split(" đến ");
-        var filterstart = give_results_daterange[0];
-        var filterend = give_results_daterange[1];
-        var iStartDateCol = 3; //using column 2 in this instance
-        var iEndDateCol = 3;
-        var tabledatestart = aData[iStartDateCol];
-        var tabledateend= aData[iEndDateCol];
-        
-        if ( !filterstart && !filterend )
-        {
-            return true;
-        }
-        else if ((moment(filterstart).isSame(tabledatestart) || moment(filterstart).isBefore(tabledatestart)) && filterend === "")
-        {
-            return true;
-        }
-        else if ((moment(filterstart).isSame(tabledatestart) || moment(filterstart).isAfter(tabledatestart)) && filterstart === "")
-        {
-            return true;
-        }
-        else if ((moment(filterstart).isSame(tabledatestart) || moment(filterstart).isBefore(tabledatestart)) && (moment(filterend).isSame(tabledateend) || moment(filterend).isAfter(tabledateend)))
-        {
-            return true;
-        }
-        return false;
-    }
-    );
-
-    //End of the datable
-     });
-</script>
 
 <script>
     $(document).ready(function() {

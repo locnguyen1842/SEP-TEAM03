@@ -10,6 +10,7 @@ use App\quan_huyen;
 use App\tinh_tp;
 use App\xa_phuong;
 use App\bill;
+use App\aboutUs;
 use Hash;
 use Auth;
 
@@ -110,7 +111,7 @@ class AccountController extends Controller
 		$this->validate($req,
 			[
 				'txtCurrentPwd'=>'required',
-				'txtNewPwd'=>'required|min:6|max:30',
+				'txtNewPwd'=>'required|min:6|max:30|alpha_num',
 				'txtConfirmPwd'=>'required|same:txtNewPwd'
 
 			],
@@ -119,6 +120,7 @@ class AccountController extends Controller
 				'txtNewPwd.required'=>'Vui Lòng Nhập mật khẩu mới',
 				'txtNewPwd.min'=>'Mật khẩu mới phải có độ dài từ 6 - 30 ký tự',
 				'txtNewPwd.max'=>'Mật khẩu mới phải có độ dài từ 6 - 30 ký tự',
+				'txtNewPwd.alpha_num'=>'Mật khẩu mới chỉ được chứa ký tự hoặc số',
 				'txtConfirmPwd.required'=>'Vui Lòng Nhập Vào Ô Nhập lại mật khẩu',
 				'txtConfirmPwd.same'=>'Mật khẩu nhập lại không đúng'
 
@@ -228,6 +230,8 @@ class AccountController extends Controller
 		
 		return view('account.pages.donhangcuatoi',compact('orders'));
 	}
+
+
 
 }
 
