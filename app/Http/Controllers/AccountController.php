@@ -128,11 +128,16 @@ class AccountController extends Controller
 
 		);
 
-		$user = Customer::find(Auth::guard('customer')->user()->id);
-		$user->password = Hash::make($req->txtNewPwd);
-		$user->save();
-
-		return redirect()->back()->with('thanhcong','Thay đổi mật khẩu thành công');
+		$currentpwd = Auth::guard('customer')->user()->password;
+          if(Hash::check($req->txtCurrentPwd,$currentpwd)){
+               $customer = customer::find(Auth::guard('customer')->user()->id);
+               $customer->password = Hash::make($req->txtNewPwd);
+               $customer->save();
+               return redirect()->back()->with('thanhcong','Thay đổi mật khẩu thành công');
+          }
+          else{
+               return redirect()->back()->with('thatbai','Mật khẩu hiện tại không đúng');
+          }
 
 	}
 
@@ -226,11 +231,14 @@ class AccountController extends Controller
 	}
 
 	public function getOrders(){
-		$orders= bill::where('id_user',Auth::guard('customer')->user()->id)->get();
+		$orders= bill::where('id_user',Auth::guard('customer')->user()->id)->orderBy('created_at', 'decs')->get();
 		
 		return view('account.pages.donhangcuatoi',compact('orders'));
 	}
-
+	public function getOrdersDetail($id){
+		$order = bill::find($id);
+		return view('account.pages.orderdetail',compact('order'));
+	}
 
 
 }

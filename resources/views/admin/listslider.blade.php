@@ -1,4 +1,7 @@
 @extends('admin.master')
+@section('title')
+<title>Danh Sách Slider - CloudBooth</title>
+@endsection
 @section('content')
 <div>
             <div class="row">

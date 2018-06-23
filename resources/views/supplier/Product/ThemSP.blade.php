@@ -1,5 +1,7 @@
 @extends('supplier.master')
-
+@section('title')
+<title>Thêm Mới Sản Phẩm - CloudBooth</title>
+@endsection
 @section('content')
 <div>
 	<div class="row">
@@ -45,10 +47,11 @@
 				</div>
 				<div class="row">
 					<div class="form-group col-md-6">
-						<label>Giá</label>	
-						<input class="form-control" name="txtGia"  type="number" placeholder="Nhập giá cho 1 đơn vị (VNĐ)"/>
+						<label>Giá gốc</label>	
+						<input class="form-control" name="txtGia"  type="number" placeholder="Giá gốc sẽ được hiện thị để so sánh với giá bán (nếu có)"/>
 
 					</div>
+
 					<div class="form-group col-md-6">
 						<label>Đơn vị</label>	
 						<select class="form-control" name="txtDonVi">							
@@ -67,17 +70,14 @@
 				</div>
 				
 				<div class="form-group">
+					<label>Giá bán</label>	
+					<input class="form-control" name="txtGiamGia" type="number" placeholder="Giá bán sẽ được dùng để tính toán trên hóa đơn giao hàng, giá bán không được lớn hơn giá gốc"/>
+				</div>
+				<div class="form-group">
 					<label>Số lượng</label>	
 					<input class="form-control" name="txtSoLuong" type="number" placeholder="Nhập tổng số lượng sản phẩm (Trên đơn vị đã nhập)"/>
 				</div>
-				<div class="form-group">
-					<label>Hạn sử dụng</label>	
-					<input class="form-control" name="txtHSD" type="datetime" id="datetimepicker" placeholder="Nhập thời hạn sử dụng của sản phẩm"/>
-				</div>
-				<div class="form-group">
-					<label>Giảm giá</label>	
-					<input class="form-control" name="txtGiamGia" type="number" placeholder="Nhập giá giảm giá khi còn 1 phần 3 hạn sử dụng (Có thể không nhập)"/>
-				</div>
+				
 				<div>
 					<label>Hình ảnh</label>
 					<input type="file" name="Hinh" class="form-control"	/>

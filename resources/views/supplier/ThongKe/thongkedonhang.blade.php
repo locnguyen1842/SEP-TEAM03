@@ -1,5 +1,7 @@
 @extends('supplier.master')
-
+@section('title')
+<title>Thống Kê Đơn Hàng- CloudBooth</title>
+@endsection
 @section('content')
 <div>
     <div class="row">
@@ -43,6 +45,7 @@
                             <th>Đơn Giá</th>
                             <th>Số Lượng</th>
                             <th>Trạng Thái</th>
+                            <th></th>
                            
 
 
@@ -57,13 +60,12 @@
                             <td>{{ $sp->product->name }}</td>
                             <td>{{ $sp->product->SKU }}</td>
                             <td>{{ date('Y-m-d', strtotime($sp->bills->created_at)) }}</td>
-                            @if($sp->product->promotion_price >0)
-								<td>{{$sp->product->promotion_price}}</td>
-                            @else
-                            	<td>{{$sp->product->unit_price}}</td>
-                            @endif
+                          
+                            	<td>{{number_format($sp->unit_price)}}</td>
+                         
                             <td>{{$sp->quantity}}</td>
-                            <td> <a href="{{ route('supplier.thongkedonhang.edit',$sp->id) }}"><i class="fa fa-edit"></i>{{$sp->status}}</a></td>
+                            <td>{{ $sp->status }} </td>
+                            <td><a href="{{ route('supplier.thongkedonhang.edit',$sp->id) }}"><i class="fa fa-edit"></i>Cập Nhật</a></td>
                             
 
 
@@ -80,6 +82,35 @@
     <!-- /.col-lg-12 -->
 </div>
 </div>
+<script>
+$(document).ready(function() {
+
+   var table = $('#dataTables-supplier-tkdonhang').dataTable( {
+        
+        initComplete: function () {
+            
+            this.api().columns([6]).every( function () {
+                var column = this;
+                var select = $('<select><option value="">Trạng Thái</option></select>')
+                    .appendTo($(column.header()).empty())
+                    .on('change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+                        column
+                            
+                            .search( val ? '^'+val+'$' : '', true, false  )
+                            .draw();
+                    } );
+                 column.data().unique().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
+});
+ </script>
+
 <script type="text/javascript">
     $(document).ready( function () {
         var table = $('#dataTables-supplier-tkdonhang').DataTable();

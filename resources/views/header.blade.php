@@ -12,7 +12,7 @@
 
 
                     @if(Auth::guard('customer')->check())
-                    <li><a href="{{ route('user.quanly') }}"><i class="fa fa-user"></i>Tài khoản</a></li>
+                    <li><a href="{{ route('user.orders') }}"><i class="fa fa-shopping-cart"></i>Theo Dõi Đơn Hàng</a></li>
                     <li><a href="{{ route('user.quanly') }}">Chào! {{Auth::guard('customer')->user()->name}}</a>
                     </li>
                     <li><a href="{{ route('dangxuat') }}">Đăng Xuất</a></li>

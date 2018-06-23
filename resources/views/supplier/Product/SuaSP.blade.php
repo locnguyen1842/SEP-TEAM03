@@ -1,5 +1,7 @@
 @extends('supplier.master')
-
+@section('title')
+<title>Chỉnh Sửa Sản Phẩm {{ $Sanpham->name }} - CloudBooth</title>
+@endsection
 @section('content')
 <div>
 	<div class="row">

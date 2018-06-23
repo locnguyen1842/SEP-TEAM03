@@ -1,4 +1,7 @@
 @extends('master')
+@section('title')
+<title>Lỗi rồi ! - CloudBooth</title>
+@endsection
 @section('content')
 <div class="container">
 		<div id="content" class="space-top-none space-bottom-none">

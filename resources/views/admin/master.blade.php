@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <base href="{{asset('')}}">
-    <title>Quản trị - Cloudbooth</title>
+    @yield('title')
+    <link rel="icon" href="{!! asset('source/assets/dest/images/logo-cb.png') !!}"/>
     <Base href="{{asset('')}}">
     <!-- Bootstrap Core CSS -->
     <link href="admin/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">

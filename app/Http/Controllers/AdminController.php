@@ -25,9 +25,14 @@ class AdminController extends Controller
     }
     
     public function getIndex(){
+        $danggiao = bill::where('note','Đang Giao')->count();
+        $dagiao = bill::where('note','Đã Giao')->count();
+        $dahuy = bill::where('note','Đã Hủy')->count();
+        $dadat = bill::where('note','Đã Đặt Hàng')->count();
         $product = product::all();
+        $product_type = productType::all();
         $bill = bill::all();
-    	return view('admin.index',compact('product','bill')); 	
+    	return view('admin.index',compact('product','bill','product_type','danggiao','dagiao','dahuy','dadat')); 	
     }
 
     public function getListSupplier(){
@@ -43,15 +48,26 @@ class AdminController extends Controller
         $Sanpham = product::all();
         return view ('admin.thongkesanpham',compact('Sanpham'));
     }
-    public function getDeleteProduct($id){
+    public function getLockProduct($id){
         $product = product::find($id);
-        $product->delete();
+        if($product->unlock == 1 ){
+            $product->unlock= 0;
+            $product->save();
+        }
+        else{
+            $product->unlock= 1;
+            $product->save();
+        }
+                
         return redirect()->back();
     }
+
+
+
     public function getListOrder(){
        
-        $bill = bill::all();
-       
+        $bill = bill::orderBy('created_at', 'decs')->get();
+        
         return view('admin.thongkedonhang',compact('bill'));
     }
     public function getDetailOrder($id){
@@ -60,6 +76,38 @@ class AdminController extends Controller
         $billdetail = billdetail::where('id_bill',$bill->id)->get();
         // $product = product::where('id',$billdetail->id_product)->get();
         return view('admin.chitietdonhang',compact('bill','billdetail'));
+    }
+    public function getEditSupplier($id){
+        $supplier = Supplier::find($id);
+        return view('admin.editsupplier',compact('supplier'));
+    }
+      public function postEditSupplier(Request $req ,$id){
+        $supplier = Supplier::find($id);
+          $this->validate($req,
+            [
+                'email'=>'required|unique:suppliers,email,' .$supplier->id,
+                'shopname'=>'required|unique:suppliers|min:4|max:30|alpha_num',
+                
+            ],
+            [
+                'email.required'=>'Vui Lòng Nhập Email',
+                'email.email'=> 'Không đúng định dạng Email',
+                'email.unique'=>'Email đã tồn tại',
+                'shopname.required'=>'Vui Lòng Nhập Tên Gian Hàng',
+                'shopname.unique'=>'Tên Gian Hàng Đã Tồn Tại',
+                'shopname.min'=>'Tên Gian Hàng phải có độ dài từ 4 - 30 ký tự',
+                'shopname.max'=>'Tên Gian Hàng phải có độ dài từ 4 - 30 ký tự',
+                'shopname.alpha_num'=>'Tên Gian Hàng chỉ được chưa chữ hoặc số',
+                
+            ]
+
+        );
+        
+        $supplier->email = $req->email;
+        $supplier->shopname = $req->shopname;
+        $supplier->save();
+        return redirect()->back()->with('thanhcong','Sửa tài khoản thành công');
+
     }
 
     public function postSupplierCreate(Request $req){
@@ -100,7 +148,7 @@ class AdminController extends Controller
 
     public function getSupplierDelete($id){
         $supplier = Supplier::find($id);
-        $supplier->delete();
+        $supplier->destroy();
         return redirect()->route('admin.listsupplier');
     }
     public function getListCategory(){
@@ -167,12 +215,7 @@ class AdminController extends Controller
         return redirect()->back()->with('thanhcong','Sửa loại sản phẩm thành công');
 
     }
-    public function getDeleteCategory($id){
-        $category = productType::find($id);
-        $category->delete();
-        return redirect()->back();
-
-    }
+   
     public function getListSlider(){
         $slider = slide::all();
         return view('admin.listslider',compact('slider'));
@@ -209,7 +252,7 @@ class AdminController extends Controller
             ],
             [
                 'image.required'=>'Vui lòng chọn hình ảnh',   
-                'image.image'=>'Vui lòng chọn file có định dạng hình ảnh',  
+                'image.image'=>'Vui lòng chọn file có định dạng hình ảnh (jpg,jpeg,png)',  
                 'mota.required'=> 'Vui lòng nhập mô tả slide',
                 'mota.min'=>'Mô tả sản phẩm phải có độ dài từ 4-50 ký tự',
                 'mota.max'=>'Mô tả sản phẩm phải có độ dài từ 4-50 ký tự',
@@ -232,8 +275,6 @@ class AdminController extends Controller
             $image_resize = Image::make($image->getRealPath());              
             $image_resize->resize(900, 400);
             $image_resize->save(public_path('/source/image/slide/' .$nameimage));
-            
-           
             $slider->image = $nameimage;
         }
         

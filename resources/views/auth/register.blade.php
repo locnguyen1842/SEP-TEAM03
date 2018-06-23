@@ -1,4 +1,7 @@
 @extends('master')
+@section('title')
+<title>Đăng Ký Tài Khoản - CloudBooth</title>
+@endsection
 @section('content')
 
 <div class="inner-header">

@@ -1,5 +1,7 @@
 @extends('supplier.master')
-
+@section('title')
+<title>Cập Nhật Trạng Thái Đơn Hàng - CloudBooth</title>
+@endsection
 @section('content')
 <div>
   <div class="row">
@@ -67,7 +69,7 @@
         <div class="form-group col-md-6" style="margin-top: 25px" >
            
           <button type="submit" class="btn btn-primary">Lưu</button>
-           <button type="reset" class="btn btn-danger">Hủy bỏ</button>
+           <a href="{{ route('supplier.thongkedonhang.index') }}"><button type="reset" class="btn btn-danger">Quay Lại</button></a>
         </div>
         
       </form>

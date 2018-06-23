@@ -1,4 +1,7 @@
 @extends('admin.master')
+@section('title')
+<title>Thay Đổi About Us - CloudBooth</title>
+@endsection
 @section('content')
 
 <div class="row">

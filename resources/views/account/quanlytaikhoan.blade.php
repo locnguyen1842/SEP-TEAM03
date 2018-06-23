@@ -6,7 +6,9 @@
 	<div id="background" class="space-top-none"></div>
 	<div class="main-content">
 		<div class="row" style="min-height: 500px">
-
+			@section('title')
+			   @yield('title')
+			@endsection
 			<div id="background" class="col-sm-3">
 				@include('account.menu')
 			</div>

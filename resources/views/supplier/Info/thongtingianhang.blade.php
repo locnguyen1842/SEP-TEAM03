@@ -1,4 +1,7 @@
 @extends('supplier.master')
+@section('title')
+<title>Thông Tin Gian Hàng - CloudBooth</title>
+@endsection
 @section('content')
 <link rel="stylesheet" title="style" href="source/assets/dest/css/supplierinfo.css">
 <div class="row">
@@ -28,12 +31,12 @@
             </div>            
             <div class="col-xs-12 divider text-center">
                 <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong> n </strong></h2>                    
+                    <h2><strong> {{ count($product) }} </strong></h2>                    
                     <p><small>Sản phẩm</small></p>
                     <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> sản phẩm </button>
                 </div>
                 <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong>n</strong></h2>                    
+                    <h2><strong>{{ count($billdetail) }}</strong></h2>                    
                     <p><small>đơn hàng</small></p>
                     <button class="btn btn-info btn-block"><span class="fa fa-user"></span> Đơn Hàng </button>
                 </div>
@@ -41,7 +44,7 @@
                     <h2><strong> </strong></h2>                    
                     <p><small></small></p>
                     <div class="btn-group dropup btn-block">
-                      <a href="{{ route('supplier.info.edit') }}"><button style="margin-top: 62px"  type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Chỉnh sửa </button></a>
+                      <a href="{{ route('supplier.info.edit') }}"><button style="margin-top: 62px"  type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Thay Đổi Thông Tin </button></a>
                       
                   </div>
               </div>

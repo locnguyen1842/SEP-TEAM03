@@ -1,5 +1,7 @@
 @extends('supplier.master')
-
+@section('title')
+<title>Thay Đổi Thông Tin Gian Hàng - CloudBooth</title>
+@endsection
 @section('content')
 <div>
             <div class="row">
@@ -57,8 +59,8 @@
 						
 						
 						
-						<button type="submit" class="btn btn-default">Lưu</button>
-						<button type="reset" class="btn btn-default">Hủy bỏ</button>
+						<button type="submit" class="btn btn-primary">Lưu</button>
+						<button type="reset" class="btn btn-danger">Hủy bỏ</button>
 					</form>
                 </div>
                 <!-- /.col-lg-12 -->

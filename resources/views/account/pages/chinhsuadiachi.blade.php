@@ -1,4 +1,7 @@
 @extends('account.quanlytaikhoan')
+@section('title')
+<title>Chỉnh Sửa Địa Chỉ - CloudBooth</title>
+@endsection
 @section('noidung')
 
 <div class="menu-title">
@@ -155,7 +158,7 @@
       $('#tinh_tp').on('change', function(e){
         console.log(e);
         var parent_code = e.target.value;
-        $.get('/SEP-TEAM03/public/json-quan?parent_code=' + parent_code,function(data) {
+        $.get('{{ route('jsonquan') }}' +'?parent_code='+ parent_code,function(data) {
           console.log(data);
           $('#quan_huyen').empty();
           $('#quan_huyen').append('<option value="0" disable="true" selected="true">--Chọn Quận/Huyện--</option>');
@@ -174,7 +177,7 @@
       $('#quan_huyen').on('change', function(e){
         console.log(e);
         var parent_code = e.target.value;
-        $.get('/SEP-TEAM03/public/json-xa?parent_code=' + parent_code,function(data) {
+        $.get('{{ route('jsonxa') }}' +'?parent_code='+ parent_code,function(data) {
           console.log(data);
           $('#xa_phuong').empty();
           $('#xa_phuong').append('<option value="0" disable="true" selected="true">--Chọn Xã/Phường--</option>');

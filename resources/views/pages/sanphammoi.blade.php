@@ -1,4 +1,7 @@
 @extends('master')
+@section('title')
+<title>Sản Phẩm Mới - CloudBooth</title>
+@endsection
 @section('content')
 <div class="inner-header">
 		<div class="container">

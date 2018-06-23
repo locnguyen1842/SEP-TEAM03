@@ -1,4 +1,7 @@
 @extends('admin.master')
+@section('title')
+<title>Chi Tiết Đơn Hàng - CloudBooth</title>
+@endsection
 @section('content')
 <div>
   <div class="row">
@@ -24,6 +27,7 @@
         <div class="panel-body">
           <p>Mã đơn hàng: <span>{{ $bill->bill_number }}</span></p>
           <p>Ngày đặt hàng: <span>{{ $bill->created_at }}</span></p> 
+           <p>Tổng tiền: <span>{{ number_format($bill->total) }}</span></p> 
         </div>
       </div>
       <!-- /.panel -->
@@ -74,11 +78,9 @@
                <td><img width="100px" src="source/image/product/{{$item->product->image}}"/></td>
                <td><a target="_blank" href="{{ route('chitietsp',$item->product->id) }}">{{ $item->product->name }}</a></td>
                <td>{{ $item->quantity }}</td>
-               @if($item->product->promotion_price >0)
-               <td>{{ $item->product->promotion_price }}</td>
-               @else
-               <td>{{ $item->product->unit_price }}</td>
-               @endif
+              
+               <td>{{ number_format($item->unit_price )}}</td>
+              
                
                </tr> 
              @endforeach

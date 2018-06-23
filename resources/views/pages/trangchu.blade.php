@@ -1,5 +1,8 @@
 
 @extends('master')
+@section('title')
+<title>Cloud Booth</title>
+@endsection
 @section('content')
 <link rel="stylesheet" title="style" href="source/assets/dest/css/slider.css">
 

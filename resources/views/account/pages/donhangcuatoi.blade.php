@@ -1,4 +1,7 @@
 @extends('account.quanlytaikhoan')
+@section('title')
+<title>Đơn Hàng Của Tôi- CloudBooth</title>
+@endsection
 @section('noidung')
 <link rel="stylesheet" title="style" type="text/css" href="source/assets/dest/css/addresslist.css">
 <div class="menu-title">
@@ -20,11 +23,9 @@
 			@foreach($orders as $item)
 				
 				<tr>
-					<td scope="row">{{$item->bill_number}}</td>
+					<td scope="row"><a href="{{ route('user.orders.detail',$item->id) }}">{{$item->bill_number}}</a></td>
 					<td>{{$item->created_at}}</td>
-					
-					
-					<td>{{$item->total}}</td>
+					<td>{{number_format($item->total)}}</td>
 					<td>{{$item->note}}</td>
 				</tr>
 				
