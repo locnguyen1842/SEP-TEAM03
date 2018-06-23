@@ -14,6 +14,11 @@ Hướng dẫn cài đặt :
 - gõ : <pre>composer install</pre> ( để tiến hành tạo thư mục vendor )
 - tiếp theo tiến hành copy file .env ( trong cửa sổ cmd vừa mở gõ : <pre>copy .env.example .env</pre> )
 - sau khi đã copy file .env tại cửa sổ đó tiếp tục gõ : <pre>php artisan key:generate</pre>
+- Cài đặt các module cho project : bằng cách mở cmd và gõ :
+<pre>composer require intervention/image</pre>
+đợi hoàn thành và tiếp tục gõ
+<pre>composer require gloudemans/shoppingcart</pre>
+
 - Sau đó tiến hành kết nối database 
   - vào thư mục đã clone lúc đầu mở file .env và chỉnh giống như dòng dưới
       <pre>
@@ -23,6 +28,7 @@ Hướng dẫn cài đặt :
       DB_USERNAME=dbcloudmarket
       DB_PASSWORD= liên hệ trưởng nhóm để biết pass
       </pre>
-  
+
 - Mở xampp và start 2 Module : Apache và MySQL 
 - Tiến hành kiểm tra kết nối bằng cách gõ localhost trên trình duyệt (localhost:[port]/[tên thư mục vừa clone]/public/index )
+- Nếu có lỗi gì vui lòng vào issues của project github này xem. ( nếu k có trong issues vui lòng liên hệ nhóm trưởng giải quyết ).
