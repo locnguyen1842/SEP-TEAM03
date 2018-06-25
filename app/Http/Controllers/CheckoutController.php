@@ -95,6 +95,17 @@ class CheckoutController extends Controller
                 }
                 $billdetail->id_supplier = $product->supplier->id;
                 $billdetail->save();
+                $product = product::find($billdetail->id_product);
+                if($product->new - $item->qty >= 0){
+                    $product->new = $product->new - $item->qty;
+                    $product->save();
+                }
+                else{
+                    $billdetail->delete();
+                    $bill->delete();
+                    return redirect()->back()->with('thongbao','Số lượng không được vượt quá số lượng còn lại của sản phẩm');
+                }
+                
             }
             Cart::destroy();
             return redirect()->route('checkout.success');

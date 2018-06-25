@@ -1,5 +1,8 @@
 @extends('admin.cssjs')
-
+<head>
+    <title>Khôi Phục Mật Khẩu | Quản Trị - CloudBooth</title>
+    <link rel="icon" href="{!! asset('source/assets/dest/images/logo-cb.png') !!}"/>
+</head>
 <body>
 
 	<div class="container">

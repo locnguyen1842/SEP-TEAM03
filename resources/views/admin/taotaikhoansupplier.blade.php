@@ -1,4 +1,7 @@
 @extends('admin.master')
+@section('title')
+<title>Tạo Tài Khoản Supplier - CloudBooth</title>
+@endsection
 @section('content')
 
 <div class="row">

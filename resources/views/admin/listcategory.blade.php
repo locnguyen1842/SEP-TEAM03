@@ -1,4 +1,7 @@
 @extends('admin.master')
+@section('title')
+<title>Danh Sách Loại Sản Phẩm - CloudBooth</title>
+@endsection
 @section('content')
 <div>
             <div class="row">
@@ -38,7 +41,9 @@
                                         <tr class="odd gradeX">                                    
                                             <td>{{ $item->name }}</td>
                                             <td style="width: 50%">{{$item->desciption}}</td>                                             
-                                            <td class="center"><a href="{{ route('admin.category.edit',$item->id) }}" >Chỉnh sửa</a>|<a href="{{ route('admin.category.delete',$item->id) }}"  style="color: red" onclick="return confirm('Bạn có muốn hay không?')">Xóa</a></td>
+                                            <td class="center">
+                                                <a href="{{ route('admin.category.edit',$item->id) }}" >Chỉnh sửa</a>
+                                            </td>
                                             
                                         </tr>
                                     @endforeach

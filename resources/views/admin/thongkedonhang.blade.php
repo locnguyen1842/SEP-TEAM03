@@ -1,4 +1,7 @@
 @extends('admin.master')
+@section('title')
+<title>Thống Kê Đơn Hàng - CloudBooth</title>
+@endsection
 @section('content')
 <div>
     <div class="row">
@@ -74,7 +77,34 @@
     <!-- /.col-lg-12 -->
 </div>
 </div>
+<script>
+$(document).ready(function() {
 
+   var table = $('#dataTables-example').dataTable( {
+        
+        initComplete: function () {
+            
+            this.api().columns([2]).every( function () {
+                var column = this;
+                var select = $('<select><option value="">Trạng Thái</option></select>')
+                    .appendTo($(column.header()).empty())
+                    .on('change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+                        column
+                            
+                            .search( val ? '^'+val+'$' : '', true, false  )
+                            .draw();
+                    } );
+                 column.data().unique().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
+});
+ </script>
 <script type="text/javascript">
     $(document).ready( function () {
     var table = $('#dataTables-example').DataTable();

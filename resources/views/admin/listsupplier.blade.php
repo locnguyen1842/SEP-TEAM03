@@ -1,4 +1,7 @@
 @extends('admin.master')
+@section('title')
+<title>Danh Sách Tài Khoản Supplier- CloudBooth</title>
+@endsection
 @section('content')
 <link href="admin/vendors/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 <div class="row">
@@ -21,7 +24,7 @@
                                     <tr>
                                         <th>Tên Gian Hàng</th>
                                         <th>Email</th>
-                                        <th>Số điện thoại</th>
+                                        
                                         <th> </th>
                                     </tr>
                                 </thead>
@@ -31,9 +34,9 @@
                                         
                                         <td>{{ $item->shopname }}</td>
                                         <td>{{ $item->email }}</td>
-                                        <td>{{ $item->phone }}</td>
+                                        
                                         <td class="center">
-                                            <a href="{{ route('admin.deletesupplier',$item->id) }}" style="color: red" onclick="return confirm('Bạn có muốn xóa {{ $item->email }} tài khoản hay không?');"><i class="fa fa-remove"></i>    Xóa</a>
+                                            <a href="{{ route('admin.editsupplier',$item->id) }}">Chỉnh sửa</a>
                                         </td>
                                         
                                     </tr>

@@ -1,4 +1,7 @@
 @extends('master')
+@section('title')
+<title>Cảm Ơn! - CloudBooth</title>
+@endsection
 @section('content')
 
 <div class="container" style="margin-top: 20px;margin-bottom: 20px; min-height: 300px">

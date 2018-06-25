@@ -1,4 +1,7 @@
 @extends('master')
+@section('title')
+<title>Thông Tin Giao Hàng - CloudBooth</title>
+@endsection
 @section('content')
 <div class="inner-header">
 	<div class="container">
@@ -232,7 +235,7 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="your-order-item">
-									<div class="pull-left"><p class="your-order-f18">Tổng tiền ( Đã bao gồm VAT ):</p></div>
+									<div class="pull-left"><p class="your-order-f18">Tổng tiền ( Chưa bao gồm phí vận chuyển ):</p></div>
 									<input type="hidden" name="total" type="text" value="{{Cart::total()}}">
 									<div class="pull-right"><h5 class="color-black">{{number_format(Cart::total())}} đồng</h5></div>
 									
@@ -248,7 +251,7 @@
 										value="COD" checked="checked" data-order_button_text="">
 										<label for="payment_method_bacs">Thanh toán khi nhận hàng (COD) </label>
 										<div class="payment_box payment_method_bacs" style="display: block;">
-											Thanh toán khi nhận được hàng.
+											Sản phẩm sẽ được gửi tới địa chỉ mà bạn lựa chọn và bạn sẽ trả phí cho đơn hàng (bao gồm phí vận chuyển cho nhân viên giao hàng).
 										</div>
 									</li>
 
@@ -267,4 +270,56 @@
 
 				</div> <!-- #content -->
 			</div> <!-- .container -->
+			
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+      $('#tinh_tp').on('change', function(e){
+        console.log(e);
+        var parent_code = e.target.value;
+        $.get('{{ route('jsonquan') }}' +'?parent_code='+ parent_code,function(data) {
+          console.log(data);
+          $('#quan_huyen').empty();
+          $('#quan_huyen').append('<option value="0" disable="true" selected="true">--Chọn Quận/Huyện--</option>');
+
+          $('#xa_phuong').empty();
+          $('#xa_phuong').append('<option value="0" disable="true" selected="true">--Vui lòng chọn Quận/Huyện trước--</option>');
+
+        
+
+          $.each(data, function(index, quan_huyen){
+            $('#quan_huyen').append('<option value="'+ quan_huyen.code +'">'+ quan_huyen.name +'</option>');
+          })
+        });
+      });
+
+      $('#quan_huyen').on('change', function(e){
+        console.log(e);
+        var parent_code = e.target.value;
+        $.get('{{ route('jsonxa') }}' +'?parent_code='+ parent_code,function(data) {
+          console.log(data);
+          $('#xa_phuong').empty();
+          $('#xa_phuong').append('<option value="0" disable="true" selected="true">--Chọn Xã/Phường--</option>');
+
+          $.each(data, function(index, xa_phuong){
+            $('#xa_phuong').append('<option value="'+ xa_phuong.code +'">'+ xa_phuong.name +'</option>');
+          })
+        });
+      });
+
+    </script>
+    <script type="text/javascript">
+	$(function(){
+		$('.addNewAddress').on('click', function(e){
+			e.preventDefault();
+			$('#formAddNewAddress').show();
+		});
+		$('#huyboaddress').on('click', function(e){
+			e.preventDefault();
+			$('#formAddNewAddress').hide();
+		});
+		
+	});
+</script>
+
+
 			@endsection

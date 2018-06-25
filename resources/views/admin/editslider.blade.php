@@ -1,4 +1,7 @@
 @extends('admin.master')
+@section('title')
+<title>Cập Nhật Slider - CloudBooth</title>
+@endsection
 @section('content')
 
 <div class="row">

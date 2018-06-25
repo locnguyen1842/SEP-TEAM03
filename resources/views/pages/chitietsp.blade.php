@@ -1,4 +1,7 @@
 @extends('master')
+@section('title')
+<title>{{ $sp->name }} - CloudBooth</title>
+@endsection
 @section('content')
 <div class="inner-header">
 	<div class="container">
@@ -55,6 +58,12 @@
 							<div class="space20">&nbsp;</div>
 							<div class="single-item-desc">
 								<p><b>Đơn vị: </b> {{ $sp->unit }}</p>
+								
+								
+							</div>
+							<div class="space20">&nbsp;</div>
+							<div class="single-item-desc">
+								<p><b>Số lượng sản phẩm còn lại: </b> {{ $sp->new }}</p>
 								
 								
 							</div>

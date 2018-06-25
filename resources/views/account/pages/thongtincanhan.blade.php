@@ -1,4 +1,7 @@
 @extends('account.quanlytaikhoan')
+@section('title')
+<title>Thông Tin Cá Nhân - CloudBooth</title>
+@endsection
 @section('noidung')
 <base href="{{asset('')}}">
 <link rel="stylesheet" title="style" href="source/assets/dest/css/profile3.css">

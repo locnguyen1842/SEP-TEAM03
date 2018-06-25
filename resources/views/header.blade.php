@@ -12,7 +12,7 @@
 
 
                     @if(Auth::guard('customer')->check())
-                    <li><a href="{{ route('user.quanly') }}"><i class="fa fa-user"></i>Tài khoản</a></li>
+                    <li><a href="{{ route('user.orders') }}"><i class="fa fa-shopping-cart"></i>Theo Dõi Đơn Hàng</a></li>
                     <li><a href="{{ route('user.quanly') }}">Chào! {{Auth::guard('customer')->user()->name}}</a>
                     </li>
                     <li><a href="{{ route('dangxuat') }}">Đăng Xuất</a></li>
@@ -79,7 +79,7 @@
 </div> <!-- .header-body -->
 <div class="header-bottom" style="background-color: #0277b8;">
 	<div class="container">
-		<a class="visible-xs beta-menu-toggle pull-right" href="#"><span class='beta-menu-toggle-text'>Menu</span> <i class="fa fa-bars"></i></a>
+		<a class="visible-xs beta-menu-toggle pull-right" href="javascript:void(0)"><span class='beta-menu-toggle-text'>Menu</span> <i class="fa fa-bars"></i></a>
 		<div class="visible-xs clearfix"></div>
 		<nav class="main-menu">
 			<ul class="l-inline ov">

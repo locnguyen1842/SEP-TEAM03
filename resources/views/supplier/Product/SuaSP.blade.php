@@ -1,5 +1,7 @@
 @extends('supplier.master')
-
+@section('title')
+<title>Chỉnh Sửa Sản Phẩm {{ $Sanpham->name }} - CloudBooth</title>
+@endsection
 @section('content')
 <div>
 	<div class="row">
@@ -117,5 +119,8 @@
 		<!-- /.col-lg-12 -->
 	</div>
 </div>
-
+</div>
+<script type="text/javascript"> CKEDITOR.replace('txtMoTa',{
+   language: 'vi',
+});</script>
 @endsection

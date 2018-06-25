@@ -1,4 +1,7 @@
 @extends('account.quanlytaikhoan')
+@section('title')
+<title>Sổ Địa Chỉ - CloudBooth</title>
+@endsection
 @section('noidung')
 <link rel="stylesheet" title="style" type="text/css" href="source/assets/dest/css/addresslist.css">
 <div class="menu-title">

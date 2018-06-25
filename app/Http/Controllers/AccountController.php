@@ -10,6 +10,7 @@ use App\quan_huyen;
 use App\tinh_tp;
 use App\xa_phuong;
 use App\bill;
+use App\aboutUs;
 use Hash;
 use Auth;
 
@@ -110,7 +111,7 @@ class AccountController extends Controller
 		$this->validate($req,
 			[
 				'txtCurrentPwd'=>'required',
-				'txtNewPwd'=>'required|min:6|max:30',
+				'txtNewPwd'=>'required|min:6|max:30|alpha_num',
 				'txtConfirmPwd'=>'required|same:txtNewPwd'
 
 			],
@@ -119,6 +120,7 @@ class AccountController extends Controller
 				'txtNewPwd.required'=>'Vui Lòng Nhập mật khẩu mới',
 				'txtNewPwd.min'=>'Mật khẩu mới phải có độ dài từ 6 - 30 ký tự',
 				'txtNewPwd.max'=>'Mật khẩu mới phải có độ dài từ 6 - 30 ký tự',
+				'txtNewPwd.alpha_num'=>'Mật khẩu mới chỉ được chứa ký tự hoặc số',
 				'txtConfirmPwd.required'=>'Vui Lòng Nhập Vào Ô Nhập lại mật khẩu',
 				'txtConfirmPwd.same'=>'Mật khẩu nhập lại không đúng'
 
@@ -126,11 +128,16 @@ class AccountController extends Controller
 
 		);
 
-		$user = Customer::find(Auth::guard('customer')->user()->id);
-		$user->password = Hash::make($req->txtNewPwd);
-		$user->save();
-
-		return redirect()->back()->with('thanhcong','Thay đổi mật khẩu thành công');
+		$currentpwd = Auth::guard('customer')->user()->password;
+          if(Hash::check($req->txtCurrentPwd,$currentpwd)){
+               $customer = customer::find(Auth::guard('customer')->user()->id);
+               $customer->password = Hash::make($req->txtNewPwd);
+               $customer->save();
+               return redirect()->back()->with('thanhcong','Thay đổi mật khẩu thành công');
+          }
+          else{
+               return redirect()->back()->with('thatbai','Mật khẩu hiện tại không đúng');
+          }
 
 	}
 
@@ -224,10 +231,15 @@ class AccountController extends Controller
 	}
 
 	public function getOrders(){
-		$orders= bill::where('id_user',Auth::guard('customer')->user()->id)->get();
+		$orders= bill::where('id_user',Auth::guard('customer')->user()->id)->orderBy('created_at', 'decs')->get();
 		
 		return view('account.pages.donhangcuatoi',compact('orders'));
 	}
+	public function getOrdersDetail($id){
+		$order = bill::find($id);
+		return view('account.pages.orderdetail',compact('order'));
+	}
+
 
 }
 

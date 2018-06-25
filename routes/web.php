@@ -18,10 +18,16 @@ Route::get('index',[
 	'uses'=>'PageController@getIndex'
 
 ]);
+Route::get('loi-roi',[
+
+	'as'=>'error404',
+	'uses'=>'PageController@get404'
+
+]);
 //tinh , quan , xa route
 
-Route::get('/json-quan','PageController@getQuan');
-Route::get('/json-xa','PageController@getXa');
+Route::get('/json-quan','PageController@getQuan')->name('jsonquan');
+Route::get('/json-xa','PageController@getXa')->name('jsonxa');
 
 //home route
 Route::get('loai-san-pham/{type?}',[
@@ -146,6 +152,19 @@ Route::group(['prefix'=>'admin'],function(){
 		'as'=>'admin',
 		'uses'=>'AdminController@getIndex'
 	]);
+	//about us
+		Route::get('aboutUs-index',[
+		'as'=>'admin.aboutus.index',
+		'uses'=>'AdminController@getIndexAboutUs'
+		]);
+		Route::get('aboutUs-edit',[
+		'as'=>'admin.aboutus.edit',
+		'uses'=>'AdminController@getEditAboutUs'
+		]);
+		Route::post('aboutUs-edit',[
+		'as'=>'admin.aboutus.edit',
+		'uses'=>'AdminController@postEditAboutUs'
+		]);
 	//slider
 		Route::get('slider-list',[
 		'as'=>'admin.slider.index',
@@ -217,6 +236,14 @@ Route::group(['prefix'=>'admin'],function(){
 			'as'=>'admin.deletesupplier',
 			'uses'=>'AdminController@getSupplierDelete'
 		]);
+		Route::get('supplier-edit/{id}',[
+			'as'=>'admin.editsupplier',
+			'uses'=>'AdminController@getEditSupplier'
+		]);
+		Route::post('supplier-edit/{id}',[
+			'as'=>'admin.editsupplier',
+			'uses'=>'AdminController@postEditSupplier'
+		]);
 	//thong ke
 		Route::get('product-list',[
 			'as'=>'admin.listproduct',
@@ -233,6 +260,10 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::get('product-delete/{id}',[
 			'as'=>'admin.deleteproduct',
 			'uses'=>'AdminController@getDeleteProduct'
+		]);
+		Route::get('product-lock/{id}',[
+			'as'=>'admin.product.lock',
+			'uses'=>'AdminController@getLockProduct'
 		]);
 	//admin resetpwd
 		Route::post('password/email',[
@@ -269,9 +300,21 @@ Route::group(['prefix'=>'supplier'],function(){
 		'as'=>'supplier.logout',
 		'uses'=>'Auth\SupplierLoginController@logout'
 	]);
+	Route::get('/',[
+		'as'=>'supplier.checksl',
+		'uses'=>'SupplierController@getCheckSl'
+	]);
 	Route::get('index',[
 		'as'=>'supplier',
 		'uses'=>'SupplierController@getIndex'
+	]);
+	Route::get('change-password',[
+		'as'=>'supplier.password.edit',
+		'uses'=>'SupplierController@getChangePassword'
+	]);
+	Route::post('change-password',[
+		'as'=>'supplier.password.edit',
+		'uses'=>'SupplierController@postChangePassword'
 	]);
 	Route::get('info',[
 		'as'=>'supplier.info',
@@ -310,7 +353,7 @@ Route::group(['prefix'=>'supplier'],function(){
 
 		Route::get('SuaSP/{id}','SupplierController@getSuaSP')->name('supplier.product.edit');
 		Route::post('SuaSP/{id}','SupplierController@postSuaSP')->name('supplier.product.edit');
-
+		Route::get('Update-Quantity/{id}','SupplierController@getUpdateQty')->name('supplier.product.qty');
 		Route::get('ThemSP','SupplierController@getThemSP')->name('supplier.product.add');
 		Route::post('ThemSP','SupplierController@postThemSP')->name('supplier.product.add');
 		Route::get('ShowHide/{id}','SupplierController@postShowHide')->name('supplier.product.showhide');
@@ -337,7 +380,7 @@ Route::group(['prefix'=>'user'],function(){
 			'uses'=>'AccountController@getOrders'
 		]);
 
-		Route::get('index',[
+		Route::get('detail/{id}',[
 			'as'=>'user.orders.detail',
 			'uses'=>'AccountController@getOrdersDetail'
 		]);
@@ -420,3 +463,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});
+
+Route::get('/test', 'HomeController@test')->name('test');

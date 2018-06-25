@@ -1,4 +1,7 @@
 @extends('master')
+@section('title')
+<title>{{ $loai->name }} - CloudBooth</title>
+@endsection
 @section('content')
 <div class="inner-header">
 		<div class="container">

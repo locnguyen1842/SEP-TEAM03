@@ -1,4 +1,7 @@
 @extends('master')
+@section('title')
+<title>{{ $key }} - CloudBooth</title>
+@endsection
 @section('content')
 <div class="inner-header">
 		<div class="container">

@@ -1,9 +1,18 @@
 @extends('master')
+@section('title')
+<title>Giỏ Hàng - CloudBooth</title>
+@endsection
 @section('content')
 <div class="container" style="margin-top: 20px;margin-bottom: 20px">
 	@if(Cart::instance('default')->count() > 0)
 	<div class="col-sm-8" >
 		<h4 style="margin-bottom: 20px" >Giỏ hàng</h4 >
+
+			@if(session('thongbao'))
+			
+				<h6>{{session('thongbao')}}</h6>
+			
+			@endif
 
 		<div  class="panel panel-info">
 			<?php $count=1;?>
@@ -23,7 +32,8 @@
 							<input data-id="{{ $item->rowId }}" style="height: 24px; width: 60px" class="form-control" min="1" max="10" type="number" name="quantity" id="quantitycart<?php echo $count; ?>" required="" value="{{ $item->qty }}" oninput="validity.valid||(value='');">
 							<input type="hidden" name="rowId" id="rowId<?php echo $count; ?>"  value="{{ $item->rowId }}">
 							<input type="hidden" name="proId" id="proId<?php echo $count; ?>"  value="{{ $item->model->id }}">
-
+							<input type="hidden" name="cqty" id="cqty<?php echo $count; ?>"  value="{{ $item->model->new }}">
+							<input type="hidden" name="namepro" id="namepro<?php echo $count; ?>"  value="{{ $item->model->name }}">
 						</div>
 
 					</form>
@@ -31,6 +41,10 @@
 					
 					<div class="col-xs-12">
 						<p style="margin-top: 15px">Nhà Phân Phối : {{ $item->model->supplier()->first()->shopname }}</p>	
+
+					</div>
+					<div class="col-xs-12">
+						<p style="margin-top: 15px">Số lượng sản phẩm còn lại: {{ $item->model->new }} {{ $item->model->unit }}</p>	
 
 					</div>
 				</div>
@@ -61,6 +75,42 @@
 
 				</div>
 
+			<script type="text/javascript">
+				$(document).ready(function(){
+					<?php for($i=1;$i<=Cart::instance('default')->count();$i++){
+					?>
+					$('#quantitycart<?php echo $i; ?>').on('change keyup',function(){
+						var quantity = $('#quantitycart<?php echo $i; ?>').val();
+						var cqty = $('#cqty<?php echo $i; ?>').val();
+						var namepro = $('#namepro<?php echo $i; ?>').val();
+						var rowId = $('#rowId<?php echo $i; ?>').val();
+						var proId = $('#proId<?php echo $i; ?>').val();
+						if(quantity > cqty) {	
+							
+							document.getElementById("quantitycart<?php echo $i; ?>").value = cqty+"";
+							alert('Chỉ còn lại '+cqty+' sản phẩm '+namepro );
+							
+						}
+						else{
+							$.ajax({
+								type:'get',
+								dataType:'html',
+								url:'<?php echo url('/cart-update'); ?>/'+rowId,
+								data:"qty="+quantity + "& rowId="+rowId+"& proId="+proId,
+								success: function(respone){
+									location.reload();
+								}
+
+							});
+						}
+
+
+					});
+					<?php
+						}
+					?>
+				});
+			</script>
 
 			</div>
 			<?php $count++; ?>
@@ -81,21 +131,14 @@
 						{{ number_format(Cart::subtotal()) }}
 					</div>
 				</div>
-				<div class="col-sm-12">
-					<div class="col-sm-7 label-thanhtoan">
-						Phí VAT (10%) 
-					</div>
-					<div class="col-sm-5 gia-thanhtoan">
-						{{ number_format(Cart::tax()) }}
-					</div>
-				</div>
+				
 				<div class="col-sm-12">
 
 					<div class="col-sm-7 label-thanhtoan">
-						Phí vận chuyển 
+						Phí vận chuyển (khách trả)
 					</div>
 					<div class="col-sm-5 gia-thanhtoan">
-						Miễn phí
+						Chưa tính
 					</div>
 				</div>
 				<div class="col-sm-12" style="min-height:20px"></div>

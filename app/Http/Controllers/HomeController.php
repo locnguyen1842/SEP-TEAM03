@@ -11,10 +11,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+   
 
     /**
      * Show the application dashboard.
@@ -25,4 +22,20 @@ class HomeController extends Controller
     {
         return view('home');
     }
+     public function test()
+    {
+        $data = [
+            'name'=>'Loc',
+            'emai'=>'haimuoibon024',
+            'password'=>'password',
+            
+            'phone'=>'01632530666',
+            
+            
+        ];
+        $request= new Request($data);
+        dd($request->email);
+        exit();
+    }
+
 }

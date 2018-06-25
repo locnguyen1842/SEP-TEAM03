@@ -1,4 +1,7 @@
 @extends('account.quanlytaikhoan')
+@section('title')
+<title>Thay Đổi Thông Tin Cá Nhân - CloudBooth</title>
+@endsection
 @section('noidung')
 
 <div class="menu-title">

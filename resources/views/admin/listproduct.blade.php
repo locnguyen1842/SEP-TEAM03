@@ -1,4 +1,7 @@
 @extends('admin.master')
+@section('title')
+<title>Danh Sách Sản Phẩm - CloudBooth</title>
+@endsection
 @section('content')
 <div>
             <div class="row">
@@ -53,7 +56,7 @@
                                            
                                            
                                             
-                                            <td class="center"><i class="fa fa-pencil fa-fw"></i><a href="{{ route('admin.deleteproduct',$sp->id) }}"  onclick="return confirm('Bạn có muốn xóa sản phẩm  hay không?')">Xóa</a></td>
+                                            <td class="center"></td>
                                             
                                         </tr>
                                     @endforeach
