@@ -25,7 +25,9 @@
 	<script src="source/assets/dest/vendors/animo/Animo.js"></script>
 	<script src="source/assets/dest/vendors/dug/dug.js"></script>
 	<script src="source/assets/dest/js/scripts.min.js"></script>
-	
+	 <script src="admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="admin/vendors/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="admin/vendors/datatables-responsive/dataTables.responsive.js"></script>
 	<script src="source/assets/dest/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
 	<script src="source/assets/dest/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 	<script src="source/assets/dest/js/waypoints.min.js"></script>
@@ -49,7 +51,7 @@
 
 	<!-- include js files -->
 	
-</script>
+
 
 <script>
 	$(document).ready(function($) {    
@@ -58,9 +60,9 @@
 				$(".header-bottom").addClass('fixNav')
 			}else{
 				$(".header-bottom").removeClass('fixNav')
-			}}
-			)
-	})
+			}
+			})
+	});
 </script>
 
 </body>

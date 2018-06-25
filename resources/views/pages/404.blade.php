@@ -9,15 +9,13 @@
 				<div class="space100">&nbsp;</div>
 				<div class="space80">&nbsp;</div>
 				<div class="container text-center">
-					<h2>Oops! That Page Can’t Be Found!</h2>
-					<div class="space40">&nbsp;</div>
-					<img src="assets/dest/images/404.jpg" alt="">
+					<h2>Oops! Lỗi Rồi o_O!</h2>
+					<h4><a href="{{ route('trangchu') }}">Quay Về Trang Chủ</a></h4>
+					
 					<div class="space30">&nbsp;</div>
-					<p>It looks like nothing was found at this location. Maybe try to use a search?</p>
-					<form role="search" method="get" id="searchform" action="/">
-				        <input type="text" value="" name="s" id="s" placeholder="Search entire store here..." />
-				        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
-					</form>
+					<p>Không Tìm Thầy Trang Bạn Yêu Cầu</p>
+
+					
 				</div>
 				<div class="space100">&nbsp;</div>
 				<div class="space30">&nbsp;</div>

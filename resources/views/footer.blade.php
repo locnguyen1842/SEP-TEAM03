@@ -48,6 +48,6 @@
 				<a href="/" onclick="return false;">Nhóm 3 - K21T2</a>
 				
 			</p>
-			<div class="clearfix"></div>
+			
 		</div> <!-- .container -->
 	</div> <!-- .copyright -->

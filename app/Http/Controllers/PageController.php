@@ -27,7 +27,7 @@ class PageController extends Controller
               	// return view('pages.trangchu',['slide'->$slide]); 
                 
               	$new_product = Product::latest()->where([['unlock',1],['active',1],['new','>',0]])->paginate(8); //paginate so san pham tren dong
-              	$sanpham_khuyenmai = Product::where([['promotion_price','<>',''],['active',1],['new','>',0],['unlock',1]])->inRandomOrder()->paginate(8);
+              	$sanpham_khuyenmai = Product::where([['promotion_price','<>',''],['active',1],['new','>',0],['unlock',1]])->inRandomOrder()->paginate(4);
               	
               	return view('pages.trangchu',compact('slide','new_product','sanpham_khuyenmai','slideA')); 	// truyen du lieu slide
               }
@@ -36,7 +36,7 @@ class PageController extends Controller
 
             	$loai = productType::where('id',$type)->first();
             	$sp_theoloai = Product::where([['id_type',$type],['active',1],['new','>',0],['unlock',1]])->paginate(9);
-            	$count_sp_theoloai = Product::where('id_type',$type)->get();
+            	$count_sp_theoloai = Product::where([['id_type',$type],['active',1],['new','>',0],['unlock',1]])->get();
             	return view('pages.loaisp',compact('sp_theoloai','loaisp','loai','count_sp_theoloai'));
             }
 
@@ -57,10 +57,10 @@ class PageController extends Controller
               $key = $request->key;
              $loaisp = productType::all();
              $product = Product::where([['name','like','%'.$request->key.'%'],['active',1],['new','>',0],['unlock',1]])
-             ->orWhere('unit_price',$request->key)
+             ->orWhere([['unit_price',$request->key],['active',1],['new','>',0],['unlock',1]])
              ->paginate(6);
              $count_product = Product::where([['name','like','%'.$request->key.'%'],['active',1],['new','>',0],['unlock',1]])
-             ->orWhere('unit_price',$request->key)
+             ->orWhere([['unit_price',$request->key],['active',1],['new','>',0],['unlock',1]])
              ->get();
              return view('pages.search',compact('product','count_product','loaisp','key'));
            }
@@ -72,8 +72,8 @@ class PageController extends Controller
              return view('pages.sanphammoi',compact('new_product','count_product','loaisp'));
            }
            public function getSpKhuyenMai(){
-             $sanpham_khuyenmai = Product::where('promotion_price','<>','')->paginate(9);
-             $count_product = Product::where('promotion_price','<>','')->get();
+             $sanpham_khuyenmai = Product::where([['promotion_price','<>',''],['active',1],['new','>',0],['unlock',1]])->paginate(9);
+             $count_product = Product::where([['promotion_price','<>',''],['active',1],['new','>',0],['unlock',1]])->get();
              $loaisp = productType::all();
              return view('pages.sanphamgiamgia',compact('sanpham_khuyenmai','count_product','loaisp'));
            }
@@ -231,8 +231,8 @@ class PageController extends Controller
             }
           }
 
-          public function muahang(){
-
+          public function get404(){
+            return view('pages.404');
           }
 
 

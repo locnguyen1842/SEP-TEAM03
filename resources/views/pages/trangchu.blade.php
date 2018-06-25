@@ -5,8 +5,19 @@
 @endsection
 @section('content')
 <link rel="stylesheet" title="style" href="source/assets/dest/css/slider.css">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    @for($i = 1 ; $i< count($slide) +1 ;$i++)
+    <li data-target="#myCarousel" data-slide-to="{{ $i }}"></li>
+    
+   @endfor
+  </ol>
 
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Wrapper for slides -->
+  
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

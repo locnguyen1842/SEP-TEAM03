@@ -18,6 +18,12 @@ Route::get('index',[
 	'uses'=>'PageController@getIndex'
 
 ]);
+Route::get('loi-roi',[
+
+	'as'=>'error404',
+	'uses'=>'PageController@get404'
+
+]);
 //tinh , quan , xa route
 
 Route::get('/json-quan','PageController@getQuan')->name('jsonquan');
@@ -457,3 +463,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});
+
+Route::get('/test', 'HomeController@test')->name('test');
