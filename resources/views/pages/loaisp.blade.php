@@ -11,7 +11,7 @@
 			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">
 					<a href="{{ route('trangchu') }}">Home</a> /<span>Loại sản phẩm/{{ $loai->name }}</span>
-				</div>s
+				</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>

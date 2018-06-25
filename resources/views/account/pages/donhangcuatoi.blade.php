@@ -9,7 +9,7 @@
 </div>
 
 <fieldset style="background: #bdd5fb ; padding: 20px">
-	<table class="table table-hover">
+	<table id="donhangcuatoi" class="table table-hover">
 		<thead>
 			<tr>
 				<th scope="col">Mã đơn hàng</th>
@@ -36,7 +36,34 @@
 	
 
 </fieldset>
+<script>
+$(document).ready(function() {
 
+   var table = $('#donhangcuatoi').dataTable( {
+        
+        initComplete: function () {
+            
+            this.api().columns([3]).every( function () {
+                var column = this;
+                var select = $('<select><option value="">Trạng Thái</option></select>')
+                    .appendTo($(column.header()).empty())
+                    .on('change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+                        column
+                            
+                            .search( val ? '^'+val+'$' : '', true, false  )
+                            .draw();
+                    } );
+                 column.data().unique().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
+});
+ </script>
 
 
 
