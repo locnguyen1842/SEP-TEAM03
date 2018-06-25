@@ -35,10 +35,8 @@ class CustomerTest extends TestCase
         	
         ];
         $controller = new PageController;
-
         $customer = new Customer($data);
         $customer->save();
-       
         $this->assertEquals($data['name'],$customer->name);
         $this->assertEquals($data['email'],$customer->email);
         $this->assertEquals($data['password'],$customer->password);
