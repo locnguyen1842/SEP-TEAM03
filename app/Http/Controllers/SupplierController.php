@@ -87,13 +87,8 @@ class SupplierController extends Controller
      			'txtGia' => 'required|numeric',
                     'txtGiamGia' => 'required|numeric|max:'.$request->txtGia,
      			'txtDonVi' => 'required',
-<<<<<<< HEAD
      			'txtSoLuong' => 'required',
      			'txtMoTa' => 'required|min:20|max:10000',
-=======
-     			'txtSoLuong' => 'required|numeric',
-     			'txtMoTa' => 'required|min:20|max:1000',
->>>>>>> 9ca41653d0a6d37aa878f8c74deae1755b90c73e
      			'sku'=> 'required',	
                     'Hinh'=> 'required',  
 
@@ -164,13 +159,8 @@ class SupplierController extends Controller
      			'txtGia' => 'required|numeric',
                     'txtGiamGia' => 'required|numeric|max:'.$request->txtGia,
      			'txtDonVi' => 'required',
-<<<<<<< HEAD
      			'txtSoLuong' => 'required',
      			'txtMoTa' => 'required|min:20|max:10000',
-=======
-     			'txtSoLuong' => 'required|numeric',
-     			'txtMoTa' => 'required|min:20|max:1000',
->>>>>>> 9ca41653d0a6d37aa878f8c74deae1755b90c73e
      			'sku'=> 'required',	
                     'Hinh'=> 'required',     
 
@@ -257,15 +247,12 @@ class SupplierController extends Controller
      			'name.required'=>'Bạn chưa nhập tên chủ sở hữu',
      			'name.min'=>'Tên chủ sở hữu phải có độ dài từ 2 đến 100 ký tự',
      			'name.max'=>'Tên chủ sở hữu phải có độ dài từ 2 đến 100 ký tự',
-<<<<<<< HEAD
      			'phone.required'=>'Bạn chưa nhập số điện thoại',
      		
      			// 'Hinh.max_height' => 'Logo có chiều cao tối đa 100px',
      			// 'Hinh.max_width' => 'Logo có chiều rộng tối đã 200px',
-=======
                     'name.alpha_num'=>'Tên chỉ được chứa chữ và số',
      			'phone.required'=>'Bạn chưa chọn loại sản phẩm',
->>>>>>> 9ca41653d0a6d37aa878f8c74deae1755b90c73e
      			'Hinh.dimensions' => 'Logo có có kích thước vượt quá 200px x 100px'
 
      			
