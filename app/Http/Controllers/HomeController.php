@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
         $data = [
             'name'=>'Loc',
-            'emai'=>'haimuoibon024',
+            'email'=>'haimuoibon024',
             'password'=>'password',
             
             'phone'=>'01632530666',
@@ -36,6 +36,10 @@ class HomeController extends Controller
         $request= new Request($data);
         dd($request->email);
         exit();
+    }
+      public function test1()
+    {
+       return 20;
     }
 
 }

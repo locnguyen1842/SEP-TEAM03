@@ -24,7 +24,9 @@ Route::get('loi-roi',[
 	'uses'=>'PageController@get404'
 
 ]);
-
+App::missing(function() {
+    return View::make('pages.404');
+});
 //tinh , quan , xa route
 
 Route::get('/json-quan','PageController@getQuan')->name('jsonquan');
@@ -468,5 +470,3 @@ Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('cache:clear');
     // return what you want
 });
-
-Route::get('/test', 'HomeController@test')->name('test');
