@@ -20,35 +20,6 @@ class AccountController extends Controller
 	{
 		$this->middleware('auth:customer');
 	}
-	
-	
-
-	public function postLogin(Request $req){
-		$this->validate($req,
-			[
-				'txtEmail'=>'required|email',
-				'txtPassword'=>'required'
-			],
-			[
-				'txtEmail.required'=>'Vui Lòng Nhập Email',
-				'txtEmail.email'=>'Email Không Đúng Định Dạng',
-				'txtPassword.required'=>'Vui Lòng Điền Password'
-			]
-
-		);
-
-		$credentials = array('email'=>$req->txtEmail,'password'=>$req->txtPassword);
-		if(Auth::attempt($credentials)){
-			return redirect()->route('trangchu')->with(['flag'=>'success','thongbao'=>'Đăng Nhập Thành Công']);
-		}
-		else{
-			return redirect()->back()->with(['flag'=>'danger','thongbao'=>'Email hoặc Mật Khẩu Không Đúng']);
-		}
-
-
-	}
-
-
 	public function getProfile(){
 		$id = Auth::guard('customer')->user()->id;
 		$address = address::where('id_customer','=',$id)->first();
@@ -96,6 +67,7 @@ class AccountController extends Controller
 		$profile->phone = $req->txtPhone;
 		$profile->birth_date  = $req->txtBd;
 		$profile->gender = $req->get('Gender',0); //xu ly radio button
+		
 		$profile->save();
 		return redirect()->route('user.profile.index')->with('thanhcong','Cập nhật tài khoản thành công');;
 	}
@@ -222,14 +194,6 @@ class AccountController extends Controller
 
 		
 	}
-	public function getdelete($id)
-	{
-		
-		$address = address::find($id);
-		$address->delete();
-		return redirect()->route('user.address')->with('thanhcong','Xóa Thành Công');
-	}
-
 	public function getOrders(){
 		$orders= bill::where('id_user',Auth::guard('customer')->user()->id)->orderBy('created_at', 'decs')->get();
 		

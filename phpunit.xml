@@ -21,8 +21,14 @@
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app</directory>
         </whitelist>
+         <exclude>
+                <file>./app/Http/Controllers/web.php</file>
+        </exclude>
+          
     </filter>
-    
+    <logging>
+        <log type="coverage-html" target="./test/coverage/" charset="UTF-8"/>
+    </logging>
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="CACHE_DRIVER" value="array"/>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for E:\xampp\htdocs\SEP-TEAM03\app/Http/Controllers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../.css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../../.css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../../.css/style.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src="../../.js/html5shiv.min.js"></script>
+  <script src="../../.js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../../index.html">E:\xampp\htdocs\SEP-TEAM03\app</a></li>
+        <li><a href="../index.html">Http</a></li>
+        <li><a href="index.html">Controllers</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="AdminController.php.html#15">App\Http\Controllers\AdminController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminForgotPasswordController.php.html#8">App\Http\Controllers\Auth\AdminForgotPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminLoginController.php.html#8">App\Http\Controllers\Auth\AdminLoginController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminResetPasswordController.php.html#10">App\Http\Controllers\Auth\AdminResetPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/ForgotPasswordController.php.html#8">App\Http\Controllers\Auth\ForgotPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/LoginController.php.html#8">App\Http\Controllers\Auth\LoginController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/RegisterController.php.html#13">App\Http\Controllers\Auth\RegisterController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/ResetPasswordController.php.html#10">App\Http\Controllers\Auth\ResetPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierForgotPasswordController.php.html#8">App\Http\Controllers\Auth\SupplierForgotPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierLoginController.php.html#8">App\Http\Controllers\Auth\SupplierLoginController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierResetPasswordController.php.html#10">App\Http\Controllers\Auth\SupplierResetPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="HomeController.php.html#7">App\Http\Controllers\HomeController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#21">App\Http\Controllers\PageController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#13">App\Http\Controllers\SupplierController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/CustomerLoginController.php.html#8">App\Http\Controllers\Auth\CustomerLoginController</a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="CartController.php.html#8">App\Http\Controllers\CartController</a></td><td class="text-right">64%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="SupplierController.php.html#13">App\Http\Controllers\SupplierController</a></td><td class="text-right">2162</td></tr>
+       <tr><td><a href="AdminController.php.html#15">App\Http\Controllers\AdminController</a></td><td class="text-right">812</td></tr>
+       <tr><td><a href="PageController.php.html#21">App\Http\Controllers\PageController</a></td><td class="text-right">600</td></tr>
+       <tr><td><a href="Auth/AdminLoginController.php.html#8">App\Http\Controllers\Auth\AdminLoginController</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Auth/SupplierLoginController.php.html#8">App\Http\Controllers\Auth\SupplierLoginController</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Auth/CustomerLoginController.php.html#8">App\Http\Controllers\Auth\CustomerLoginController</a></td><td class="text-right">8</td></tr>
+       <tr><td><a href="CartController.php.html#8">App\Http\Controllers\CartController</a></td><td class="text-right">7</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="AdminController.php.html#22"><abbr title="App\Http\Controllers\AdminController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="HomeController.php.html#25"><abbr title="App\Http\Controllers\HomeController::test">test</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#81"><abbr title="App\Http\Controllers\PageController::getAddtoCart">getAddtoCart</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#74"><abbr title="App\Http\Controllers\PageController::getSpKhuyenMai">getSpKhuyenMai</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#68"><abbr title="App\Http\Controllers\PageController::getSpMoi">getSpMoi</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#56"><abbr title="App\Http\Controllers\PageController::getSearch">getSearch</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#50"><abbr title="App\Http\Controllers\PageController::getGioiThieu">getGioiThieu</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#43"><abbr title="App\Http\Controllers\PageController::getChiTietSP">getChiTietSP</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#34"><abbr title="App\Http\Controllers\PageController::getLoaiSP">getLoaiSP</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#24"><abbr title="App\Http\Controllers\PageController::getIndex">getIndex</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="HomeController.php.html#40"><abbr title="App\Http\Controllers\HomeController::test1">test1</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="HomeController.php.html#21"><abbr title="App\Http\Controllers\HomeController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#108"><abbr title="App\Http\Controllers\PageController::getCheckout">getCheckout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CartController.php.html#46"><abbr title="App\Http\Controllers\CartController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierResetPasswordController.php.html#49"><abbr title="App\Http\Controllers\Auth\SupplierResetPasswordController::showResetForm">showResetForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierResetPasswordController.php.html#46"><abbr title="App\Http\Controllers\Auth\SupplierResetPasswordController::broker">broker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierResetPasswordController.php.html#42"><abbr title="App\Http\Controllers\Auth\SupplierResetPasswordController::guard">guard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierResetPasswordController.php.html#37"><abbr title="App\Http\Controllers\Auth\SupplierResetPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierLoginController.php.html#36"><abbr title="App\Http\Controllers\Auth\SupplierLoginController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierLoginController.php.html#18"><abbr title="App\Http\Controllers\Auth\SupplierLoginController::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierLoginController.php.html#15"><abbr title="App\Http\Controllers\Auth\SupplierLoginController::showLoginForm">showLoginForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierLoginController.php.html#10"><abbr title="App\Http\Controllers\Auth\SupplierLoginController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierForgotPasswordController.php.html#36"><abbr title="App\Http\Controllers\Auth\SupplierForgotPasswordController::showLinkRequestForm">showLinkRequestForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#90"><abbr title="App\Http\Controllers\PageController::getDelItemCart">getDelItemCart</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#120"><abbr title="App\Http\Controllers\PageController::postCheckout">postCheckout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierForgotPasswordController.php.html#28"><abbr title="App\Http\Controllers\Auth\SupplierForgotPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#81"><abbr title="App\Http\Controllers\SupplierController::postSuaSP">postSuaSP</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#362"><abbr title="App\Http\Controllers\SupplierController::postChangePassword">postChangePassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#358"><abbr title="App\Http\Controllers\SupplierController::getChangePassword">getChangePassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#318"><abbr title="App\Http\Controllers\SupplierController::postEditStatusOrders">postEditStatusOrders</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#313"><abbr title="App\Http\Controllers\SupplierController::getEditStatusOrders">getEditStatusOrders</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#304"><abbr title="App\Http\Controllers\SupplierController::getChiTietDonHang">getChiTietDonHang</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#297"><abbr title="App\Http\Controllers\SupplierController::getThongKeDonHang">getThongKeDonHang</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#235"><abbr title="App\Http\Controllers\SupplierController::getEditInfo">getEditInfo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#229"><abbr title="App\Http\Controllers\SupplierController::getInfo">getInfo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#154"><abbr title="App\Http\Controllers\SupplierController::postThemSP">postThemSP</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#150"><abbr title="App\Http\Controllers\SupplierController::getThemSP">getThemSP</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#66"><abbr title="App\Http\Controllers\SupplierController::postShowHide">postShowHide</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#152"><abbr title="App\Http\Controllers\PageController::getSignUp">getSignUp</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#60"><abbr title="App\Http\Controllers\SupplierController::getCheckSl">getCheckSl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#55"><abbr title="App\Http\Controllers\SupplierController::getSuaSP">getSuaSP</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#42"><abbr title="App\Http\Controllers\SupplierController::getDanhSachSP">getDanhSachSP</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#25"><abbr title="App\Http\Controllers\SupplierController::getIndex">getIndex</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#20"><abbr title="App\Http\Controllers\SupplierController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#234"><abbr title="App\Http\Controllers\PageController::get404">get404</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#221"><abbr title="App\Http\Controllers\PageController::getCartDetails">getCartDetails</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#216"><abbr title="App\Http\Controllers\PageController::getXa">getXa</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#210"><abbr title="App\Http\Controllers\PageController::getQuan">getQuan</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageController.php.html#164"><abbr title="App\Http\Controllers\PageController::postSignUp">postSignUp</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/SupplierForgotPasswordController.php.html#32"><abbr title="App\Http\Controllers\Auth\SupplierForgotPasswordController::broker">broker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/ResetPasswordController.php.html#49"><abbr title="App\Http\Controllers\Auth\ResetPasswordController::showResetForm">showResetForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#27"><abbr title="App\Http\Controllers\AdminController::getIndex">getIndex</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#158"><abbr title="App\Http\Controllers\AdminController::getAddCategory">getAddCategory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#291"><abbr title="App\Http\Controllers\AdminController::getIndexAboutUs">getIndexAboutUs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#285"><abbr title="App\Http\Controllers\AdminController::getDeleteSlider">getDeleteSlider</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#246"><abbr title="App\Http\Controllers\AdminController::postAddSlider">postAddSlider</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#240"><abbr title="App\Http\Controllers\AdminController::getAddSlider">getAddSlider</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#224"><abbr title="App\Http\Controllers\AdminController::postShowHideSlider">postShowHideSlider</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#219"><abbr title="App\Http\Controllers\AdminController::getListSlider">getListSlider</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#191"><abbr title="App\Http\Controllers\AdminController::postEditCategory">postEditCategory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#187"><abbr title="App\Http\Controllers\AdminController::getEditCategory">getEditCategory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#161"><abbr title="App\Http\Controllers\AdminController::postAddCategory">postAddCategory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#154"><abbr title="App\Http\Controllers\AdminController::getListCategory">getListCategory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#301"><abbr title="App\Http\Controllers\AdminController::postEditAboutUs">postEditAboutUs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#149"><abbr title="App\Http\Controllers\AdminController::getSupplierDelete">getSupplierDelete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#113"><abbr title="App\Http\Controllers\AdminController::postSupplierCreate">postSupplierCreate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#84"><abbr title="App\Http\Controllers\AdminController::postEditSupplier">postEditSupplier</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#80"><abbr title="App\Http\Controllers\AdminController::getEditSupplier">getEditSupplier</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#73"><abbr title="App\Http\Controllers\AdminController::getDetailOrder">getDetailOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#67"><abbr title="App\Http\Controllers\AdminController::getListOrder">getListOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#51"><abbr title="App\Http\Controllers\AdminController::getLockProduct">getLockProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#47"><abbr title="App\Http\Controllers\AdminController::getListProduct">getListProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#43"><abbr title="App\Http\Controllers\AdminController::getSupplierCreate">getSupplierCreate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#38"><abbr title="App\Http\Controllers\AdminController::getListSupplier">getListSupplier</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AdminController.php.html#296"><abbr title="App\Http\Controllers\AdminController::getEditAboutUs">getEditAboutUs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminForgotPasswordController.php.html#28"><abbr title="App\Http\Controllers\Auth\AdminForgotPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/ResetPasswordController.php.html#46"><abbr title="App\Http\Controllers\Auth\ResetPasswordController::broker">broker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/CustomerLoginController.php.html#36"><abbr title="App\Http\Controllers\Auth\CustomerLoginController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/ResetPasswordController.php.html#42"><abbr title="App\Http\Controllers\Auth\ResetPasswordController::guard">guard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/ResetPasswordController.php.html#37"><abbr title="App\Http\Controllers\Auth\ResetPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/RegisterController.php.html#67"><abbr title="App\Http\Controllers\Auth\RegisterController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/RegisterController.php.html#51"><abbr title="App\Http\Controllers\Auth\RegisterController::validator">validator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/RegisterController.php.html#40"><abbr title="App\Http\Controllers\Auth\RegisterController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/LoginController.php.html#39"><abbr title="App\Http\Controllers\Auth\LoginController::userLogout">userLogout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/LoginController.php.html#35"><abbr title="App\Http\Controllers\Auth\LoginController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/ForgotPasswordController.php.html#37"><abbr title="App\Http\Controllers\Auth\ForgotPasswordController::showLinkRequestForm">showLinkRequestForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/ForgotPasswordController.php.html#33"><abbr title="App\Http\Controllers\Auth\ForgotPasswordController::broker">broker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/ForgotPasswordController.php.html#28"><abbr title="App\Http\Controllers\Auth\ForgotPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SupplierController.php.html#397"><abbr title="App\Http\Controllers\SupplierController::getUpdateQty">getUpdateQty</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminForgotPasswordController.php.html#33"><abbr title="App\Http\Controllers\Auth\AdminForgotPasswordController::broker">broker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/CustomerLoginController.php.html#15"><abbr title="App\Http\Controllers\Auth\CustomerLoginController::showLoginForm">showLoginForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminResetPasswordController.php.html#49"><abbr title="App\Http\Controllers\Auth\AdminResetPasswordController::showResetForm">showResetForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminResetPasswordController.php.html#46"><abbr title="App\Http\Controllers\Auth\AdminResetPasswordController::broker">broker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminResetPasswordController.php.html#42"><abbr title="App\Http\Controllers\Auth\AdminResetPasswordController::guard">guard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminResetPasswordController.php.html#38"><abbr title="App\Http\Controllers\Auth\AdminResetPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminLoginController.php.html#43"><abbr title="App\Http\Controllers\Auth\AdminLoginController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminLoginController.php.html#18"><abbr title="App\Http\Controllers\Auth\AdminLoginController::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminLoginController.php.html#15"><abbr title="App\Http\Controllers\Auth\AdminLoginController::showLoginForm">showLoginForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminLoginController.php.html#10"><abbr title="App\Http\Controllers\Auth\AdminLoginController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/AdminForgotPasswordController.php.html#37"><abbr title="App\Http\Controllers\Auth\AdminForgotPasswordController::showLinkRequestForm">showLinkRequestForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Auth/CustomerLoginController.php.html#18"><abbr title="App\Http\Controllers\Auth\CustomerLoginController::login">login</abbr></a></td><td class="text-right">66%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="SupplierController.php.html#318"><abbr title="App\Http\Controllers\SupplierController::postEditStatusOrders">postEditStatusOrders</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="SupplierController.php.html#154"><abbr title="App\Http\Controllers\SupplierController::postThemSP">postThemSP</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="SupplierController.php.html#81"><abbr title="App\Http\Controllers\SupplierController::postSuaSP">postSuaSP</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="PageController.php.html#90"><abbr title="App\Http\Controllers\PageController::getDelItemCart">getDelItemCart</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="SupplierController.php.html#42"><abbr title="App\Http\Controllers\SupplierController::getDanhSachSP">getDanhSachSP</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AdminController.php.html#51"><abbr title="App\Http\Controllers\AdminController::getLockProduct">getLockProduct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="PageController.php.html#221"><abbr title="App\Http\Controllers\PageController::getCartDetails">getCartDetails</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="SupplierController.php.html#304"><abbr title="App\Http\Controllers\SupplierController::getChiTietDonHang">getChiTietDonHang</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="SupplierController.php.html#66"><abbr title="App\Http\Controllers\SupplierController::postShowHide">postShowHide</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="SupplierController.php.html#60"><abbr title="App\Http\Controllers\SupplierController::getCheckSl">getCheckSl</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="PageController.php.html#152"><abbr title="App\Http\Controllers\PageController::getSignUp">getSignUp</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AdminController.php.html#224"><abbr title="App\Http\Controllers\AdminController::postShowHideSlider">postShowHideSlider</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="PageController.php.html#120"><abbr title="App\Http\Controllers\PageController::postCheckout">postCheckout</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="PageController.php.html#108"><abbr title="App\Http\Controllers\PageController::getCheckout">getCheckout</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="PageController.php.html#81"><abbr title="App\Http\Controllers\PageController::getAddtoCart">getAddtoCart</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Auth/SupplierLoginController.php.html#18"><abbr title="App\Http\Controllers\Auth\SupplierLoginController::login">login</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Auth/AdminLoginController.php.html#18"><abbr title="App\Http\Controllers\Auth\AdminLoginController::login">login</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AdminController.php.html#246"><abbr title="App\Http\Controllers\AdminController::postAddSlider">postAddSlider</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="SupplierController.php.html#362"><abbr title="App\Http\Controllers\SupplierController::postChangePassword">postChangePassword</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Auth/CustomerLoginController.php.html#18"><abbr title="App\Http\Controllers\Auth\CustomerLoginController::login">login</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 6.0.3</a> using <a href="https://secure.php.net/" target="_top">PHP 7.2.3</a> with <a href="https://xdebug.org/">Xdebug 2.6.0</a> and <a href="https://phpunit.de/">PHPUnit 7.1.4</a> at Sat Jun 30 16:03:10 UTC 2018.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../.js/jquery.min.js" type="text/javascript"></script>
+  <script src="../../.js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../../.js/holder.min.js" type="text/javascript"></script>
+  <script src="../../.js/d3.min.js" type="text/javascript"></script>
+  <script src="../../.js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([14,0,0,0,0,0,1,1,0,0,1,2], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([100,0,0,0,0,0,0,1,0,0,1,22], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,15,"<a href=\"AccountController.php.html#17\">App\\Http\\Controllers\\AccountController<\/a>"],[0,28,"<a href=\"AdminController.php.html#15\">App\\Http\\Controllers\\AdminController<\/a>"],[0,3,"<a href=\"Auth\/AdminForgotPasswordController.php.html#8\">App\\Http\\Controllers\\Auth\\AdminForgotPasswordController<\/a>"],[0,5,"<a href=\"Auth\/AdminLoginController.php.html#8\">App\\Http\\Controllers\\Auth\\AdminLoginController<\/a>"],[0,4,"<a href=\"Auth\/AdminResetPasswordController.php.html#10\">App\\Http\\Controllers\\Auth\\AdminResetPasswordController<\/a>"],[50,5,"<a href=\"Auth\/CustomerLoginController.php.html#8\">App\\Http\\Controllers\\Auth\\CustomerLoginController<\/a>"],[0,3,"<a href=\"Auth\/ForgotPasswordController.php.html#8\">App\\Http\\Controllers\\Auth\\ForgotPasswordController<\/a>"],[0,2,"<a href=\"Auth\/LoginController.php.html#8\">App\\Http\\Controllers\\Auth\\LoginController<\/a>"],[0,3,"<a href=\"Auth\/RegisterController.php.html#13\">App\\Http\\Controllers\\Auth\\RegisterController<\/a>"],[0,4,"<a href=\"Auth\/ResetPasswordController.php.html#10\">App\\Http\\Controllers\\Auth\\ResetPasswordController<\/a>"],[0,3,"<a href=\"Auth\/SupplierForgotPasswordController.php.html#8\">App\\Http\\Controllers\\Auth\\SupplierForgotPasswordController<\/a>"],[0,5,"<a href=\"Auth\/SupplierLoginController.php.html#8\">App\\Http\\Controllers\\Auth\\SupplierLoginController<\/a>"],[0,4,"<a href=\"Auth\/SupplierResetPasswordController.php.html#10\">App\\Http\\Controllers\\Auth\\SupplierResetPasswordController<\/a>"],[64.28571428571429,6,"<a href=\"CartController.php.html#8\">App\\Http\\Controllers\\CartController<\/a>"],[97.43589743589743,8,"<a href=\"CheckoutController.php.html#13\">App\\Http\\Controllers\\CheckoutController<\/a>"],[100,0,"<a href=\"Controller.php.html#10\">App\\Http\\Controllers\\Controller<\/a>"],[0,3,"<a href=\"HomeController.php.html#7\">App\\Http\\Controllers\\HomeController<\/a>"],[0,24,"<a href=\"PageController.php.html#21\">App\\Http\\Controllers\\PageController<\/a>"],[0,46,"<a href=\"SupplierController.php.html#13\">App\\Http\\Controllers\\SupplierController<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"AccountController.php.html#19\">App\\Http\\Controllers\\AccountController::__construct<\/a>"],[100,1,"<a href=\"AccountController.php.html#23\">App\\Http\\Controllers\\AccountController::getProfile<\/a>"],[100,1,"<a href=\"AccountController.php.html#32\">App\\Http\\Controllers\\AccountController::getIndexProfile<\/a>"],[100,1,"<a href=\"AccountController.php.html#39\">App\\Http\\Controllers\\AccountController::getEditProfile<\/a>"],[100,1,"<a href=\"AccountController.php.html#46\">App\\Http\\Controllers\\AccountController::postEditProfile<\/a>"],[100,1,"<a href=\"AccountController.php.html#75\">App\\Http\\Controllers\\AccountController::getChangePassword<\/a>"],[100,2,"<a href=\"AccountController.php.html#82\">App\\Http\\Controllers\\AccountController::postChangePassword<\/a>"],[100,1,"<a href=\"AccountController.php.html#116\">App\\Http\\Controllers\\AccountController::getAddressList<\/a>"],[100,1,"<a href=\"AccountController.php.html#123\">App\\Http\\Controllers\\AccountController::getEditAddressList<\/a>"],[100,1,"<a href=\"AccountController.php.html#129\">App\\Http\\Controllers\\AccountController::postEditAddressList<\/a>"],[100,1,"<a href=\"AccountController.php.html#160\">App\\Http\\Controllers\\AccountController::getAddAddressList<\/a>"],[100,1,"<a href=\"AccountController.php.html#165\">App\\Http\\Controllers\\AccountController::postaddAddressList<\/a>"],[100,1,"<a href=\"AccountController.php.html#197\">App\\Http\\Controllers\\AccountController::getOrders<\/a>"],[100,1,"<a href=\"AccountController.php.html#202\">App\\Http\\Controllers\\AccountController::getOrdersDetail<\/a>"],[0,1,"<a href=\"AdminController.php.html#22\">App\\Http\\Controllers\\AdminController::__construct<\/a>"],[0,1,"<a href=\"AdminController.php.html#27\">App\\Http\\Controllers\\AdminController::getIndex<\/a>"],[0,1,"<a href=\"AdminController.php.html#38\">App\\Http\\Controllers\\AdminController::getListSupplier<\/a>"],[0,1,"<a href=\"AdminController.php.html#43\">App\\Http\\Controllers\\AdminController::getSupplierCreate<\/a>"],[0,1,"<a href=\"AdminController.php.html#47\">App\\Http\\Controllers\\AdminController::getListProduct<\/a>"],[0,2,"<a href=\"AdminController.php.html#51\">App\\Http\\Controllers\\AdminController::getLockProduct<\/a>"],[0,1,"<a href=\"AdminController.php.html#67\">App\\Http\\Controllers\\AdminController::getListOrder<\/a>"],[0,1,"<a href=\"AdminController.php.html#73\">App\\Http\\Controllers\\AdminController::getDetailOrder<\/a>"],[0,1,"<a href=\"AdminController.php.html#80\">App\\Http\\Controllers\\AdminController::getEditSupplier<\/a>"],[0,1,"<a href=\"AdminController.php.html#84\">App\\Http\\Controllers\\AdminController::postEditSupplier<\/a>"],[0,1,"<a href=\"AdminController.php.html#113\">App\\Http\\Controllers\\AdminController::postSupplierCreate<\/a>"],[0,1,"<a href=\"AdminController.php.html#149\">App\\Http\\Controllers\\AdminController::getSupplierDelete<\/a>"],[0,1,"<a href=\"AdminController.php.html#154\">App\\Http\\Controllers\\AdminController::getListCategory<\/a>"],[0,1,"<a href=\"AdminController.php.html#158\">App\\Http\\Controllers\\AdminController::getAddCategory<\/a>"],[0,1,"<a href=\"AdminController.php.html#161\">App\\Http\\Controllers\\AdminController::postAddCategory<\/a>"],[0,1,"<a href=\"AdminController.php.html#187\">App\\Http\\Controllers\\AdminController::getEditCategory<\/a>"],[0,1,"<a href=\"AdminController.php.html#191\">App\\Http\\Controllers\\AdminController::postEditCategory<\/a>"],[0,1,"<a href=\"AdminController.php.html#219\">App\\Http\\Controllers\\AdminController::getListSlider<\/a>"],[0,2,"<a href=\"AdminController.php.html#224\">App\\Http\\Controllers\\AdminController::postShowHideSlider<\/a>"],[0,1,"<a href=\"AdminController.php.html#240\">App\\Http\\Controllers\\AdminController::getAddSlider<\/a>"],[0,2,"<a href=\"AdminController.php.html#246\">App\\Http\\Controllers\\AdminController::postAddSlider<\/a>"],[0,1,"<a href=\"AdminController.php.html#285\">App\\Http\\Controllers\\AdminController::getDeleteSlider<\/a>"],[0,1,"<a href=\"AdminController.php.html#291\">App\\Http\\Controllers\\AdminController::getIndexAboutUs<\/a>"],[0,1,"<a href=\"AdminController.php.html#296\">App\\Http\\Controllers\\AdminController::getEditAboutUs<\/a>"],[0,1,"<a href=\"AdminController.php.html#301\">App\\Http\\Controllers\\AdminController::postEditAboutUs<\/a>"],[0,1,"<a href=\"Auth\/AdminForgotPasswordController.php.html#28\">App\\Http\\Controllers\\Auth\\AdminForgotPasswordController::__construct<\/a>"],[0,1,"<a href=\"Auth\/AdminForgotPasswordController.php.html#33\">App\\Http\\Controllers\\Auth\\AdminForgotPasswordController::broker<\/a>"],[0,1,"<a href=\"Auth\/AdminForgotPasswordController.php.html#37\">App\\Http\\Controllers\\Auth\\AdminForgotPasswordController::showLinkRequestForm<\/a>"],[0,1,"<a href=\"Auth\/AdminLoginController.php.html#10\">App\\Http\\Controllers\\Auth\\AdminLoginController::__construct<\/a>"],[0,1,"<a href=\"Auth\/AdminLoginController.php.html#15\">App\\Http\\Controllers\\Auth\\AdminLoginController::showLoginForm<\/a>"],[0,2,"<a href=\"Auth\/AdminLoginController.php.html#18\">App\\Http\\Controllers\\Auth\\AdminLoginController::login<\/a>"],[0,1,"<a href=\"Auth\/AdminLoginController.php.html#43\">App\\Http\\Controllers\\Auth\\AdminLoginController::logout<\/a>"],[0,1,"<a href=\"Auth\/AdminResetPasswordController.php.html#38\">App\\Http\\Controllers\\Auth\\AdminResetPasswordController::__construct<\/a>"],[0,1,"<a href=\"Auth\/AdminResetPasswordController.php.html#42\">App\\Http\\Controllers\\Auth\\AdminResetPasswordController::guard<\/a>"],[0,1,"<a href=\"Auth\/AdminResetPasswordController.php.html#46\">App\\Http\\Controllers\\Auth\\AdminResetPasswordController::broker<\/a>"],[0,1,"<a href=\"Auth\/AdminResetPasswordController.php.html#49\">App\\Http\\Controllers\\Auth\\AdminResetPasswordController::showResetForm<\/a>"],[100,1,"<a href=\"Auth\/CustomerLoginController.php.html#10\">App\\Http\\Controllers\\Auth\\CustomerLoginController::__construct<\/a>"],[0,1,"<a href=\"Auth\/CustomerLoginController.php.html#15\">App\\Http\\Controllers\\Auth\\CustomerLoginController::showLoginForm<\/a>"],[66.66666666666666,2,"<a href=\"Auth\/CustomerLoginController.php.html#18\">App\\Http\\Controllers\\Auth\\CustomerLoginController::login<\/a>"],[0,1,"<a href=\"Auth\/CustomerLoginController.php.html#36\">App\\Http\\Controllers\\Auth\\CustomerLoginController::logout<\/a>"],[0,1,"<a href=\"Auth\/ForgotPasswordController.php.html#28\">App\\Http\\Controllers\\Auth\\ForgotPasswordController::__construct<\/a>"],[0,1,"<a href=\"Auth\/ForgotPasswordController.php.html#33\">App\\Http\\Controllers\\Auth\\ForgotPasswordController::broker<\/a>"],[0,1,"<a href=\"Auth\/ForgotPasswordController.php.html#37\">App\\Http\\Controllers\\Auth\\ForgotPasswordController::showLinkRequestForm<\/a>"],[0,1,"<a href=\"Auth\/LoginController.php.html#35\">App\\Http\\Controllers\\Auth\\LoginController::__construct<\/a>"],[0,1,"<a href=\"Auth\/LoginController.php.html#39\">App\\Http\\Controllers\\Auth\\LoginController::userLogout<\/a>"],[0,1,"<a href=\"Auth\/RegisterController.php.html#40\">App\\Http\\Controllers\\Auth\\RegisterController::__construct<\/a>"],[0,1,"<a href=\"Auth\/RegisterController.php.html#51\">App\\Http\\Controllers\\Auth\\RegisterController::validator<\/a>"],[0,1,"<a href=\"Auth\/RegisterController.php.html#67\">App\\Http\\Controllers\\Auth\\RegisterController::create<\/a>"],[0,1,"<a href=\"Auth\/ResetPasswordController.php.html#37\">App\\Http\\Controllers\\Auth\\ResetPasswordController::__construct<\/a>"],[0,1,"<a href=\"Auth\/ResetPasswordController.php.html#42\">App\\Http\\Controllers\\Auth\\ResetPasswordController::guard<\/a>"],[0,1,"<a href=\"Auth\/ResetPasswordController.php.html#46\">App\\Http\\Controllers\\Auth\\ResetPasswordController::broker<\/a>"],[0,1,"<a href=\"Auth\/ResetPasswordController.php.html#49\">App\\Http\\Controllers\\Auth\\ResetPasswordController::showResetForm<\/a>"],[0,1,"<a href=\"Auth\/SupplierForgotPasswordController.php.html#28\">App\\Http\\Controllers\\Auth\\SupplierForgotPasswordController::__construct<\/a>"],[0,1,"<a href=\"Auth\/SupplierForgotPasswordController.php.html#32\">App\\Http\\Controllers\\Auth\\SupplierForgotPasswordController::broker<\/a>"],[0,1,"<a href=\"Auth\/SupplierForgotPasswordController.php.html#36\">App\\Http\\Controllers\\Auth\\SupplierForgotPasswordController::showLinkRequestForm<\/a>"],[0,1,"<a href=\"Auth\/SupplierLoginController.php.html#10\">App\\Http\\Controllers\\Auth\\SupplierLoginController::__construct<\/a>"],[0,1,"<a href=\"Auth\/SupplierLoginController.php.html#15\">App\\Http\\Controllers\\Auth\\SupplierLoginController::showLoginForm<\/a>"],[0,2,"<a href=\"Auth\/SupplierLoginController.php.html#18\">App\\Http\\Controllers\\Auth\\SupplierLoginController::login<\/a>"],[0,1,"<a href=\"Auth\/SupplierLoginController.php.html#36\">App\\Http\\Controllers\\Auth\\SupplierLoginController::logout<\/a>"],[0,1,"<a href=\"Auth\/SupplierResetPasswordController.php.html#37\">App\\Http\\Controllers\\Auth\\SupplierResetPasswordController::__construct<\/a>"],[0,1,"<a href=\"Auth\/SupplierResetPasswordController.php.html#42\">App\\Http\\Controllers\\Auth\\SupplierResetPasswordController::guard<\/a>"],[0,1,"<a href=\"Auth\/SupplierResetPasswordController.php.html#46\">App\\Http\\Controllers\\Auth\\SupplierResetPasswordController::broker<\/a>"],[0,1,"<a href=\"Auth\/SupplierResetPasswordController.php.html#49\">App\\Http\\Controllers\\Auth\\SupplierResetPasswordController::showResetForm<\/a>"],[100,1,"<a href=\"CartController.php.html#15\">App\\Http\\Controllers\\CartController::index<\/a>"],[100,2,"<a href=\"CartController.php.html#28\">App\\Http\\Controllers\\CartController::store<\/a>"],[100,1,"<a href=\"CartController.php.html#30\">App\\Http\\Controllers\\CartController::anonymousFunction:30#87<\/a>"],[0,1,"<a href=\"CartController.php.html#46\">App\\Http\\Controllers\\CartController::update<\/a>"],[100,1,"<a href=\"CartController.php.html#62\">App\\Http\\Controllers\\CartController::destroy<\/a>"],[100,3,"<a href=\"CheckoutController.php.html#20\">App\\Http\\Controllers\\CheckoutController::index<\/a>"],[96.7741935483871,4,"<a href=\"CheckoutController.php.html#47\">App\\Http\\Controllers\\CheckoutController::store<\/a>"],[100,1,"<a href=\"CheckoutController.php.html#105\">App\\Http\\Controllers\\CheckoutController::checkoutss<\/a>"],[0,1,"<a href=\"HomeController.php.html#21\">App\\Http\\Controllers\\HomeController::index<\/a>"],[0,1,"<a href=\"HomeController.php.html#25\">App\\Http\\Controllers\\HomeController::test<\/a>"],[0,1,"<a href=\"HomeController.php.html#40\">App\\Http\\Controllers\\HomeController::test1<\/a>"],[0,1,"<a href=\"PageController.php.html#24\">App\\Http\\Controllers\\PageController::getIndex<\/a>"],[0,1,"<a href=\"PageController.php.html#34\">App\\Http\\Controllers\\PageController::getLoaiSP<\/a>"],[0,1,"<a href=\"PageController.php.html#43\">App\\Http\\Controllers\\PageController::getChiTietSP<\/a>"],[0,1,"<a href=\"PageController.php.html#50\">App\\Http\\Controllers\\PageController::getGioiThieu<\/a>"],[0,1,"<a href=\"PageController.php.html#56\">App\\Http\\Controllers\\PageController::getSearch<\/a>"],[0,1,"<a href=\"PageController.php.html#68\">App\\Http\\Controllers\\PageController::getSpMoi<\/a>"],[0,1,"<a href=\"PageController.php.html#74\">App\\Http\\Controllers\\PageController::getSpKhuyenMai<\/a>"],[0,2,"<a href=\"PageController.php.html#81\">App\\Http\\Controllers\\PageController::getAddtoCart<\/a>"],[0,3,"<a href=\"PageController.php.html#90\">App\\Http\\Controllers\\PageController::getDelItemCart<\/a>"],[0,2,"<a href=\"PageController.php.html#108\">App\\Http\\Controllers\\PageController::getCheckout<\/a>"],[0,2,"<a href=\"PageController.php.html#120\">App\\Http\\Controllers\\PageController::postCheckout<\/a>"],[0,2,"<a href=\"PageController.php.html#152\">App\\Http\\Controllers\\PageController::getSignUp<\/a>"],[0,1,"<a href=\"PageController.php.html#164\">App\\Http\\Controllers\\PageController::postSignUp<\/a>"],[0,1,"<a href=\"PageController.php.html#210\">App\\Http\\Controllers\\PageController::getQuan<\/a>"],[0,1,"<a href=\"PageController.php.html#216\">App\\Http\\Controllers\\PageController::getXa<\/a>"],[0,2,"<a href=\"PageController.php.html#221\">App\\Http\\Controllers\\PageController::getCartDetails<\/a>"],[0,1,"<a href=\"PageController.php.html#234\">App\\Http\\Controllers\\PageController::get404<\/a>"],[0,1,"<a href=\"SupplierController.php.html#20\">App\\Http\\Controllers\\SupplierController::__construct<\/a>"],[0,1,"<a href=\"SupplierController.php.html#25\">App\\Http\\Controllers\\SupplierController::getIndex<\/a>"],[0,3,"<a href=\"SupplierController.php.html#42\">App\\Http\\Controllers\\SupplierController::getDanhSachSP<\/a>"],[0,1,"<a href=\"SupplierController.php.html#55\">App\\Http\\Controllers\\SupplierController::getSuaSP<\/a>"],[0,2,"<a href=\"SupplierController.php.html#60\">App\\Http\\Controllers\\SupplierController::getCheckSl<\/a>"],[0,2,"<a href=\"SupplierController.php.html#66\">App\\Http\\Controllers\\SupplierController::postShowHide<\/a>"],[0,6,"<a href=\"SupplierController.php.html#81\">App\\Http\\Controllers\\SupplierController::postSuaSP<\/a>"],[0,1,"<a href=\"SupplierController.php.html#150\">App\\Http\\Controllers\\SupplierController::getThemSP<\/a>"],[0,6,"<a href=\"SupplierController.php.html#154\">App\\Http\\Controllers\\SupplierController::postThemSP<\/a>"],[0,1,"<a href=\"SupplierController.php.html#229\">App\\Http\\Controllers\\SupplierController::getInfo<\/a>"],[0,1,"<a href=\"SupplierController.php.html#235\">App\\Http\\Controllers\\SupplierController::getEditInfo<\/a>"],[100,7,"<a href=\"SupplierController.php.html#238\">App\\Http\\Controllers\\SupplierController::postEditInfo<\/a>"],[0,1,"<a href=\"SupplierController.php.html#297\">App\\Http\\Controllers\\SupplierController::getThongKeDonHang<\/a>"],[0,2,"<a href=\"SupplierController.php.html#304\">App\\Http\\Controllers\\SupplierController::getChiTietDonHang<\/a>"],[0,1,"<a href=\"SupplierController.php.html#313\">App\\Http\\Controllers\\SupplierController::getEditStatusOrders<\/a>"],[0,6,"<a href=\"SupplierController.php.html#318\">App\\Http\\Controllers\\SupplierController::postEditStatusOrders<\/a>"],[0,1,"<a href=\"SupplierController.php.html#358\">App\\Http\\Controllers\\SupplierController::getChangePassword<\/a>"],[0,2,"<a href=\"SupplierController.php.html#362\">App\\Http\\Controllers\\SupplierController::postChangePassword<\/a>"],[0,1,"<a href=\"SupplierController.php.html#397\">App\\Http\\Controllers\\SupplierController::getUpdateQty<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

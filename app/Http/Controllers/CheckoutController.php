@@ -37,16 +37,6 @@ class CheckoutController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -96,23 +86,13 @@ class CheckoutController extends Controller
                 $billdetail->id_supplier = $product->supplier->id;
                 $billdetail->save();
                 $product = product::find($billdetail->id_product);
-                if($product->new - $item->qty >= 0){
-                    $product->new = $product->new - $item->qty;
-                    $product->save();
-                }
-                else{
-                    $billdetail->delete();
-                    $bill->delete();
-                    return redirect()->back()->with('thongbao','Số lượng không được vượt quá số lượng còn lại của sản phẩm');
-                }
+                $product->new = $product->new - $item->qty;
+                $product->save();
                 
             }
             Cart::destroy();
             return redirect()->route('checkout.success');
         }
-
-
-
     }
 
     /**
@@ -121,45 +101,9 @@ class CheckoutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+   
     public function checkoutss(){
         return view('account.pages.checkoutss');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

@@ -238,7 +238,7 @@ class SupplierController extends Controller
      } public function postEditInfo(Request $request){
      	$this->validate($request,
      		[
-     			'name' => 'required|min:2|max:100|alpha_num',
+     			'name' => 'required|min:2|max:100|regex:/^[\s\w-]*$/',
      			'phone' => 'required',
      			'Hinh' =>'dimensions:max_height=100,max_width=200'
 
@@ -251,7 +251,7 @@ class SupplierController extends Controller
      		
      			// 'Hinh.max_height' => 'Logo có chiều cao tối đa 100px',
      			// 'Hinh.max_width' => 'Logo có chiều rộng tối đã 200px',
-                    'name.alpha_num'=>'Tên chỉ được chứa chữ và số',
+                    'name.regex'=>'Tên không được chứa ký tư đặc biệt',
      			'phone.required'=>'Bạn chưa chọn loại sản phẩm',
      			'Hinh.dimensions' => 'Logo có có kích thước vượt quá 200px x 100px'
 
@@ -292,7 +292,7 @@ class SupplierController extends Controller
      		$supplier->logo = $supplier->logo;
      	}
      	$supplier->save();
-     	return view('supplier.Info.thongtingianhang',compact('supplier'));
+     	return redirect()->back()->with('thongbao','Thay Đổi Thành Công');
      }
      public function getThongKeDonHang(){
           
